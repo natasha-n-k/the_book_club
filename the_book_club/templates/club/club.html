@@ -1,6 +1,20 @@
 {% extends 'base.html' %}
-
+{% load static %}
 {% block content %}
-<h1>Добро пожаловать на наш сайт!</h1>
-<p>Здесь вы можете найти информацию о книжных клубах и связаться с другими читателями.</p>
+<div class="home-container">
+    <div class="home-row">
+        <div class="home-banner-container">
+            <div class="banner-picture">
+                <img src="{% static 'img/1.jpg' %}" alt="">
+            </div>
+            <div class="banner-content">
+                <h1></h1>
+                <p></p>
+            </div>
+        </div>
+    </div>
+    <div class="home-row">
+
+    </div>
+</div>
 {% endblock %}
