@@ -1,0 +1,119 @@
+
+/* Общие стили */
+body {
+font-family: 'Fira Code', monospace;
+  font-size: 16px;
+  line-height: 1.5;
+  margin: 0;
+}
+
+a {
+  color: #000;
+  text-decoration: none;
+}
+
+
+/* Стили для мобильных устройств */
+@media screen and (max-width: 767px) {
+  header {
+    text-align: center;
+  }
+
+  nav {
+    display: none;
+  }
+
+  nav:before {
+    content: '\2630';
+    display: block;
+    font-size: 28px;
+    padding: 10px;
+    text-align: right;
+  }
+
+  nav ul {
+    display: block;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+  }
+
+  nav li {
+    display: block;
+    margin: 0;
+    padding: 10px;
+  }
+  
+  nav li a {
+    display: block;
+    padding: 10px;
+    }
+}
+    
+    /* Стили для планшетов */
+    @media screen and (min-width: 768px) and (max-width: 1023px) {
+    header {
+    text-align: center;
+    }
+    
+    nav {
+    float: left;
+    width: 33.333%;
+    }
+    
+    main {
+    float: right;
+    width: 66.667%;
+    }
+    
+    nav ul {
+    display: block;
+    margin: 0;
+    padding: 0;
+    }
+    
+    nav li {
+    display: inline-block;
+    margin: 0;
+    padding: 10px;
+    }
+    
+    nav li a {
+    display: block;
+    padding: 10px;
+    }
+    }
+    
+    /* Стили для десктопов */
+    @media screen and (min-width: 1024px) {
+    header {
+    text-align: center;
+    }
+    
+    nav {
+    float: left;
+    width: 25%;
+    }
+    
+    main {
+    float: right;
+    width: 75%;
+    }
+    
+    nav ul {
+    display: block;
+    margin: 0;
+    padding: 0;
+    }
+    
+    nav li {
+    display: inline-block;
+    margin: 0;
+    padding: 10px;
+    }
+    
+    nav li a {
+    display: block;
+    padding: 10px;
+    }
+}
