@@ -115,10 +115,11 @@ a {
     
     /* Стили для десктопов */
     @media screen and (min-width: 1024px) {
-        body{
-            max-width: 100%;
-            max-height: 100%;
-        }
+    body{
+        max-width: 100%;
+        max-height: 100%;
+    }
+
     header {
     text-align: center;
     position: fixed;
@@ -163,6 +164,7 @@ a {
       flex-direction: column;
       justify-content: space-around;
       align-items: stretch;
+      background-color: #f7f7f7;
     }
 
     .home-row{
