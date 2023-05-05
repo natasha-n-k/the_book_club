@@ -84,7 +84,7 @@ a {
     
     main {
     float: right;
-    width: 66.667%;
+    width: 100%;
     }
     
     nav ul {
@@ -126,6 +126,7 @@ a {
     left: 0;
     right: 0;
     background-color:  #6998AB;
+    height: 50px;
     }
     
     nav {
@@ -153,19 +154,105 @@ a {
     }
 
     main {
-        padding-top: 100px;
-        margin-left: 25%;
-        padding: 10px;
+      padding-top: 50px;
     }
 
     .home-container{
-        padding-top: 100px;
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      align-items: stretch;
     }
+
+    .home-row{
+
+    }
+
+    .home-banner-container{
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      align-items: stretch;
+    }
+
+    .banner-picture{
+      max-width: 60%;
+      overflow: hidden;
+    }
+
+    .banner-picture img{
+      max-width: 100%;
+    }
+
+    .banner-content{
+      max-width: 40%;
+      padding: 20px;
+    }
+
+    .banner-content h1{
+      text-align: center;
+    }
+
+    .banner-content p{
+
+    }
+
+    .banner-content button{
+      text-align: center;
+      margin: 0 auto;
+      display: block;
+    }
+
+    .home-grid{
+
+    }
+
+    .home-cart{
+
+    }
+
+    .home-cart-container{
+
+    }
+
+    .home-cart-image{
+
+    }
+
+    .home-cart-title{
+      
+    }
+
+    .home-cart-desc{
+      
+    }
+
+    .home-book-title{
+      
+    }
+
+    .home-book-image{
+      
+    }
+
+    .home-cart-button{
+      
+    }
+
+    .home-books{
+
+    }
+
+    .home-books-image{
+
+    }
+
+
 
     footer {     
         max-width: 100%;
         background-color: #6998AB;
     }
-
 
 }
