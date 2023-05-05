@@ -18,8 +18,13 @@ a {
 
 /* Стили для мобильных устройств */
 @media screen and (max-width: 767px) {
-  header {
+   header {
     text-align: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color:  #6998AB;
   }
 
   nav {
@@ -51,12 +56,25 @@ a {
     display: block;
     padding: 10px;
     }
+
+  footer {     
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding: 10px;
+        background-color:  #6998AB;
+    }
 }
     
     /* Стили для планшетов */
     @media screen and (min-width: 768px) and (max-width: 1023px) {
     header {
     text-align: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color:  #6998AB;
     }
     
     nav {
@@ -85,17 +103,29 @@ a {
     display: block;
     padding: 10px;
     }
+
+    footer {     
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding: 10px;
+        background-color:  #6998AB;
+    }
     }
     
     /* Стили для десктопов */
     @media screen and (min-width: 1024px) {
+        body{
+            max-width: 100%;
+            max-height: 100%;
+        }
     header {
     text-align: center;
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
-    background-color: #8FA5B2;
+    background-color:  #6998AB;
     }
     
     nav {
@@ -104,12 +134,6 @@ a {
         align-items: center; /* выровнять элементы по вертикали */ 
     }
     
-    main {
-        padding-top: 50px;
-        width: 75%;
-        margin-left: 25%;
-        padding: 10px;
-    }
     
     nav ul {
     display: flex;
@@ -128,12 +152,20 @@ a {
     padding: 10px;
     }
 
-    footer {
-        position: fixed; 
-        bottom: 0;
-        left: 0;
-        right: 0;
+    main {
+        padding-top: 100px;
+        margin-left: 25%;
         padding: 10px;
-        background-color: #8FA5B2;
     }
+
+    .home-container{
+        padding-top: 100px;
+    }
+
+    footer {     
+        max-width: 100%;
+        background-color: #6998AB;
+    }
+
+
 }
