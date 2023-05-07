@@ -257,19 +257,22 @@ a {
 
 
     .clubs-container{
-
+      padding: 0 100px ;
     }
 
     .clubs-grid{
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 20px;
+      padding: 10px;
     }
 
     .clubs-cart{
       background-color: #f7f7f7;
-      border: 1px solid #6998AB;
       padding: 20px;
+      text-align: center;
+      border-radius: 20px;
+      box-shadow: 0 5.5px 5px 0 #6998AB
     }
 
     .clubs-cart-container{
@@ -278,6 +281,13 @@ a {
 
     .clubs-cart-image{
 
+    }
+
+    .clubs-cart-image img{
+      border-radius: 40px;
+      display: block;
+      margin: auto;
+      
     }
 
     .clubs-cart-title{
