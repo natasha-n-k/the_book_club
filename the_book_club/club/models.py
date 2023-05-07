@@ -1,7 +1,7 @@
 from django.db import models
 from django.core.files.storage import FileSystemStorage
 
-fs = FileSystemStorage(location='media')
+fs = FileSystemStorage(location='images')
 
 class BookClub(models.Model):
     name = models.CharField(max_length=200)

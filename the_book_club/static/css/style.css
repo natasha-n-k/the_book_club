@@ -154,6 +154,11 @@ a {
     padding: 10px;
     }
 
+    footer {     
+      max-width: 100%;
+      background-color: #6998AB;
+  }
+
     main {
       padding-top: 50px;
     }
@@ -251,10 +256,47 @@ a {
     }
 
 
+    .clubs-container{
 
-    footer {     
-        max-width: 100%;
-        background-color: #6998AB;
     }
 
+    .clubs-grid{
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .clubs-cart{
+      background-color: #f7f7f7;
+      border: 1px solid #6998AB;
+      padding: 20px;
+    }
+
+    .clubs-cart-container{
+
+    }
+
+    .clubs-cart-image{
+
+    }
+
+    .clubs-cart-title{
+
+    }
+
+    .clubs-cart-desc{
+
+    }
+
+    .clubs-book-title{
+
+    }
+
+    .clubs-cart-image{
+
+    }
+
+    .clubs-cart-button{
+
+    }
 }

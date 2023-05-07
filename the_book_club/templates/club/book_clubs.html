@@ -3,33 +3,31 @@
 
 {% block content %}
 <div class="clubs-container">
-    {% for club in clubs %}
-    <div class="clubs-row">
-        <div class="clubs-grid">
-            <div class="clubs-cart">
-                <div class="clubs-cart-container">
-                    <div class="clubs-cart-image">
-                        <img src="{% static club.image.url %}">
-                    </div>
-                    <div class="clubs-cart-title">
-                        <h2>{{ club.name }}</h2>
-                    </div>
-                    <div class="clubs-cart-desc">
-                        <p>{{ club.description }}</p>
-                    </div>
-                    <div class="clubs-book-title">
-                        <h3>{{ club.book.title }}</h3>
-                    </div>
-                    <div class="clubs-book-image">
-                        <img src="{% static club.book.image.url %}">
-                    </div>
-                    <div class="clubs-cart-button">
-                        <button>Вступить</button>
-                    </div>
+    <div class="clubs-grid">
+        {% for club in clubs %}
+        <div class="clubs-cart">
+            <div class="clubs-cart-container">
+                <div class="clubs-cart-image">
+                    <img src="{{ club.image.url }}">
+                </div>
+                <div class="clubs-cart-title">
+                    <h2>{{ club.name }}</h2>
+                </div>
+                <div class="clubs-cart-desc">
+                    <p>{{ club.description }}</p>
+                </div>
+                <div class="clubs-book-title">
+                    <h3>{{ club.book.name }}</h3>
+                </div>
+                <div class="clubs-book-image">
+                    <img src="{{ club.book.image.url }}">
+                </div>
+                <div class="clubs-cart-button">
+                    <button type="submit" class="btn btn-primary add-to-cart-btn">Вступить</button>
                 </div>
             </div>
         </div>
+        {% endfor %}
     </div>
-    {% endfor %}
 </div>
 {% endblock %}

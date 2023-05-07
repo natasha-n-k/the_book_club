@@ -6,7 +6,9 @@ def index(request):
 
 def book_clubs(request):
     clubs = BookClub.objects.all()
+    books = Book.objects.all()
     context = {
-        'clubs': clubs
+        'clubs': clubs,
+        'books':books
     }
     return render(request, 'club/book_clubs.html', context)

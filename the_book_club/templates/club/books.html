@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% for book in books %}
+<div class="clubs-cart">
+    <div class="clubs-cart-container">
+        <div class="clubs-cart-image">
+            <img src="{{ book.image.url }}">
+        </div>
+        <div class="clubs-cart-title">
+            <h2>{{ book.name }}</h2>
+        </div>
+        <div class="clubs-cart-desc">
+            <p>{{ book.description }}</p>
+        </div>
+        <div class="clubs-cart-button">
+            <button type="submit" class="btn btn-primary add-to-cart-btn">Купить</button>
+        </div>
+    </div>
+</div>
+{% endfor %}
+
+{% endblock %}
