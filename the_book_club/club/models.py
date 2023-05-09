@@ -19,6 +19,7 @@ class ClubPage(models.Model):
 
 class Book(models.Model):
     name = models.CharField(max_length=200)
+    author = models.CharField(max_length=200, default='None', null=True)
     description = models.TextField()
     image = models.ImageField(upload_to='images')
 
