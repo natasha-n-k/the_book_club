@@ -7,5 +7,6 @@ app_name = 'club'
 
 urlpatterns = [
     path('', views.index, name='index'), 
-    path('book-clubs/', views.book_clubs, name='book_clubs')
+    path('book-clubs/', views.book_clubs, name='book_clubs'),
+    path('books/', views.books, name='books'),
 ]

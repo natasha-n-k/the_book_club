@@ -12,3 +12,10 @@ def book_clubs(request):
         'books':books
     }
     return render(request, 'club/book_clubs.html', context)
+
+def books(request):
+    books = Book.objects.all()
+    context = {
+        'books':books
+    }
+    return render(request, 'club/books.html', context)
