@@ -8,10 +8,11 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
-    <title>{% block title %}{% endblock %}</title>
+    <title>The book clubs</title>
 </head>
 <body>
 <header>
+    <div class="logo"><h3>The book clubs</h3> </div>
     <nav>
         <ul>
             <li><a href="{% url 'club:index'  %}">Главная</a></li>
@@ -20,13 +21,14 @@
             <li><a href="#">Личный кабинет</a></li>
         </ul>
     </nav>
+
 </header>
 <main class="main-container">
     {% block content %}
     {% endblock %}
 </main>
 <footer>
-    <p> © {{ year }}
+    <p> © The book clubs
 </footer>
 </body>
 </html>
