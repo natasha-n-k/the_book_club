@@ -2,20 +2,25 @@
 {% load static %}
 
 {% block content %}
+
 {% for book in books %}
-<div class="clubs-cart">
-    <div class="clubs-cart-container">
-        <div class="clubs-cart-image">
-            <img src="{{ book.image.url }}">
+<div class="books-container">
+    <div class="books-cart-container">
+        <div class="books-cart-row">
+            <div class="books-cart-image" >
+                <img src="{{ book.image.url }}" width="150" >
+            </div>
         </div>
-        <div class="clubs-cart-title">
-            <h2>{{ book.name }}</h2>
-        </div>
-        <div class="clubs-cart-desc">
-            <p>{{ book.description }}</p>
-        </div>
-        <div class="clubs-cart-button">
-            <button type="submit" class="btn btn-primary add-to-cart-btn">Купить</button>
+        <div class="books-cart-row">
+            <div class="books-cart-title">
+                <h2>{{ book.name }}</h2>
+            </div>
+            <div class="books-cart-desc">
+                <p>{{ book.description }}</p>
+            </div>
+            <div class="books-cart-button">
+                <button type="submit" class="btn btn-primary add-to-cart-btn">Добавить на полку</button>
+            </div>
         </div>
     </div>
 </div>

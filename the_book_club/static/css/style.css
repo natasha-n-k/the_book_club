@@ -307,7 +307,7 @@ a {
     }
 
     .clubs-cart-title{
-        font-size: 14px;
+      font-size: 14px;
     }
 
     .clubs-cart-desc{
@@ -334,4 +334,46 @@ a {
       border: #6998AB;
       font-size: 16px;
     }
+
+
+
+    .books-container{
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      align-items: start;
+      padding: 20px 150px;
+    }
+
+    .books-cart-container{
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      align-items: start;
+      padding: 10px;
+    }
+
+    .books-cart-row{
+      padding: 0px 50px;
+    }
+
+    .books-cart-image{
+      
+    }
+    
+    .books-cart-image img{
+    }
+
+    .books-cart-title{
+      font-size: 14px;
+    }
+
+    .books-cart-desc{
+      font-size: 14px;
+      
+    }
+
+    .books-cart-button{
+    }
+
 }
