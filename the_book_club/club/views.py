@@ -41,13 +41,13 @@ from django.contrib.auth import login as auth_login
 
 
 @csrf_protect
-def login(request):
+def user_login(request):
     if request.method == 'POST':
         username = request.POST['username']
         password = request.POST['password']
         user = authenticate(request, username=username, password=password)
         if user is not None:
-            login(request, user)
+            user_login(request, user)
             messages.success(request, f'Добро пожаловать, {username}!')
             if request.user.is_authenticated:  # проверяем, авторизован ли пользователь
                 return redirect('club:account')  # если авторизован, перенаправляем на страницу личного кабинета
@@ -76,5 +76,7 @@ def register(request):
 
 @login_required
 def account(request):
-    
-    return render(request, 'club/account.html')
+    clubs = BookClub.objects.filter(members=request.user)
+    want_to_read_books = Book.objects.filter(users_who_want_to_read=request.user)
+    read_books = Book.objects.filter(users_who_read=request.user)
+    return render(request, 'club/account.html', {'clubs': clubs, 'want_to_read_books': want_to_read_books, 'read_books': read_books})

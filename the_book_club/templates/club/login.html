@@ -1,9 +1,9 @@
-{% extends 'club/base.html' %}
+{% extends 'base.html' %}
 {% load static %}
 {% block content %}
 <div class="login__body">
   <h1>Личный кабинет</h1>
-  <form method="post" action="{% url club:login' %}">
+  <form method="post" action="{% url 'club:login' %}">
   {% csrf_token %}
   <label for="username">Имя пользователя:</label>
   <input type="text" id="username" name="username">

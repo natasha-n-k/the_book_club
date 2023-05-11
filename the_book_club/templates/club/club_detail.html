@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="club-details">
+    <div class="club-info">
+        <h1>{{ club.name }}</h1>
+        <p>{{ club.description }}</p>
+        <p><strong>Место проведения: </strong>{{ club.venue }}</p>
+        <p><strong>Дата проведения: </strong>{{ club.date }}</p>
+    </div>
+    <div class="club-members">
+        <h2>Члены клуба</h2>
+        <ul>
+            {% for member in club.members.all %}
+            <li>{{ member }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div class="club-current-book">
+        <h2>Книга, которую мы читаем сейчас</h2>
+        <div class="book-details">
+            <div class="book-cover">
+                <img src="{{ club.current_book.image.url }}" alt="{{ club.current_book.name }} cover">
+            </div>
+            <div class="book-info">
+                <h3>{{ club.current_book.name }}</h3>
+                <p><strong>Автор: </strong>{{ club.current_book.author }}</p>
+                <p>{{ club.current_book.description }}</p>
+            </div>
+        </div>
+    </div>
+    <div class="club-book-queue">
+        <h2>Книги в очереди</h2>
+        <ul>
+            {% for book in club.book_queue.all %}
+            <li>{{ book.name }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div class="club-read-books">
+        <h2>Прочитанные книги</h2>
+        <ul>
+            {% for book in club.read_books.all %}
+            <li>{{ book.name }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+{% endblock %}

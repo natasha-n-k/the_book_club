@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>{{ user.username }}</h2>
+  <p>Имя: {{ user.first_name }} {{ user.last_name }}</p>
+  <p>Клубы:</p>
+  <ul>
+    {% for club in clubs %}
+      <li>{{ club.name }}</li>
+    {% empty %}
+      <li>Вы не состоите в ни одном клубе</li>
+    {% endfor %}
+  </ul>
+  <p>Книги, которые хочу прочитать:</p>
+  <ul>
+    {% for book in want_to_read_books %}
+      <li>{{ book.title }}</li>
+    {% empty %}
+      <li>Вы не выбрали ни одной книги для чтения</li>
+    {% endfor %}
+  </ul>
+  <p>Прочитанные книги:</p>
+  <ul>
+    {% for book in read_books %}
+      <li>{{ book.title }}</li>
+    {% empty %}
+      <li>Вы еще не прочитали ни одной книги</li>
+    {% endfor %}
+  </ul>
+  <a href="{% url 'club:edit_profile' %}">Редактировать профиль</a>
+{% endblock %}
