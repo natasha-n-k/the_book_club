@@ -7,8 +7,8 @@
         <h1>Войти в личный кабинет</h1>
         <form method="post" action="{% url 'club:login' %}">
             {% csrf_token %}
-            <p><input type="text" id="username" name="login" value="" placeholder="Логин или Email"></p>
-            <p><input type="password" id="password" name="password" value="" placeholder="Пароль"></p>
+            <input type="text" id="username" name="username" placeholder="Логин или Email">
+            <input type="password" id="password" name="password" placeholder="Пароль">
             <p class="remember_me">
                 <label>
                 <input type="checkbox" name="remember_me" id="remember_me">
