@@ -347,9 +347,10 @@ a {
 
     .books-cart-container{
       display: flex;
+      background-color: #f2f2f2;
       flex-direction: row;
       justify-content: space-around;
-      align-items: start;
+      align-items: center;
       padding: 10px;
     }
 
@@ -362,19 +363,40 @@ a {
     }
     
     .books-cart-image img{
-      box-shadow: 0 5.5px 5px 0 #6998AB
+      box-shadow: 0 5.5px 5px 0 #000
     }
 
     .books-cart-title{
       font-size: 16px;
     }
 
-    .books-cart-desc{
+    .books-cart-desc {
       font-size: 14px;
-      
-    }
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 3; /* Количество строк, которые должны отображаться */
+      -webkit-box-orient: vertical;
+  }
+  
+  .books-cart-desc.expanded {
+      -webkit-line-clamp: initial;
+  }
+  
+  .books-cart-desc:hover {
+      cursor: pointer;
+  }
 
     .books-cart-button{
+      margin: 20px 0;
     }
 
+    .books-cart-button button{
+      padding: 8px 17px;
+      background-color: #6998AB;
+      color: #f7f7f7;
+      border-radius: 15px;
+      border: #6998AB;
+      font-size: 16px;
+    }
 }

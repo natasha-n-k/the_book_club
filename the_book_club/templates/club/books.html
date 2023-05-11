@@ -2,13 +2,25 @@
 {% load static %}
 
 {% block content %}
+<script>
+    const clampedElements = document.querySelectorAll('.clamp');
+
+// Для каждого элемента добавляем обработчик клика
+    clampedElements.forEach((element) => {
+        element.addEventListener('click', () => {
+            element.classList.toggle('expanded');
+        });
+    });
+
+</script>
+
 
 {% for book in books %}
 <div class="books-container">
     <div class="books-cart-container">
         <div class="books-cart-row">
             <div class="books-cart-image" >
-                <img src="{{ book.image.url }}" width="150" >
+                <a href="{% url 'club:book_detail' book.pk %}"><img src="{{ book.image.url }}" width="150" ></a>
             </div>
         </div>
         <div class="books-cart-row">
@@ -17,7 +29,7 @@
                 <h4>{{ book.author }}</h4>
             </div>
             <div class="books-cart-desc">
-                <p>{{ book.description }}</p>
+                <p class="clamp">{{ book.description }}</p>
             </div>
             <div class="books-cart-button">
                 <button type="submit" class="btn btn-primary add-to-cart-btn">Добавить на полку</button>

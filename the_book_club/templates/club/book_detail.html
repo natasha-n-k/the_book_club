@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="book-container">
+    <div class="book-cart-container">
+        <div class="book-cart-row">
+            <div class="book-cart-image">
+                <img src="{{ book.image.url }}" width="150">
+            </div>
+            <div class="book-cart-details">
+                <h3>{{ book.name }}</h3>
+                <h4>{{ book.author }}</h4>
+                <p>{{ book.description }}</p>
+                <div class="book-rating">
+                    <p>Оценка:</p>
+                    <!-- здесь должен быть код для отображения оценки книги -->
+                </div>
+                <div class="book-status">
+                    <p>Статус:</p>
+                    <select>
+                        <option value="to_read">Хочу прочитать</option>
+                        <option value="read">Прочитана</option>
+                    </select>
+                    <button type="submit" class="btn btn-primary update-status-btn">Обновить</button>
+                </div>
+                <div class="book-links">
+                    <p>Купить книгу:</p>
+                    <!-- здесь должен быть код для отображения ссылок на магазины, где можно купить книгу -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
