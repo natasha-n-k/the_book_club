@@ -1,24 +1,27 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-<div class="login__body">
-  <h1>Личный кабинет</h1>
-  <form method="post" action="{% url 'club:login' %}">
-  {% csrf_token %}
-  <label for="username">Имя пользователя:</label>
-  <input type="text" id="username" name="username">
-  <br>
-  <label for="password">Пароль:</label>
-  <input type="password" id="password" name="password">
-  <br>
-  <button class="login__input" type="submit">Войти</button>
-  </form>
-  <div class="club__register">
-    <a href="{% url 'club:register' %}">Зарегистрироваться</a>
-  </div>
-  <div class="club__signup">
-    <a href="#">Забыли пароль?</a>
-  </div>
-</div>
-{% endblock %}
 
+<section class="login__container">
+    <div class="login">
+        <h1>Войти в личный кабинет</h1>
+        <form method="post" action="{% url 'club:login' %}">
+            {% csrf_token %}
+            <p><input type="text" id="username" name="login" value="" placeholder="Логин или Email"></p>
+            <p><input type="password" id="password" name="password" value="" placeholder="Пароль"></p>
+            <p class="remember_me">
+                <label>
+                <input type="checkbox" name="remember_me" id="remember_me">
+                Запомнить меня
+                </label>
+            </p>
+            <p class="submit"><input type="submit" name="commit" value="Войти"></p>
+        </form>
+   </div>
+   <div class="login-help">
+    <a href="{% url 'club:register' %}">Зарегистрироваться</a>
+    <a href="#">Забыли пароль?</a>
+   </div>
+</section>
+
+{% endblock %}
