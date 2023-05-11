@@ -11,7 +11,7 @@
                     <img src="{{ club.image.url }}" width="120" height="120">
                 </div>
                 <div class="clubs-cart-title">
-                    <h2>{{ club.name }}</h2>
+                    <h2><a href="{% url 'club:club_detail' club.id %}">{{ club.name }}</a></h2>
                     <h4>{{ club.venue }}</h4>
                 </div>
                 <div class="clubs-cart-desc">
