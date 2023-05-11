@@ -1,5 +1,12 @@
-from django.shortcuts import render, get_object_or_404
-from .models import BookClub, ClubPage, Book, BookPage
+from django.shortcuts import render,redirect, get_object_or_404
+from django.contrib.auth.decorators import login_required
+from django.views.decorators.http import require_POST
+from django.views.decorators.csrf import csrf_protect
+from .models import BookClub, Book
+from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
+from django.contrib.auth import authenticate, login
+from django.contrib.auth import logout as auth_logout
+from django.contrib import messages
 
 def index(request):
     return render(request, 'club/index.html')
@@ -27,3 +34,47 @@ def book_detail(request, book_id):
 def club_detail(request, club_id):
     club = get_object_or_404(BookClub, id=club_id)
     return render(request, 'club/club_detail.html', {'club': club})
+
+from django.shortcuts import render, redirect
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth import login as auth_login
+
+
+@csrf_protect
+def login(request):
+    if request.method == 'POST':
+        username = request.POST['username']
+        password = request.POST['password']
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
+            login(request, user)
+            messages.success(request, f'Добро пожаловать, {username}!')
+            if request.user.is_authenticated:  # проверяем, авторизован ли пользователь
+                return redirect('club:account')  # если авторизован, перенаправляем на страницу личного кабинета
+            else:
+                return redirect('club:login')  # если не авторизован, перенаправляем на страницу входа
+        else:
+            error_message = 'Неверные имя пользователя или пароль'
+            return render(request, 'club/login.html', {'error_message': error_message})
+    else:
+        return render(request, 'club/login.html')
+    
+def logout(request):
+    auth_logout(request)
+    return redirect('club:login')
+
+def register(request):
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            login(request, user)
+            return redirect('club:login')
+    else:
+        form = UserCreationForm()
+    return render(request, 'club/register.html', {'form': form})
+
+@login_required
+def account(request):
+    
+    return render(request, 'club/account.html')
