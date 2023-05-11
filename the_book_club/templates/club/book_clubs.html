@@ -24,7 +24,15 @@
                     <img src="{{ club.book.image.url }}">
                 </div>
                 <div class="clubs-cart-button">
-                    <button type="submit" class="btn btn-primary add-to-cart-btn">Вступить</button>
+                    {% if request.user in club.members.all %}
+                        <span class="already-member">Вы участник клуба</span>
+                    {% else %}
+                    <form action="{% url 'club:join_club' club.id %}" method="post">
+                            {% csrf_token %}
+                            <input type="hidden" name="club_id" value="{{ club.id }}">
+                            <button type="submit" class="btn btn-primary add-to-cart-btn">Вступить</button>
+                        </form>
+                    {% endif %}
                 </div>
             </div>
         </div>

@@ -77,6 +77,18 @@ def register(request):
 @login_required
 def account(request):
     clubs = BookClub.objects.filter(members=request.user)
-    want_to_read_books = Book.objects.filter(users_who_want_to_read=request.user)
-    read_books = Book.objects.filter(users_who_read=request.user)
-    return render(request, 'club/account.html', {'clubs': clubs, 'want_to_read_books': want_to_read_books, 'read_books': read_books})
+    return render(request, 'club/account.html', {'clubs': clubs})
+
+@login_required
+def join_club(request, club_id):
+    if request.method == 'POST':
+        club_id = request.POST.get('club_id')
+        club = get_object_or_404(BookClub, id=club_id)
+        club.members.add(request.user)
+        return redirect('club:book_clubs')
+    else:
+        clubs = BookClub.objects.all()
+        context = {
+            'clubs': clubs
+        }
+        return render(request, 'club/book_clubs.html', context)

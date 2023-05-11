@@ -1,4 +1,5 @@
 from django.db import models
+from django.conf import settings
 from django.core.files.storage import FileSystemStorage
 
 fs = FileSystemStorage(location='images')
@@ -8,6 +9,7 @@ class BookClub(models.Model):
     description = models.TextField()
     image = models.ImageField(upload_to='images')
     venue = models.CharField(max_length=200, default='Online', null=True)
+    members = models.ManyToManyField(settings.AUTH_USER_MODEL, related_name='clubs')
 
     def __str__(self):
         return self.name
