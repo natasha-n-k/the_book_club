@@ -5,7 +5,7 @@
 <section class="login__container">
     <div class="login">
         <h1>Войти в личный кабинет</h1>
-        <form method="post" action="{% url 'club:login' %}">
+        <form class="login__form" method="post" action="{% url 'club:login' %}">
             {% csrf_token %}
             <input type="text" id="username" name="username" placeholder="Логин или Email">
             <input type="password" id="password" name="password" placeholder="Пароль">

@@ -67,7 +67,7 @@ def user_register(request):
         if form.is_valid():
             user = form.save()
             login(request, user)
-            messages.success(request, 'Your account has been created successfully!')
+            messages.success(request, 'Ваша учетная запись была успешно создана!')
             return redirect('club:account')
     else:
         form = UserCreationForm()
