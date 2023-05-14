@@ -405,6 +405,7 @@ a {
     .login__container {
       margin: 80px auto;
       width: 640px;
+      height: 390px;
     }
     
     .login {
