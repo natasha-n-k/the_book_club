@@ -322,8 +322,10 @@ a {
 
     }
 
-    .clubs-cart-button{
-
+    .clubs-cart-button span{
+      font-weight: 700;
+      text-shadow: #6998AB 1px 0 10px;
+      padding: 3px;
     }
 
     .clubs-cart-button button{
