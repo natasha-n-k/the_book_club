@@ -6,8 +6,9 @@
     <div class="account-content-row">
       <h2>Мой профиль</h2>
       <p>Имя: {{ user.first_name }} {{ user.last_name }}</p>
-      <p>Дата рождения: </p>
-      <p>Дата регистрации: </p>
+      <p>Дата рождения: {{ user.profile.date_of_birth  }}</p>
+      <p>Дата регистрации: {{ user.date_joined }}</p>
+      <a href="{% url 'club:edit_profile' %}">Редактировать профиль</a>
     </div>
     <div class="account-content-row">
       <h2>Мои клубы</h2>

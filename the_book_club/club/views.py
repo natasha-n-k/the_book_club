@@ -74,6 +74,21 @@ def user_register(request):
     return render(request, 'club/register.html', {'form': form})
 
 @login_required
+def edit_profile(request):
+    if request.method == 'POST':
+        # Обработка отправленной формы редактирования профиля
+        # Изменение имени и даты рождения пользователя
+        user = request.user
+        user.first_name = request.POST.get('first_name')
+        user.last_name = request.POST.get('last_name')
+        user.date_of_birth = request.POST.get('date_of_birth')
+        user.save()
+        return redirect('club:account')
+    else:
+        # Отображение формы редактирования профиля
+        return render(request, 'club/edit_profile.html')
+
+@login_required
 def join_club(request, club_id):
     if request.method == 'POST':
         club = get_object_or_404(BookClub, id=club_id)

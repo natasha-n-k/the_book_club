@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="edit-profile-container">
+  <div class="edit-profile-content-container">
+    <div class="edit-profile-content-row">
+      <h2>Редактировать профиль</h2>
+      <form method="post" action="{% url 'club:edit_profile' %}">
+        {% csrf_token %}
+        <label for="first_name">Имя:</label>
+        <input type="text" id="first_name" name="first_name" value="{{ user.first_name }}"><br>
+        <label for="last_name">Фамилия:</label>
+        <input type="text" id="last_name" name="last_name" value="{{ user.last_name }}"><br>
+        <label for="date_of_birth">Дата рождения:</label>
+        <input type="date" id="date_of_birth" name="date_of_birth" value="{{ user.profile.date_of_birth }}"><br>
+        <button type="submit">Сохранить изменения</button>
+      </form>
+    </div>
+  </div>
+</div>
+</section>
+{% endblock %}
