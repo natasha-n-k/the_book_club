@@ -76,8 +76,6 @@ def user_register(request):
 @login_required
 def edit_profile(request):
     if request.method == 'POST':
-        # Обработка отправленной формы редактирования профиля
-        # Изменение имени и даты рождения пользователя
         user = request.user
         user.first_name = request.POST.get('first_name')
         user.last_name = request.POST.get('last_name')
@@ -85,7 +83,6 @@ def edit_profile(request):
         user.save()
         return redirect('club:account')
     else:
-        # Отображение формы редактирования профиля
         return render(request, 'club/edit_profile.html')
 
 @login_required
