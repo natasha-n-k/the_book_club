@@ -1,31 +1,56 @@
 {% extends 'base.html' %}
 
 {% block content %}
-  <h2>{{ user.username }}</h2>
-  <p>Имя: {{ user.first_name }} {{ user.last_name }}</p>
-  <p>Клубы:</p>
-  <ul>
-    {% for club in clubs %}
-      <li>{{ club.name }}</li>
-    {% empty %}
-      <li>Вы не состоите в ни одном клубе</li>
-    {% endfor %}
-  </ul>
-  <p>Книги, которые хочу прочитать:</p>
-  <ul>
-    {% for book in want_to_read_books %}
-      <li>{{ book.title }}</li>
-    {% empty %}
-      <li>Вы не выбрали ни одной книги для чтения</li>
-    {% endfor %}
-  </ul>
-  <p>Прочитанные книги:</p>
-  <ul>
-    {% for book in read_books %}
-      <li>{{ book.title }}</li>
-    {% empty %}
-      <li>Вы еще не прочитали ни одной книги</li>
-    {% endfor %}
-  </ul>
-  <a href="#">Редактировать профиль</a>
+<section class="account-container">
+  <div class="account-content-container">
+    <div class="account-content-row">
+      <h2>Мой профиль</h2>
+      <p>Имя: {{ user.first_name }} {{ user.last_name }}</p>
+      <p>Дата рождения: </p>
+      <p>Дата регистрации: </p>
+    </div>
+    <div class="account-content-row">
+      <h2>Мои клубы</h2>
+      <div class="account-clubs-container">
+        {% for club in clubs %}
+        <div class="account-clubs-row">
+          <img src="{{ club.image.url }}" width="100" >
+          <h3>{{ club.name }}</h3>
+          <p><strong>{{ club.venue }}</p>
+        </div>
+        {% empty %}
+        <p>Вы не состоите в ни одном клубе</p>
+      {% endfor %}
+      </div>
+    </div>
+    <div class="account-content-row">
+      <h2>Хочу прочитать</h2>
+      {% for book in want_to_read_books %}
+      <div class="account-books-container">
+        <div class="account-books-row">
+          <img src="{{ book.image.url }}" width="100" >
+          <h3>{{ book.name }}</h3>
+          <h4>{{ book.author }}</h4>
+        </div>
+      {% empty %}
+      <p>Вы не выбрали ни одной книги для чтения</p>
+      {% endfor %}
+      </div>
+    </div>
+    <div class="account-content-row">
+      <h2>Прочитанные книги</h2>
+      {% for book in read_books %}
+      <div class="account-books-container">
+        <div class="account-books-row">
+          <img src="{{ book.image.url }}" width="100" >
+          <h3>{{ book.name }}</h3>
+          <h4>{{ book.author }}</h4>
+        </div>
+      {% empty %}
+      <p>Вы еще не прочитали ни одной книги</p>
+      {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
 {% endblock %}

@@ -639,4 +639,58 @@ a {
       box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.2);
     }
 
+    .account-container {
+    }
+    .account-content-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      align-items: start;
+      padding: 20px 150px;
+    }
+    .account-content-row {
+      width: 1100px;
+      background-color: #f7f7f7;
+      margin: 10px auto;
+      border-radius: 10px;
+      padding: 10px 20px;
+    }
+    .account-clubs-container {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: start;
+      padding: 10px;
+    }
+    .account-clubs-row {
+      width: 200px;
+      height: 300px;
+      margin-left: 10px;
+      text-align: center;
+      padding: 10px;
+      background-color: #f2f2f2;
+      border-color: #9eb9c2 #b3c0c8 #b4ccce;
+      -webkit-box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.2);
+      box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.2);
+    }
+    .account-books-container {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: start;
+      padding: 10px;
+    }
+    .account-books-row {
+      width: 200px;
+      height: 300px;
+      border: 1px solid #6998AB;
+      margin-left: 10px;
+      text-align: center;
+      padding: 10px;
+      background-color: #f2f2f2;
+      border-color: #9eb9c2 #b3c0c8 #b4ccce;
+      -webkit-box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.2);
+      box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.2);
+    }
+
 }
