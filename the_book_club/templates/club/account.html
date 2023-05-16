@@ -5,10 +5,11 @@
   <div class="account-content-container">
     <div class="account-content-row">
       <h2>Мой профиль</h2>
-      <p>Имя: {{ user.first_name }} {{ user.last_name }}</p>
-      <p>Дата рождения: {{ user.profile.date_of_birth  }}</p>
-      <p>Дата регистрации: {{ user.date_joined }}</p>
+      <p><b>Имя:</b> {{ user.first_name }} {{ user.last_name }}</p>
+      <p><b>Дата рождения:</b> {{ user.profile.date_of_birth  }}</p>
+      <p><b>Дата регистрации:</b> {{ user.date_joined }}</p>
       <a href="{% url 'club:edit_profile' %}">Редактировать профиль</a>
+      <a href="{% url 'club:logout' %}">Выйти из профиля</a>
     </div>
     <div class="account-content-row">
       <h2>Мои клубы</h2>
@@ -17,7 +18,7 @@
         <div class="account-clubs-row">
           <img src="{{ club.image.url }}" width="100" >
           <h3>{{ club.name }}</h3>
-          <p><strong>{{ club.venue }}</p>
+          <p>{{ club.venue }}</p>
         </div>
         {% empty %}
         <p>Вы не состоите в ни одном клубе</p>
@@ -54,4 +55,20 @@
     </div>
   </div>
 </section>
+<script>
+  const container = document.querySelector('.account-clubs-container');
+  const rows = document.querySelectorAll('.account-clubs-row');
+
+  container.addEventListener('scroll', () => {
+    rows.forEach((row) => {
+      const rowRect = row.getBoundingClientRect();
+      const containerRect = container.getBoundingClientRect();
+      if (rowRect.left >= containerRect.left && rowRect.right <= containerRect.right) {
+        row.classList.add('active');
+      } else {
+        row.classList.remove('active');
+      }
+    });
+  });
+</script>
 {% endblock %}
