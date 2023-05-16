@@ -4,18 +4,21 @@
 <section class="register__container">
   <div class="register">
     <h1>Регистрация</h1>
-    <form method="post">
+    <form class="register__form" method="post">
       {% csrf_token %}
-      {% for field in form %}
-        <div class="form__field">
-          {{ field.label_tag }}
-          {{ field }}
-          {% if field.errors %}
-            <span class="form__error">{{ field.errors }}</span>
-          {% endif %}
-        </div>
-      {% endfor %}
-      <button type="submit">Зарегистрироваться</button>
+      <div class="form__field">
+        <input type="text" id="username" name="username" placeholder="Логин или Email">
+        <input type="password" id="password" name="password1" placeholder="Пароль">
+        <input type="password" id="password2" name="password2" placeholder="Подтверждение пароля">
+        {% if form.errors %}
+            {% for field in form %}
+                {% for error in field.errors %}
+                    <span class="form__error">{{ error }}</span>
+                {% endfor %}
+            {% endfor %}
+        {% endif %}
+    </div>
+    <p class="submit"><input type="submit" name="commit" value="Зарегистрироваться"></p>
     </form>
   </div>
 </section> 
