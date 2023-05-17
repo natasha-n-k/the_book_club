@@ -2,12 +2,14 @@ from django.shortcuts import render,redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.http import require_POST
 from django.views.decorators.csrf import csrf_protect
-from .models import BookClub, Book
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.contrib.auth import authenticate, login
 from django.contrib.auth import logout
 from django.http import JsonResponse
 from django.contrib import messages
+from django.http import JsonResponse
+from .models import BookClub, Book
+from datetime import date
 
 def index(request):
     return render(request, 'club/index.html')
@@ -103,18 +105,14 @@ def join_club(request, club_id):
         return render(request, 'club/book_clubs.html', context)
     
 def update_book_status(request, book_id, status):
-    if request.method == 'POST':
-        book = get_object_or_404(Book, id=book_id)
-        if status == 'to_read':
-            book.is_want_to_read = True
-            book.is_read = False
-        elif status == 'read':
-            book.is_want_to_read = False
-            book.is_read = True
-        else:
-            return JsonResponse({'success': False})
-
-        book.save()
-        return JsonResponse({'success': True})
-    else:
-        return JsonResponse({'success': False})
+    book = get_object_or_404(Book, id=book_id)
+    if status == 'to_read':
+        book.is_want_to_read = True
+        book.is_read = False
+        book.date_read = None
+    elif status == 'read':
+        book.is_want_to_read = False
+        book.is_read = True
+        book.date_read = date.today()
+    book.save()
+    return JsonResponse({'success': True})

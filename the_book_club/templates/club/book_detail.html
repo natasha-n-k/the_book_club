@@ -17,12 +17,14 @@
                     <!-- здесь должен быть код для отображения оценки книги -->
                 </div>
                 <div class="book-status">
-                    <p>Статус:</p>
                     <select id="status-select">
                         <option value="to_read" {% if book.is_want_to_read %}selected{% endif %}>Хочу прочитать</option>
                         <option value="read" {% if book.is_read %}selected{% endif %}>Прочитана</option>
                     </select>
                     <button type="submit" class="btn btn-primary update-status-btn">Обновить</button>
+                    {% if book.date_read %}
+                        <p>Дата прочтения: {{ book.date_read }}</p>
+                    {% endif %}
                 </div>
                 <div class="book-links">
                     <p>Купить книгу:</p>
