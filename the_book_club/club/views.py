@@ -8,7 +8,7 @@ from django.contrib.auth import logout
 from django.http import JsonResponse
 from django.contrib import messages
 from django.http import JsonResponse
-from .models import BookClub, Book
+from .models import BookClub, Book,  Rating
 from datetime import date
 
 def index(request):
@@ -30,8 +30,20 @@ def books(request):
     }
     return render(request, 'club/books.html', context)
 
+@login_required
 def book_detail(request, book_id):
     book = get_object_or_404(Book, id=book_id)
+
+    if request.method == 'POST':
+        rating = int(request.POST.get('rating'))
+        Rating.objects.update_or_create(user=request.user, book=book, defaults={'rating': rating})
+        ratings = Rating.objects.filter(book=book)
+        average_rating = ratings.aggregate(models.Avg('rating')).get('rating__avg')
+        book.average_rating = round(average_rating, 1) if average_rating else None
+        book.save()
+
+        return JsonResponse({'success': True})
+
     return render(request, 'club/book_detail.html', {'book': book})
 
 def club_detail(request, club_id):

@@ -14,7 +14,12 @@
                 <p>{{ book.description }}</p>
                 <div class="book-rating">
                     <p>Оценка:</p>
-                    <!-- здесь должен быть код для отображения оценки книги -->
+                    {% if book.average_rating %}
+                        <p>{{ book.average_rating }}</p>
+                    {% else %}
+                        <p>Нет оценок</p>
+                    {% endif %}
+                    <!-- здесь должен быть код для отображения звездочек или другого элемента для выбора оценки -->
                 </div>
                 <div class="book-status">
                     <select id="status-select">
@@ -67,6 +72,53 @@
             })
             .catch(error => {
                 console.log('Произошла ошибка:', error);
+            });
+        });
+    });
+    document.addEventListener('DOMContentLoaded', () => {
+        const ratingContainer = document.querySelector('.book-rating');
+        const stars = document.createElement('div');
+        stars.classList.add('rating-stars');
+
+        for (let i = 1; i <= 5; i++) {
+            const star = document.createElement('span');
+            star.classList.add('star');
+            star.innerHTML = '★';
+            star.dataset.rating = i;
+            stars.appendChild(star);
+        }
+
+        ratingContainer.appendChild(stars);
+
+        const ratingStars = document.querySelectorAll('.rating-stars .star');
+
+        ratingStars.forEach(star => {
+            star.addEventListener('click', () => {
+                const rating = star.dataset.rating;
+                const bookId = {{ book.id }};
+                const url = `/book_detail/${bookId}/`;
+
+                fetch(url, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                        'X-CSRFToken': '{{ csrf_token }}'
+                    },
+                    body: `rating=${rating}`
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        // Обновление оценки на странице
+                        ratingContainer.innerHTML = `<p>${data.average_rating}</p>`;
+                    } else {
+                        // Обработка ошибок, если не удалось оценить книгу
+                        console.log('Ошибка при оценке книги.');
+                    }
+                })
+                .catch(error => {
+                    console.log('Произошла ошибка:', error);
+                });
             });
         });
     });
