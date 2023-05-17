@@ -1,6 +1,4 @@
 {% extends 'base.html' %}
-{% load static %}
-
 {% block content %}
 <div class="book-container">
     <div class="book-cart-container">
@@ -19,7 +17,13 @@
                     {% else %}
                         <p>Нет оценок</p>
                     {% endif %}
-                    <!-- здесь должен быть код для отображения звездочек или другого элемента для выбора оценки -->
+                    <div class="rating-stars">
+                        <span class="star {% if book.user_rating and book.user_rating >= 1 %}rated{% endif %}" data-rating="1">★</span>
+                        <span class="star {% if book.user_rating and book.user_rating >= 2 %}rated{% endif %}" data-rating="2">★</span>
+                        <span class="star {% if book.user_rating and book.user_rating >= 3 %}rated{% endif %}" data-rating="3">★</span>
+                        <span class="star {% if book.user_rating and book.user_rating >= 4 %}rated{% endif %}" data-rating="4">★</span>
+                        <span class="star {% if book.user_rating and book.user_rating >= 5 %}rated{% endif %}" data-rating="5">★</span>
+                    </div>
                 </div>
                 <div class="book-status">
                     <select id="status-select">
@@ -46,7 +50,7 @@
 
         updateStatusBtn.addEventListener('click', () => {
             const selectedStatus = statusSelect.value;
-            const bookId = {{ book.id }};
+            const bookId = '{{ book.id }}';
             const url = `/update_book_status/${bookId}/${selectedStatus}/`;
 
             fetch(url, {
@@ -65,60 +69,38 @@
                     } else if (selectedStatus === 'read') {
                         document.querySelector('.book-status').innerHTML = '<p>Статус: Прочитана</p>';
                     }
-                } else {
-                    // Обработка ошибок, если не удалось обновить статус книги
-                    console.log('Ошибка при обновлении статуса книги.');
                 }
             })
-            .catch(error => {
-                console.log('Произошла ошибка:', error);
-            });
+            .catch(error => console.log(error));
         });
-    });
-    document.addEventListener('DOMContentLoaded', () => {
-        const ratingContainer = document.querySelector('.book-rating');
-        const stars = document.createElement('div');
-        stars.classList.add('rating-stars');
 
-        for (let i = 1; i <= 5; i++) {
-            const star = document.createElement('span');
-            star.classList.add('star');
-            star.innerHTML = '★';
-            star.dataset.rating = i;
-            stars.appendChild(star);
-        }
+        const stars = document.querySelectorAll('.rating-stars .star');
+        const bookId = '{{ book.id }}';
 
-        ratingContainer.appendChild(stars);
-
-        const ratingStars = document.querySelectorAll('.rating-stars .star');
-
-        ratingStars.forEach(star => {
+        stars.forEach(star => {
             star.addEventListener('click', () => {
-                const rating = star.dataset.rating;
-                const bookId = {{ book.id }};
-                const url = `/book_detail/${bookId}/`;
+                const rating = star.getAttribute('data-rating');
+                const url = `/rate_book/${bookId}/${rating}/`;
 
                 fetch(url, {
                     method: 'POST',
                     headers: {
-                        'Content-Type': 'application/x-www-form-urlencoded',
+                        'Content-Type': 'application/json',
                         'X-CSRFToken': '{{ csrf_token }}'
-                    },
-                    body: `rating=${rating}`
+                    }
                 })
                 .then(response => response.json())
                 .then(data => {
                     if (data.success) {
                         // Обновление оценки на странице
-                        ratingContainer.innerHTML = `<p>${data.average_rating}</p>`;
-                    } else {
-                        // Обработка ошибок, если не удалось оценить книгу
-                        console.log('Ошибка при оценке книги.');
+                        document.querySelector('.book-rating p').innerHTML = data.average_rating;
+                        stars.forEach(s => s.classList.remove('rated'));
+                        for (let i = 0; i < rating; i++) {
+                            stars[i].classList.add('rated');
+                        }
                     }
                 })
-                .catch(error => {
-                    console.log('Произошла ошибка:', error);
-                });
+                .catch(error => console.log(error));
             });
         });
     });

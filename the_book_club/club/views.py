@@ -128,3 +128,19 @@ def update_book_status(request, book_id, status):
         book.date_read = date.today()
     book.save()
     return JsonResponse({'success': True})
+
+@login_required
+def rate_book(request, book_id, rating):
+    book = Book.objects.get(id=book_id)
+    user = request.user
+
+    if Rating.objects.filter(book=book, user=user).exists():
+        book_rating = Rating.objects.get(book=book, user=user)
+        book_rating.rating = rating
+    else:
+        book_rating = Rating.objects.create(book=book, user=user, rating=rating)
+
+    book_rating.save()
+
+    average_rating = Rating.objects.get_average_rating(book=book)
+    return JsonResponse({'success': True, 'average_rating': average_rating})

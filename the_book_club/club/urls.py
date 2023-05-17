@@ -14,9 +14,10 @@ urlpatterns = [
     path('club/<int:club_id>/', views.club_detail, name='club_detail'),
     path('accounts/profile/', views.account, name='account'),
     path('login/', auth_views.LoginView.as_view(template_name='club/login.html'), name='login'),
-        path('logout/', views.user_logout, name='logout'),
+    path('logout/', views.user_logout, name='logout'),
     path('register/', views.user_register, name='register'), 
     path('join_club/<int:club_id>/', views.join_club, name='join_club'),
     path('edit_profile/', views.edit_profile, name='edit_profile'),
-    path('update_book_status/<int:book_id>/<str:status>/', views.update_book_status, name='update_book_status'),
+    path('rate_book/<int:book_id>/', views.rate_book, name='rate_book'),
+   path('rate_book/<int:book_id>/<int:rating>/', views.rate_book, name='rate_book'),
 ]
