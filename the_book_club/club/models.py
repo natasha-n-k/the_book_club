@@ -32,6 +32,8 @@ class Book(models.Model):
     author = models.CharField(max_length=200, default='None', null=True)
     description = models.TextField()
     image = models.ImageField(upload_to='images')
+    is_read = models.BooleanField(default=False)
+    is_want_to_read = models.BooleanField(default=False)
 
 class BookPage(models.Model):
     book = models.ForeignKey(Book, on_delete=models.CASCADE)

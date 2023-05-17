@@ -18,9 +18,9 @@
                 </div>
                 <div class="book-status">
                     <p>Статус:</p>
-                    <select>
-                        <option value="to_read">Хочу прочитать</option>
-                        <option value="read">Прочитана</option>
+                    <select id="status-select">
+                        <option value="to_read" {% if book.is_want_to_read %}selected{% endif %}>Хочу прочитать</option>
+                        <option value="read" {% if book.is_read %}selected{% endif %}>Прочитана</option>
                     </select>
                     <button type="submit" class="btn btn-primary update-status-btn">Обновить</button>
                 </div>
@@ -32,4 +32,41 @@
         </div>
     </div>
 </div>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const updateStatusBtn = document.querySelector('.update-status-btn');
+        const statusSelect = document.querySelector('#status-select');
+
+        updateStatusBtn.addEventListener('click', () => {
+            const selectedStatus = statusSelect.value;
+            const bookId = {{ book.id }};
+            const url = `/update_book_status/${bookId}/${selectedStatus}/`;
+
+            fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRFToken': '{{ csrf_token }}'
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    // Обновление статуса книги на странице
+                    if (selectedStatus === 'to_read') {
+                        document.querySelector('.book-status').innerHTML = '<p>Статус: Хочу прочитать</p>';
+                    } else if (selectedStatus === 'read') {
+                        document.querySelector('.book-status').innerHTML = '<p>Статус: Прочитана</p>';
+                    }
+                } else {
+                    // Обработка ошибок, если не удалось обновить статус книги
+                    console.log('Ошибка при обновлении статуса книги.');
+                }
+            })
+            .catch(error => {
+                console.log('Произошла ошибка:', error);
+            });
+        });
+    });
+</script>
 {% endblock %}

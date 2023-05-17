@@ -6,6 +6,7 @@ from .models import BookClub, Book
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.contrib.auth import authenticate, login
 from django.contrib.auth import logout
+from django.http import JsonResponse
 from django.contrib import messages
 
 def index(request):
@@ -55,7 +56,9 @@ def user_login(request):
 @login_required
 def account(request):
     clubs = BookClub.objects.filter(members=request.user)
-    return render(request, 'club/account.html', {'clubs': clubs})
+    want_to_read_books = Book.objects.filter(is_want_to_read=True)
+    read_books = Book.objects.filter(is_read=True)
+    return render(request, 'club/account.html', {'clubs': clubs, 'want_to_read_books': want_to_read_books, 'read_books': read_books})
 
 def user_logout(request):
     logout(request)
@@ -98,3 +101,20 @@ def join_club(request, club_id):
             'clubs': clubs
         }
         return render(request, 'club/book_clubs.html', context)
+    
+def update_book_status(request, book_id, status):
+    if request.method == 'POST':
+        book = get_object_or_404(Book, id=book_id)
+        if status == 'to_read':
+            book.is_want_to_read = True
+            book.is_read = False
+        elif status == 'read':
+            book.is_want_to_read = False
+            book.is_read = True
+        else:
+            return JsonResponse({'success': False})
+
+        book.save()
+        return JsonResponse({'success': True})
+    else:
+        return JsonResponse({'success': False})

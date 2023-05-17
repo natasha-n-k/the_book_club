@@ -16,53 +16,74 @@
       <div class="account-clubs-container">
         {% for club in clubs %}
         <div class="account-clubs-row">
-          <a href="{% url 'club:club_detail' club.id %}"><img src="{{ club.image.url }}" width="100" >
-          <h3>{{ club.name }}</h3></a>
+          <a href="{% url 'club:club_detail' club.id %}">
+            <img src="{{ club.image.url }}" width="100">
+            <h4>{{ club.name }}</h4>
+          </a>
           <p>{{ club.venue }}</p>
         </div>
         {% empty %}
         <p>Вы не состоите в ни одном клубе</p>
-      {% endfor %}
+        {% endfor %}
       </div>
     </div>
     <div class="account-content-row">
       <h2>Хочу прочитать</h2>
-      {% for book in want_to_read_books %}
       <div class="account-books-container">
+        {% for book in want_to_read_books %}
         <div class="account-books-row">
-          <img src="{{ book.image.url }}" width="100" >
-          <h3>{{ book.name }}</h3>
-          <h4>{{ book.author }}</h4>
+          <a href="{% url 'club:book_detail' book.id %}">
+            <img src="{{ book.image.url }}" width="100">
+            <h5>{{ book.author }}</h5>
+            <h4>{{ book.name }}</h4>
+          </a>
         </div>
-      {% empty %}
-      <p>Вы не выбрали ни одной книги для чтения</p>
-      {% endfor %}
+        {% empty %}
+        <p>Вы не выбрали ни одной книги для чтения</p>
+        {% endfor %}
       </div>
     </div>
     <div class="account-content-row">
       <h2>Прочитанные книги</h2>
-      {% for book in read_books %}
       <div class="account-books-container">
+        {% for book in read_books %}
         <div class="account-books-row">
-          <img src="{{ book.image.url }}" width="100" >
-          <h3>{{ book.name }}</h3>
-          <h4>{{ book.author }}</h4>
+          <a href="{% url 'club:book_detail' book.id %}">
+            <img src="{{ book.image.url }}" width="100">
+            <h5>{{ book.author }}</h5>
+            <h4>{{ book.name }}</h4>
+          </a>
         </div>
-      {% empty %}
-      <p>Вы еще не прочитали ни одной книги</p>
-      {% endfor %}
+        {% empty %}
+        <p>Вы еще не прочитали ни одной книги</p>
+        {% endfor %}
       </div>
     </div>
   </div>
 </section>
-<script>
-  const container = document.querySelector('.account-clubs-container');
-  const rows = document.querySelectorAll('.account-clubs-row');
 
-  container.addEventListener('scroll', () => {
-    rows.forEach((row) => {
+<script>
+  const clubsContainer = document.querySelector('.account-clubs-container');
+  const clubRows = document.querySelectorAll('.account-clubs-row');
+  const booksContainer = document.querySelector('.account-books-container');
+  const bookRows = document.querySelectorAll('.account-books-row');
+
+  clubsContainer.addEventListener('scroll', () => {
+    clubRows.forEach((row) => {
       const rowRect = row.getBoundingClientRect();
-      const containerRect = container.getBoundingClientRect();
+      const containerRect = clubsContainer.getBoundingClientRect();
+      if (rowRect.left >= containerRect.left && rowRect.right <= containerRect.right) {
+        row.classList.add('active');
+      } else {
+        row.classList.remove('active');
+      }
+    });
+  });
+
+  booksContainer.addEventListener('scroll', () => {
+    bookRows.forEach((row) => {
+      const rowRect = row.getBoundingClientRect();
+      const containerRect = booksContainer.getBoundingClientRect();
       if (rowRect.left >= containerRect.left && rowRect.right <= containerRect.right) {
         row.classList.add('active');
       } else {
