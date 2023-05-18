@@ -6,7 +6,7 @@
     <div class="account-content-row">
       <h2>Мой профиль</h2>
       <p><b>Имя:</b> {{ user.first_name }} {{ user.last_name }}</p>
-      <p><b>Дата рождения:</b> {{ user.profile.date_of_birth  }}</p>
+      <p><b>Дата рождения:</b> {{ user.profile.date_of_birth }}</p>
       <p><b>Дата регистрации:</b> {{ user.date_joined }}</p>
       <a class="account-prof" href="{% url 'club:edit_profile' %}">Редактировать профиль</a>
       <a class="account-prof" href="{% url 'club:logout' %}">Выйти из профиля</a>
@@ -30,12 +30,12 @@
     <div class="account-content-row">
       <h2>Хочу прочитать</h2>
       <div class="account-books-container">
-        {% for book in want_to_read_books %}
+        {% for user_book in want_to_read_books %}
         <div class="account-books-row">
-          <a href="{% url 'club:book_detail' book.id %}">
-            <img src="{{ book.image.url }}" width="100">
-            <h5>{{ book.author }}</h5>
-            <h4>{{ book.name }}</h4>
+          <a href="{% url 'club:book_detail' user_book.book.id %}">
+            <img src="{{ user_book.book.image.url }}" width="100">
+            <h5>{{ user_book.book.author }}</h5>
+            <h4>{{ user_book.book.name }}</h4>
           </a>
         </div>
         {% empty %}
@@ -46,12 +46,12 @@
     <div class="account-content-row">
       <h2>Прочитанные книги</h2>
       <div class="account-books-container">
-        {% for book in read_books %}
+        {% for user_book in read_books %}
         <div class="account-books-row">
-          <a href="{% url 'club:book_detail' book.id %}">
-            <img src="{{ book.image.url }}" width="100">
-            <h5>{{ book.author }}</h5>
-            <h4>{{ book.name }}</h4>
+          <a href="{% url 'club:book_detail' user_book.book.id %}">
+            <img src="{{ user_book.book.image.url }}" width="100">
+            <h5>{{ user_book.book.author }}</h5>
+            <h4>{{ user_book.book.name }}</h4>
           </a>
         </div>
         {% empty %}

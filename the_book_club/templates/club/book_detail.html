@@ -27,16 +27,22 @@
                 </div>
             </div>
             <div class="book-status">
-                <div class="book-status-details">
-                    <select id="status-select">
-                        <option value="to_read" {% if book.is_want_to_read %}selected{% endif %}>Хочу прочитать</option>
-                        <option value="read" {% if book.is_read %}selected{% endif %}>Прочитана</option>
-                    </select>
-                    <button type="submit" class="btn btn-primary update-status-btn">Обновить</button>
-                    {% if book.date_read %}
-                        <p>Дата прочтения: {{ book.date_read }}</p>
-                    {% endif %}
-                </div>
+                <div class="book-status">
+                    <div class="book-status-details">
+                        <form id="status-form" method="POST">
+                            {% csrf_token %}
+                            <select id="status-select" name="status">
+                                <option value="none" {% if not user_book.is_want_to_read and not user_book.is_read %}selected{% endif %}>Не выбрано</option>
+                                <option value="to_read" {% if user_book.is_want_to_read %}selected{% endif %}>Хочу прочитать</option>
+                                <option value="read" {% if user_book.is_read %}selected{% endif %}>Прочитана</option>
+                            </select>
+                            <button type="submit" class="btn btn-primary update-status-btn">Обновить</button>
+                        </form>
+                        {% if book.date_read %}
+                            <p>Дата прочтения: {{ book.date_read }}</p>
+                        {% endif %}
+                    </div>
+    
                 <div class="book-links">
                     <p>Купить книгу:</p>
                     <!-- здесь должен быть код для отображения ссылок на магазины, где можно купить книгу -->
@@ -48,11 +54,12 @@
 </div>
 <script>
     document.addEventListener('DOMContentLoaded', () => {
-        const updateStatusBtn = document.querySelector('.update-status-btn');
-        const statusSelect = document.querySelector('#status-select');
+        const statusForm = document.querySelector('#status-form');
 
-        updateStatusBtn.addEventListener('click', () => {
-            const selectedStatus = statusSelect.value;
+        statusForm.addEventListener('submit', (event) => {
+            event.preventDefault();
+
+            const selectedStatus = document.querySelector('#status-select').value;
             const bookId = '{{ book.id }}';
             const url = `/update_book_status/${bookId}/${selectedStatus}/`;
 
@@ -67,43 +74,20 @@
             .then(data => {
                 if (data.success) {
                     // Обновление статуса книги на странице
-                    if (selectedStatus === 'to_read') {
+                    if (selectedStatus === 'none') {
+                        document.querySelector('.book-status-details').innerHTML = '';
+                    } else if (selectedStatus === 'to_read') {
                         document.querySelector('.book-status-details').innerHTML = '<p>Статус: Хочу прочитать</p>';
                     } else if (selectedStatus === 'read') {
                         document.querySelector('.book-status-details').innerHTML = '<p>Статус: Прочитана</p>';
                     }
+                } else {
+                    // В случае ошибки отображаем сообщение пользователю
+                    console.log('Ошибка при обновлении статуса книги');
                 }
             })
-            .catch(error => console.log(error));
-        });
-
-        const stars = document.querySelectorAll('.rating-stars .star');
-        const bookId = '{{ book.id }}';
-
-        stars.forEach(star => {
-            star.addEventListener('click', () => {
-                const rating = star.getAttribute('data-rating');
-                const url = `/rate_book/${bookId}/${rating}/`;
-
-                fetch(url, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'X-CSRFToken': '{{ csrf_token }}'
-                    }
-                })
-                .then(response => response.json())
-                .then(data => {
-                    if (data.success) {
-                        // Обновление оценки на странице
-                        document.querySelector('.book-rating p').innerHTML = data.average_rating;
-                        stars.forEach(s => s.classList.remove('rated'));
-                        for (let i = 0; i < rating; i++) {
-                            stars[i].classList.add('rated');
-                        }
-                    }
-                })
-                .catch(error => console.log(error));
+            .catch(error => {
+                console.log('Ошибка при обновлении статуса книги:', error);
             });
         });
     });

@@ -8,7 +8,7 @@ from django.contrib.auth import logout
 from django.http import JsonResponse
 from django.contrib import messages
 from django.http import JsonResponse
-from .models import BookClub, Book,  Rating
+from .models import BookClub, Book,  Rating, UserBook
 from datetime import date
 
 def index(request):
@@ -70,9 +70,9 @@ def user_login(request):
 @login_required
 def account(request):
     clubs = BookClub.objects.filter(members=request.user)
-    want_to_read_books = Book.objects.filter(is_want_to_read=True)
-    read_books = Book.objects.filter(is_read=True)
-    return render(request, 'club/account.html', {'clubs': clubs, 'want_to_read_books': want_to_read_books, 'read_books': read_books})
+    read_books = UserBook.objects.filter(user=request.user, is_read=True)
+    want_to_read_books = UserBook.objects.filter(user=request.user, is_want_to_read=True)
+    return render(request, 'club/account.html', {'clubs': clubs, 'read_books': read_books, 'want_to_read_books': want_to_read_books})
 
 def user_logout(request):
     logout(request)
@@ -98,7 +98,7 @@ def edit_profile(request):
         user.last_name = request.POST.get('last_name')
         user.date_of_birth = request.POST.get('date_of_birth')
         user.save()
-        return redirect('club:account')
+        return redireFalsect('club:account')
     else:
         return render(request, 'club/edit_profile.html')
 
@@ -116,30 +116,29 @@ def join_club(request, club_id):
         }
         return render(request, 'club/book_clubs.html', context)
     
+@login_required
 def update_book_status(request, book_id, status):
     book = get_object_or_404(Book, id=book_id)
+    user_book, created = UserBook.objects.get_or_create(user=request.user, book=book)
     if status == 'to_read':
-        book.is_want_to_read = True
-        book.is_read = False
-        book.date_read = None
+        user_book.is_want_to_read = True
+        user_book.is_read = False
+        user_book.date_read = None
     elif status == 'read':
-        book.is_want_to_read = False
-        book.is_read = True
-        book.date_read = date.today()
-    book.save()
+        user_book.is_want_to_read = False
+        user_book.is_read = True
+        user_book.date_read = date.today()
+    user_book.save()
     return JsonResponse({'success': True})
 
 def rate_book(request, book_id, rating):
     book = Book.objects.get(id=book_id)
     user = request.user
-
     if Rating.objects.filter(book=book, user=user).exists():
         book_rating = Rating.objects.get(book=book, user=user)
         book_rating.rating = rating
     else:
         book_rating = Rating.objects.create(book=book, user=user, rating=rating)
-
     book_rating.save()
-
     average_rating = Rating.objects.get_average_rating(book=book)
     return JsonResponse({'success': True, 'average_rating': average_rating})
