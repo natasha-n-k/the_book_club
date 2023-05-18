@@ -10,22 +10,24 @@
                 <h3>{{ book.name }}</h3>
                 <h4>{{ book.author }}</h4>
                 <p>{{ book.description }}</p>
-                <div class="book-rating">
-                    <p>Оценка:</p>
-                    {% if book.average_rating %}
-                        <p>{{ book.average_rating }}</p>
-                    {% else %}
-                        <p>Нет оценок</p>
-                    {% endif %}
-                    <div class="rating-stars">
-                        <span class="star {% if book.user_rating and book.user_rating >= 1 %}rated{% endif %}" data-rating="1">★</span>
-                        <span class="star {% if book.user_rating and book.user_rating >= 2 %}rated{% endif %}" data-rating="2">★</span>
-                        <span class="star {% if book.user_rating and book.user_rating >= 3 %}rated{% endif %}" data-rating="3">★</span>
-                        <span class="star {% if book.user_rating and book.user_rating >= 4 %}rated{% endif %}" data-rating="4">★</span>
-                        <span class="star {% if book.user_rating and book.user_rating >= 5 %}rated{% endif %}" data-rating="5">★</span>
-                    </div>
+
+            </div>
+            <div class="book-rating">
+                {% if book.average_rating %}
+                    <p>{{ book.average_rating }}</p>
+                {% else %}
+                    <p>Нет оценок</p>
+                {% endif %}
+                <div class="rating-stars">
+                    <span class="star {% if book.user_rating and book.user_rating >= 1 %}rated{% endif %}" data-rating="1">★</span>
+                    <span class="star {% if book.user_rating and book.user_rating >= 2 %}rated{% endif %}" data-rating="2">★</span>
+                    <span class="star {% if book.user_rating and book.user_rating >= 3 %}rated{% endif %}" data-rating="3">★</span>
+                    <span class="star {% if book.user_rating and book.user_rating >= 4 %}rated{% endif %}" data-rating="4">★</span>
+                    <span class="star {% if book.user_rating and book.user_rating >= 5 %}rated{% endif %}" data-rating="5">★</span>
                 </div>
-                <div class="book-status">
+            </div>
+            <div class="book-status">
+                <div class="book-status-details">
                     <select id="status-select">
                         <option value="to_read" {% if book.is_want_to_read %}selected{% endif %}>Хочу прочитать</option>
                         <option value="read" {% if book.is_read %}selected{% endif %}>Прочитана</option>
@@ -40,6 +42,7 @@
                     <!-- здесь должен быть код для отображения ссылок на магазины, где можно купить книгу -->
                 </div>
             </div>
+
         </div>
     </div>
 </div>
@@ -65,9 +68,9 @@
                 if (data.success) {
                     // Обновление статуса книги на странице
                     if (selectedStatus === 'to_read') {
-                        document.querySelector('.book-status').innerHTML = '<p>Статус: Хочу прочитать</p>';
+                        document.querySelector('.book-status-details').innerHTML = '<p>Статус: Хочу прочитать</p>';
                     } else if (selectedStatus === 'read') {
-                        document.querySelector('.book-status').innerHTML = '<p>Статус: Прочитана</p>';
+                        document.querySelector('.book-status-details').innerHTML = '<p>Статус: Прочитана</p>';
                     }
                 }
             })

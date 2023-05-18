@@ -764,27 +764,52 @@ a {
     }
 
     .book-container {
+      height: 600px;
     }
     .book-cart-container {
+      margin: 50px 200px;
     }
     .book-cart-row {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      grid-template-rows: auto 1fr;
+      align-items: start;
+      justify-content: space-around;
+      grid-column-gap: 70px;
     }
-    .book-cart-image {
+    .book-cart-image img{
+      box-shadow: 0 5.5px 5px 0 #000
     }
     .book-cart-details {
+      background-color:#f7f7f7 ;
+      border-radius: 16px;
+      padding: 20px;
+    }
+    .book-cart-details h3,
+    .book-cart-details h4{
+      padding-left: 30px;
     }
     .book-rating {
+      background-color:#f7f7f7 ;
+      border-radius: 16px;
+      text-align: center;
     }
     .rating-stars {
     }
     .book.user_rating {
     }
-
     .book-status {
+      background-color:#f7f7f7 ;
+      border-radius: 16px;
+      padding-left: 30px;
+      padding-top: 20px;
+      margin-top: 20px;
     }
-    .btn {
+    .book-status-details option{
+
     }
-    .btn-primary {
+    .book-status-details button{
+
     }
     .update-status-btn {
     }

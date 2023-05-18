@@ -129,7 +129,6 @@ def update_book_status(request, book_id, status):
     book.save()
     return JsonResponse({'success': True})
 
-@login_required
 def rate_book(request, book_id, rating):
     book = Book.objects.get(id=book_id)
     user = request.user
