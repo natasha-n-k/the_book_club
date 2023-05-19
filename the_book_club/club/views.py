@@ -10,6 +10,7 @@ from django.contrib import messages
 from django.http import JsonResponse
 from .models import BookClub, Book,  Rating, UserBook
 from datetime import date
+import datetime
 
 def index(request):
     return render(request, 'club/index.html')
@@ -23,33 +24,47 @@ def book_clubs(request):
     }
     return render(request, 'club/book_clubs.html', context)
 
+def club_detail(request, club_id):
+    club = get_object_or_404(BookClub, id=club_id)
+    return render(request, 'club/club_detail.html', {'club': club})
+
 def books(request):
     books = Book.objects.all()
     context = {
         'books':books
     }
     return render(request, 'club/books.html', context)
-
 @login_required
 def book_detail(request, book_id):
     book = get_object_or_404(Book, id=book_id)
+    user_book, created = UserBook.objects.get_or_create(user=request.user, book=book)
 
     if request.method == 'POST':
-        rating = int(request.POST.get('rating'))
-        Rating.objects.update_or_create(user=request.user, book=book, defaults={'rating': rating})
-        ratings = Rating.objects.filter(book=book)
-        average_rating = ratings.aggregate(models.Avg('rating')).get('rating__avg')
-        book.average_rating = round(average_rating, 1) if average_rating else None
-        book.save()
+        rating = request.POST.get('rating')
+        if rating is not None:
+            rating = int(rating)
+            Rating.objects.update_or_create(user=request.user, book=book, defaults={'rating': rating})
+            ratings = Rating.objects.filter(book=book)
+            average_rating = ratings.aggregate(models.Avg('rating')).get('rating__avg')
+            book.average_rating = round(average_rating, 1) if average_rating else None
+            book.save()
 
-        return JsonResponse({'success': True})
+        status = request.POST.get('status')
+        if status in ['to_read', 'read']:
+            user_book.status = status
+            if status == 'read':
+                user_book.date_read = datetime.date.today()
+            else:
+                user_book.date_read = None
+            user_book.save()
 
-    return render(request, 'club/book_detail.html', {'book': book})
+            return JsonResponse({
+                'success': True,
+                'status_text': user_book.get_status_display(),
+                'date_read': user_book.date_read.strftime('%Y-%m-%d') if user_book.date_read else None
+            })
 
-def club_detail(request, club_id):
-    club = get_object_or_404(BookClub, id=club_id)
-    return render(request, 'club/club_detail.html', {'club': club})
-
+    return render(request, 'club/book_detail.html', {'book': book, 'user_book': user_book})
 
 @csrf_protect
 def user_login(request):
@@ -120,16 +135,31 @@ def join_club(request, club_id):
 def update_book_status(request, book_id, status):
     book = get_object_or_404(Book, id=book_id)
     user_book, created = UserBook.objects.get_or_create(user=request.user, book=book)
-    if status == 'to_read':
-        user_book.is_want_to_read = True
-        user_book.is_read = False
-        user_book.date_read = None
-    elif status == 'read':
-        user_book.is_want_to_read = False
-        user_book.is_read = True
-        user_book.date_read = date.today()
-    user_book.save()
-    return JsonResponse({'success': True})
+    current_status = user_book.status
+
+    if current_status != status:
+        if status == 'to_read':
+            user_book.is_want_to_read = True
+            user_book.is_read = False
+            user_book.date_read = None
+            status_text = 'Хочу прочитать'
+        elif status == 'read':
+            user_book.is_want_to_read = False
+            user_book.is_read = True
+            user_book.date_read = date.today()
+            status_text = 'Прочитана'
+        else:
+            user_book.is_want_to_read = False
+            user_book.is_read = False
+            user_book.date_read = None
+            status_text = 'Не выбрано'
+
+        user_book.status = status
+        user_book.save()
+
+        return JsonResponse({'success': True, 'status_text': status_text})
+    else:
+        return JsonResponse({'success': True, 'status_text': user_book.get_status_display()})
 
 def rate_book(request, book_id, rating):
     book = Book.objects.get(id=book_id)

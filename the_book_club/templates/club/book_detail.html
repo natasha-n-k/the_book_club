@@ -10,7 +10,6 @@
                 <h3>{{ book.name }}</h3>
                 <h4>{{ book.author }}</h4>
                 <p>{{ book.description }}</p>
-
             </div>
             <div class="book-rating">
                 {% if book.average_rating %}
@@ -27,69 +26,72 @@
                 </div>
             </div>
             <div class="book-status">
-                <div class="book-status">
-                    <div class="book-status-details">
-                        <form id="status-form" method="POST">
-                            {% csrf_token %}
-                            <select id="status-select" name="status">
-                                <option value="none" {% if not user_book.is_want_to_read and not user_book.is_read %}selected{% endif %}>Не выбрано</option>
-                                <option value="to_read" {% if user_book.is_want_to_read %}selected{% endif %}>Хочу прочитать</option>
-                                <option value="read" {% if user_book.is_read %}selected{% endif %}>Прочитана</option>
-                            </select>
-                            <button type="submit" class="btn btn-primary update-status-btn">Обновить</button>
-                        </form>
-                        {% if book.date_read %}
-                            <p>Дата прочтения: {{ book.date_read }}</p>
+                <div class="book-status-details">
+                    {% if user_book.status == 'to_read' %}
+                        <p>Статус: Хочу прочитать</p>
+                    {% elif user_book.status == 'read' %}
+                        <p>Статус: Прочитана</p>
+                        {% if user_book.date_read %}
+                            <p>Дата добавления в прочитанные: {{ user_book.date_read }}</p>
                         {% endif %}
-                    </div>
-    
-                <div class="book-links">
-                    <p>Купить книгу:</p>
-                    <!-- здесь должен быть код для отображения ссылок на магазины, где можно купить книгу -->
+                    {% else %}
+                        <p>Статус: Не выбрано</p>
+                    {% endif %}
                 </div>
+                <form id="status-form" method="POST">
+                    {% csrf_token %}
+                    <select id="status-select" name="status">
+                        <option value="none" {% if user_book.status == 'none' %}selected{% endif %}>Не выбрано</option>
+                        <option value="to_read" {% if user_book.status == 'to_read' %}selected{% endif %}>Хочу прочитать</option>
+                        <option value="read" {% if user_book.status == 'read' %}selected{% endif %}>Прочитана</option>
+                    </select>
+                    <button type="submit" class="btn btn-primary update-status-btn">Обновить</button>
+                </form>
             </div>
-
         </div>
     </div>
 </div>
 <script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const statusForm = document.querySelector('#status-form');
+document.addEventListener('DOMContentLoaded', () => {
+    const statusForm = document.querySelector('#status-form');
+    const currentStatus = '{{ user_book.status }}';
+    document.querySelector('#status-select').value = currentStatus;
 
-        statusForm.addEventListener('submit', (event) => {
-            event.preventDefault();
+    statusForm.addEventListener('submit', (event) => {
+        event.preventDefault();
 
-            const selectedStatus = document.querySelector('#status-select').value;
-            const bookId = '{{ book.id }}';
-            const url = `/update_book_status/${bookId}/${selectedStatus}/`;
+        const selectedStatus = document.querySelector('#status-select').value;
+        const bookId = '{{ book.id }}';
+        const url = `/update_book_status/${bookId}/${selectedStatus}/`;
 
-            fetch(url, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'X-CSRFToken': '{{ csrf_token }}'
+        fetch(url, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRFToken': '{{ csrf_token }}'
+            }
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                // Обновление статуса книги на странице
+                if (data.status_text === 'Не выбрано') {
+                    document.querySelector('.book-status-details').innerHTML = '<p>Статус: Не выбрано</p>';
+                } else if (data.status_text === 'Хочу прочитать') {
+                    document.querySelector('.book-status-details').innerHTML = '<p>Статус: Хочу прочитать</p>';
+                } else if (data.status_text === 'Прочитана') {
+                    const dateRead = data.date_read ? new Date(data.date_read).toLocaleDateString('en-US') : '';
+                    document.querySelector('.book-status-details').innerHTML = `<p>Статус: Прочитана</p><p>Дата добавления в прочитанные: ${dateRead}</p>`;
                 }
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.success) {
-                    // Обновление статуса книги на странице
-                    if (selectedStatus === 'none') {
-                        document.querySelector('.book-status-details').innerHTML = '';
-                    } else if (selectedStatus === 'to_read') {
-                        document.querySelector('.book-status-details').innerHTML = '<p>Статус: Хочу прочитать</p>';
-                    } else if (selectedStatus === 'read') {
-                        document.querySelector('.book-status-details').innerHTML = '<p>Статус: Прочитана</p>';
-                    }
-                } else {
-                    // В случае ошибки отображаем сообщение пользователю
-                    console.log('Ошибка при обновлении статуса книги');
-                }
-            })
-            .catch(error => {
-                console.log('Ошибка при обновлении статуса книги:', error);
-            });
+            } else {
+                // В случае ошибки отображаем сообщение пользователю
+                console.log('Ошибка при обновлении статуса книги');
+            }
+        })
+        .catch(error => {
+            console.log('Ошибка при обновлении статуса книги:', error);
         });
     });
+});
 </script>
 {% endblock %}

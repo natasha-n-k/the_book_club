@@ -30,6 +30,7 @@ class UserBook(models.Model):
     is_read = models.BooleanField(default=False)
     date_read = models.DateField(blank=True, null=True)
     average_rating = models.DecimalField(max_digits=2, decimal_places=1, null=True)
+    status = models.CharField(max_length=20, default='none')
 
     def __str__(self):
         return f"{self.user.username}'s {self.book.name}"
