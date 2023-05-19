@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-
+{% load static %}
 {% block content %}
 <div class="book-container">
     <div class="book-cart-container">
@@ -55,9 +55,8 @@
                 </div>
                 <div class="purchase-links">
                     <h4>Купить книгу</h4>
-                        <a href="https://example.com">Ссылка 1</a>
-                        <a href="https://example.com">Ссылка 2</a>
-                        <a href="https://example.com">Ссылка 3</a>
+                    <a href="https://www.bookvoed.ru/books?q={{ book.name }}"> <img src="{% static 'img/logo-b.png' %}" alt="" width="100" height="50"></a>
+                    <a href="https://www.labirint.ru/search/{{ book.name }}/"><img src="{% static 'img/logo-l.png' %}" alt="" width="100" height="50"></a>
             </div>
         </div>
     </div>
