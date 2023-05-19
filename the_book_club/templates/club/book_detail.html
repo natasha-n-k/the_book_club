@@ -44,14 +44,14 @@
                             </ul>
                         </select>
                     </form>
-                </div>
-                <div class="book-status-details">
-                    {% if user_book.status == 'read' %}
-                        {% if user_book.date_read %}
-                            <p><b>{{ user_book.date_read }}</b></p>
+                    <div class="book-status-details">
+                        {% if user_book.status == 'read' %}
+                            {% if user_book.date_read %}
+                                <p><b>{{ user_book.date_read }}</b></p>
+                            {% endif %}
+                        {% else %}
                         {% endif %}
-                    {% else %}
-                    {% endif %}
+                    </div>
                 </div>
                 <div class="purchase-links">
                     <h4>Купить книгу</h4>
