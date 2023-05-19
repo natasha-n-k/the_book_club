@@ -790,9 +790,10 @@ a {
       padding-left: 30px;
     }
     .book-rating {
-      background-color:#f7f7f7 ;
+      background-color:#6998AB ;
       border-radius: 16px;
       text-align: center;
+      padding: 20px;
     }
     .rating-stars {
     }
@@ -805,14 +806,46 @@ a {
       padding-top: 20px;
       margin-top: 20px;
     }
-    .book-status-details option{
+    .book-status-details p{
+      color: #000;
+      text-shadow: #6998AB 1px 0 10px;
+      padding-left: 40px
+    }
+    .book-rating select{
+      padding: 4px 8px ;
+      text-align: left;
+      text-shadow: 0 1px #e3f1f1;
+      letter-spacing: 2px;
+      color: #6998AB;
+      background: #f7f7f7;
+      border: 1px solid;
+      border-color: #c4c4c4 #d1d1d1 #d4d4d4;
+      border-radius: 6px;
+      outline: 5px solid #eff4f7;
+      -moz-outline-radius: 3px;
+      -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
+      box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
+    }
+    .status-form {
+      padding-left: 20px;
+    }
+    .status-form select{
+      padding: 8px 20px;
+      text-align: left;
+      text-shadow: 0 1px #e3f1f1;
+      letter-spacing: 2px;
+      color: #f7f7f7;
+      background: #6998AB;
+      border: 1px solid;
+      border-color: #c4c4c4 #d1d1d1 #d4d4d4;
+      border-radius: 6px;
+      outline: 5px solid #eff4f7;
+      -moz-outline-radius: 3px;
+      -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
+      box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
+    }
 
-    }
-    .book-status-details button{
 
-    }
-    .update-status-btn {
-    }
     .book-links {
     }
 }

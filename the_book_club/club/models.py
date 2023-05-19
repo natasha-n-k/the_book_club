@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.db.models import Avg
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
@@ -29,7 +30,6 @@ class UserBook(models.Model):
     is_want_to_read = models.BooleanField(default=False)
     is_read = models.BooleanField(default=False)
     date_read = models.DateField(blank=True, null=True)
-    average_rating = models.DecimalField(max_digits=2, decimal_places=1, null=True)
     status = models.CharField(max_length=20, default='none')
 
     def __str__(self):
@@ -40,18 +40,28 @@ class Book(models.Model):
     author = models.CharField(max_length=200, default='None', null=True)
     description = models.TextField()
     image = models.ImageField(upload_to='images')
-    average_rating = models.DecimalField(max_digits=2, decimal_places=1, null=True)
+    average_rating = models.DecimalField(max_digits=3, decimal_places=2, null=True)
 
     def __str__(self):
         return self.name
 
+    def calculate_average_rating(self):
+        return Rating.objects.filter(book=self).aggregate(Avg('rating'))['rating__avg']
+
 class Rating(models.Model):
     book = models.ForeignKey(Book, on_delete=models.CASCADE)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    rating = models.IntegerField(choices=((1, '1'), (2, '2'), (3, '3'), (4, '4'), (5, '5')))
+    user_book = models.ForeignKey(UserBook, on_delete=models.CASCADE, null=True)
+    rating = models.DecimalField(max_digits=2, decimal_places=1)
 
     def __str__(self):
         return f"{self.user.username}'s rating for {self.book.name}"
+
+    def save(self, *args, **kwargs):
+        if not self.user_book:
+            user_book, _ = UserBook.objects.get_or_create(user=self.user, book=self.book)
+            self.user_book = user_book
+        super().save(*args, **kwargs)
 
 class BookPage(models.Model):
     book = models.ForeignKey(Book, on_delete=models.CASCADE)

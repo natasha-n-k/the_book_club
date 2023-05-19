@@ -18,8 +18,6 @@ urlpatterns = [
     path('register/', views.user_register, name='register'), 
     path('join_club/<int:club_id>/', views.join_club, name='join_club'),
     path('edit_profile/', views.edit_profile, name='edit_profile'),
-    path('rate_book/<int:book_id>/', views.rate_book, name='rate_book'),
-    path('rate_book/<int:book_id>/<int:rating>/', views.rate_book, name='rate_book'),
     path('update_book_status/<int:book_id>/<str:status>/', views.update_book_status, name='update_book_status'),
-
+    path('book/<int:book_id>/rate/', views.rate_book, name='rate_book'),
 ]

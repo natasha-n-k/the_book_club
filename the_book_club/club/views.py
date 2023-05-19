@@ -34,7 +34,7 @@ def books(request):
         'books':books
     }
     return render(request, 'club/books.html', context)
-@login_required
+
 def book_detail(request, book_id):
     book = get_object_or_404(Book, id=book_id)
     user_book, created = UserBook.objects.get_or_create(user=request.user, book=book)
@@ -44,8 +44,7 @@ def book_detail(request, book_id):
         if rating is not None:
             rating = int(rating)
             Rating.objects.update_or_create(user=request.user, book=book, defaults={'rating': rating})
-            ratings = Rating.objects.filter(book=book)
-            average_rating = ratings.aggregate(models.Avg('rating')).get('rating__avg')
+            average_rating = book.calculate_average_rating()
             book.average_rating = round(average_rating, 1) if average_rating else None
             book.save()
 
@@ -161,14 +160,12 @@ def update_book_status(request, book_id, status):
     else:
         return JsonResponse({'success': True, 'status_text': user_book.get_status_display()})
 
-def rate_book(request, book_id, rating):
-    book = Book.objects.get(id=book_id)
-    user = request.user
-    if Rating.objects.filter(book=book, user=user).exists():
-        book_rating = Rating.objects.get(book=book, user=user)
-        book_rating.rating = rating
-    else:
-        book_rating = Rating.objects.create(book=book, user=user, rating=rating)
-    book_rating.save()
-    average_rating = Rating.objects.get_average_rating(book=book)
-    return JsonResponse({'success': True, 'average_rating': average_rating})
+def rate_book(request, book_id):
+    if request.method == 'POST':
+        rating = float(request.POST.get('rating'))
+        book = Book.objects.get(id=book_id)
+        user = request.user
+        Rating.objects.create(book=book, user=user, rating=rating)
+        book.average_rating = book.calculate_average_rating()
+        book.save()
+    return redirect('club:book_detail', book_id=book_id)

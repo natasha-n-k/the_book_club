@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+
 {% block content %}
 <div class="book-container">
     <div class="book-cart-container">
@@ -13,85 +14,93 @@
             </div>
             <div class="book-rating">
                 {% if book.average_rating %}
-                    <p>{{ book.average_rating }}</p>
+                <h3>★ {{ book.average_rating }}</h3>
                 {% else %}
-                    <p>Нет оценок</p>
+                <h3>★ Нет оценок</h3>
                 {% endif %}
-                <div class="rating-stars">
-                    <span class="star {% if book.user_rating and book.user_rating >= 1 %}rated{% endif %}" data-rating="1">★</span>
-                    <span class="star {% if book.user_rating and book.user_rating >= 2 %}rated{% endif %}" data-rating="2">★</span>
-                    <span class="star {% if book.user_rating and book.user_rating >= 3 %}rated{% endif %}" data-rating="3">★</span>
-                    <span class="star {% if book.user_rating and book.user_rating >= 4 %}rated{% endif %}" data-rating="4">★</span>
-                    <span class="star {% if book.user_rating and book.user_rating >= 5 %}rated{% endif %}" data-rating="5">★</span>
-                </div>
+                {% if user.is_authenticated %}
+                <form method="POST" action="{% url 'club:rate_book' book.id %}">
+                    {% csrf_token %}
+                    <p>Оцени книгу</p>
+                    <select name="rating" onchange="this.form.submit()">
+                        <option value="1" {% if user_book.rating == 1 %}selected{% endif %}>1</option>
+                        <option value="2" {% if user_book.rating == 2 %}selected{% endif %}>2</option>
+                        <option value="3" {% if user_book.rating == 3 %}selected{% endif %}>3</option>
+                        <option value="4" {% if user_book.rating == 4 %}selected{% endif %}>4</option>
+                        <option value="5" {% if user_book.rating == 5 %}selected{% endif %}>5</option>
+                    </select>
+                </form>
+                {% endif %}
             </div>
             <div class="book-status">
+                <div class="status-form">
+                    <form id="status-form" method="POST">
+                        {% csrf_token %}
+                        <select id="status-select" name="status">
+                            <ul>
+                                <li><option value="none" {% if user_book.status == 'none' %}selected{% endif %}>Не выбрано</option></li>
+                                <li><option value="to_read" {% if user_book.status == 'to_read' %}selected{% endif %}>Хочу прочитать</option></li>
+                                <li><option value="read" {% if user_book.status == 'read' %}selected{% endif %}>Прочитана</option></li>
+                            </ul>
+                        </select>
+                    </form>
+                </div>
                 <div class="book-status-details">
-                    {% if user_book.status == 'to_read' %}
-                        <p>Статус: Хочу прочитать</p>
-                    {% elif user_book.status == 'read' %}
-                        <p>Статус: Прочитана</p>
+                    {% if user_book.status == 'read' %}
                         {% if user_book.date_read %}
-                            <p>Дата добавления в прочитанные: {{ user_book.date_read }}</p>
+                            <p><b>{{ user_book.date_read }}</b></p>
                         {% endif %}
                     {% else %}
-                        <p>Статус: Не выбрано</p>
                     {% endif %}
                 </div>
-                <form id="status-form" method="POST">
-                    {% csrf_token %}
-                    <select id="status-select" name="status">
-                        <option value="none" {% if user_book.status == 'none' %}selected{% endif %}>Не выбрано</option>
-                        <option value="to_read" {% if user_book.status == 'to_read' %}selected{% endif %}>Хочу прочитать</option>
-                        <option value="read" {% if user_book.status == 'read' %}selected{% endif %}>Прочитана</option>
-                    </select>
-                    <button type="submit" class="btn btn-primary update-status-btn">Обновить</button>
-                </form>
+                <div class="purchase-links">
+                    <h4>Купить книгу</h4>
+                        <a href="https://example.com">Ссылка 1</a>
+                        <a href="https://example.com">Ссылка 2</a>
+                        <a href="https://example.com">Ссылка 3</a>
             </div>
         </div>
     </div>
 </div>
 <script>
-document.addEventListener('DOMContentLoaded', () => {
-    const statusForm = document.querySelector('#status-form');
-    const currentStatus = '{{ user_book.status }}';
-    document.querySelector('#status-select').value = currentStatus;
-
-    statusForm.addEventListener('submit', (event) => {
-        event.preventDefault();
-
-        const selectedStatus = document.querySelector('#status-select').value;
-        const bookId = '{{ book.id }}';
-        const url = `/update_book_status/${bookId}/${selectedStatus}/`;
-
-        fetch(url, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'X-CSRFToken': '{{ csrf_token }}'
-            }
-        })
-        .then(response => response.json())
-        .then(data => {
-            if (data.success) {
-                // Обновление статуса книги на странице
-                if (data.status_text === 'Не выбрано') {
-                    document.querySelector('.book-status-details').innerHTML = '<p>Статус: Не выбрано</p>';
-                } else if (data.status_text === 'Хочу прочитать') {
-                    document.querySelector('.book-status-details').innerHTML = '<p>Статус: Хочу прочитать</p>';
-                } else if (data.status_text === 'Прочитана') {
-                    const dateRead = data.date_read ? new Date(data.date_read).toLocaleDateString('en-US') : '';
-                    document.querySelector('.book-status-details').innerHTML = `<p>Статус: Прочитана</p><p>Дата добавления в прочитанные: ${dateRead}</p>`;
+    document.addEventListener('DOMContentLoaded', () => {
+        const statusSelect = document.querySelector('#status-select');
+        const currentStatus = '{{ user_book.status }}';
+        statusSelect.value = currentStatus;
+    
+        statusSelect.addEventListener('change', () => {
+            const selectedStatus = statusSelect.value;
+            const bookId = '{{ book.id }}';
+            const url = `/update_book_status/${bookId}/${selectedStatus}/`;
+    
+            fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRFToken': '{{ csrf_token }}'
                 }
-            } else {
-                // В случае ошибки отображаем сообщение пользователю
-                console.log('Ошибка при обновлении статуса книги');
-            }
-        })
-        .catch(error => {
-            console.log('Ошибка при обновлении статуса книги:', error);
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    // Обновление статуса книги на странице
+                    if (data.status_text === 'Не выбрано') {
+                        document.querySelector('.book-status-details').innerHTML = '';
+                    } else if (data.status_text === 'Хочу прочитать') {
+                        document.querySelector('.book-status-details').innerHTML = '';
+                    } else if (data.status_text === 'Прочитана') {
+                        const dateRead = data.date_read ? new Date(data.date_read).toLocaleDateString('en-US') : '';
+                        document.querySelector('.book-status-details').innerHTML = '';
+                    }
+                } else {
+                    // В случае ошибки отображаем сообщение пользователю
+                    console.log('Ошибка при обновлении статуса книги');
+                }
+            })
+            .catch(error => {
+                console.log('Ошибка при обновлении статуса книги:', error);
+            });
         });
     });
-});
 </script>
 {% endblock %}
