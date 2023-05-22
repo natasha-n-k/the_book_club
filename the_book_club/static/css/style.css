@@ -337,8 +337,6 @@ a {
       font-size: 16px;
     }
 
-
-
     .books-container{
       display: flex;
       flex-direction: column;
@@ -779,7 +777,9 @@ a {
     }
     .book-cart-image img{
       box-shadow: 0 5.5px 5px 0 #000;
-      margin-top: 20px;
+      margin-top: 10px;
+      width: 170px;
+      height: 250px;
     }
     .book-cart-details {
       background-color:#f7f7f7 ;
@@ -857,4 +857,5 @@ a {
       border-radius: 5px;
       box-shadow: 0 2.5px 2px 0 #000
     }
+    
 }
