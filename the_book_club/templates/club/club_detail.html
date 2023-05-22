@@ -29,18 +29,28 @@
     </div>
     <div class="club-members">
     </div>
-    <div class="club-current-book">
-        <h2>Книга, которую мы читаем сейчас</h2>
+    <div class="club-selected-book">
+        <h2>Выбранная книга</h2>
+        {% if club.selected_book %}
         <div class="book-details">
             <div class="book-cover">
-                <img src="{{ club.current_book.image.url }}" alt="{{ club.current_book.name }} cover">
+                <img src="{{ club.selected_book.image.url }}" alt="{{ club.selected_book.name }} cover">
             </div>
             <div class="book-info">
-                <h3>{{ club.current_book.name }}</h3>
-                <p><strong>Автор: </strong>{{ club.current_book.author }}</p>
-                <p>{{ club.current_book.description }}</p>
+                <h3>{{ club.selected_book.name }}</h3>
+                <p><strong>Автор: </strong>{{ club.selected_book.author }}</p>
+                <p>{{ club.selected_book.description }}</p>
+                {% if request.user == club.admin %}
+                <form method="POST" action="{% url 'club:mark_book_read' club.id %}">
+                    {% csrf_token %}
+                    <button type="submit">Отметить как прочитанную</button>
+                </form>
+                {% endif %}
             </div>
         </div>
+        {% else %}
+        <p>Книга для прочтения ещё не выбрана.</p>
+        {% endif %}
     </div>
     <div class="club-book-queue">
         <h2>Книги в очереди</h2>

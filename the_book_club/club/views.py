@@ -169,3 +169,34 @@ def rate_book(request, book_id):
         book.average_rating = book.calculate_average_rating()
         book.save()
     return redirect('club:book_detail', book_id=book_id)
+
+from django.shortcuts import get_object_or_404
+
+@login_required
+def select_book(request, club_id):
+    club = get_object_or_404(BookClub, id=club_id)
+    
+    if request.method == 'POST' and request.user == club.admin:
+        book_id = request.POST.get('book')
+        book = get_object_or_404(Book, id=book_id)
+        club.selected_book = book
+        club.save()
+        messages.success(request, f'Книга "{book.name}" выбрана для прочтения в клубе "{club.name}"!')
+    else:
+        messages.error(request, 'У вас нет прав для выбора книги.')
+    
+    return redirect('club:club_detail', club_id=club_id)
+
+@login_required
+def mark_book_read(request, club_id):
+    club = get_object_or_404(BookClub, id=club_id)
+    
+    if request.method == 'POST' and request.user == club.admin:
+        club.selected_book = None
+        club.save()
+        messages.success(request, 'Книга успешно отмечена как прочитанная!')
+    else:
+        messages.error(request, 'У вас нет прав для отметки книги как прочитанной.')
+    
+    return redirect('club:club_detail', club_id=club_id)
+

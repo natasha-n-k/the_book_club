@@ -8,6 +8,19 @@ class Profile(models.Model):
 
     def __str__(self):
         return self.user.username
+    
+class Book(models.Model):
+    name = models.CharField(max_length=200)
+    author = models.CharField(max_length=200, default='None', null=True)
+    description = models.TextField()
+    image = models.ImageField(upload_to='images')
+    average_rating = models.DecimalField(max_digits=3, decimal_places=2, null=True)
+
+    def __str__(self):
+        return self.name
+
+    def calculate_average_rating(self):
+        return Rating.objects.filter(book=self).aggregate(Avg('rating'))['rating__avg']
 
 class BookClub(models.Model):
     name = models.CharField(max_length=200)
@@ -15,6 +28,8 @@ class BookClub(models.Model):
     image = models.ImageField(upload_to='images')
     venue = models.CharField(max_length=200, default='Online', null=True)
     members = models.ManyToManyField(User, related_name='clubs')
+    admin = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, related_name='administered_clubs')
+    selected_book = models.ForeignKey(Book, on_delete=models.SET_NULL, null=True, related_name='selected_clubs')
 
     def __str__(self):
         return self.name
@@ -35,18 +50,6 @@ class UserBook(models.Model):
     def __str__(self):
         return f"{self.user.username}'s {self.book.name}"
 
-class Book(models.Model):
-    name = models.CharField(max_length=200)
-    author = models.CharField(max_length=200, default='None', null=True)
-    description = models.TextField()
-    image = models.ImageField(upload_to='images')
-    average_rating = models.DecimalField(max_digits=3, decimal_places=2, null=True)
-
-    def __str__(self):
-        return self.name
-
-    def calculate_average_rating(self):
-        return Rating.objects.filter(book=self).aggregate(Avg('rating'))['rating__avg']
 
 class Rating(models.Model):
     book = models.ForeignKey(Book, on_delete=models.CASCADE)
