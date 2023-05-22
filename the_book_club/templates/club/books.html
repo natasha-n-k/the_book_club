@@ -32,7 +32,9 @@
                 <p class="clamp">{{ book.description }}</p>
             </div>
             <div class="books-cart-button">
-                <button type="submit" class="btn btn-primary add-to-cart-btn">Добавить на полку</button>
+                <form action="{% url 'club:book_detail' book.pk %}" target="_blank">
+                <button type="submit" class="btn btn-primary add-to-cart-btn">Прочитать подробнее</button>
+                </form>
             </div>
         </div>
     </div>
