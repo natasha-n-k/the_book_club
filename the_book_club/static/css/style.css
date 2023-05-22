@@ -860,5 +860,42 @@ a {
       border-radius: 5px;
       box-shadow: 0 2.5px 2px 0 #000
     }
-    
+    .club-details {
+      margin: 10px 150px;
+      display: flex;
+      flex-direction: column;
+    }
+    .club-info {
+      display: flex;
+      flex-direction: row;
+    }
+    .clubs-cart-image {
+      background-color: #f7f7f7;
+      border-radius: 16px;
+      width: 30%;
+      padding: 10px 20px ;
+      text-align: center;
+    }
+    .clubs-cart-desc{
+      margin: 0 40px;
+      width: 70%;
+    }
+    .club-members {
+    }
+    .club-current-book {
+    }
+    .book-details {
+    }
+    .book-cover {
+    }
+    .book-info {
+    }
+    .club-book-queue {
+      display: flex;
+      flex-direction: row;
+    }
+    .club-read-books {
+      display: flex;
+      flex-direction: row;
+    }
 }

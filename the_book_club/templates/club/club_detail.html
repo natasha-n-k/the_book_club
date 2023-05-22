@@ -4,18 +4,30 @@
 {% block content %}
 <div class="club-details">
     <div class="club-info">
-        <h1>{{ club.name }}</h1>
-        <p>{{ club.description }}</p>
-        <p><strong>Место проведения: </strong>{{ club.venue }}</p>
-        <p><strong>Дата проведения: </strong>{{ club.date }}</p>
+        <div class="clubs-cart-image">
+            <img src="{{ club.image.url }}" width="120" height="120">
+            <h3>клуб</h3>
+            <h2>{{ club.name }}</h2>
+            <p><strong>Место проведения: </strong>{{ club.venue }}</p>
+            <p><strong>Дата следующей встречи: </strong>{{ club.date }}</p>
+        </div>
+        <div class="clubs-cart-desc">
+            <div>
+                <h3>О нашем клубе</h3>
+                <p>{{ club.description }}</p>
+            </div>
+            <div>
+                <p> человек в клубе</p>
+                <h3>Члены клуба</h3>
+                <ul>
+                    {% for member in club.members.all %}
+                    <li>{{ member }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
     </div>
     <div class="club-members">
-        <h2>Члены клуба</h2>
-        <ul>
-            {% for member in club.members.all %}
-            <li>{{ member }}</li>
-            {% endfor %}
-        </ul>
     </div>
     <div class="club-current-book">
         <h2>Книга, которую мы читаем сейчас</h2>
