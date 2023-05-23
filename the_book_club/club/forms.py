@@ -2,11 +2,11 @@ from django import forms
 from django.contrib.auth.forms import UserCreationForm as BaseUserCreationForm
 
 from django.contrib.auth.models import User
-from .models import Book, BookClub
+from .models import Book, BookClub, Meeting
 
 class ClubAdminForm(forms.Form):
     book = forms.ModelChoiceField(queryset=Book.objects.all(), label='Книга для чтения')
-    meeting_date = forms.DateField(label='Дата встречи')
+    meeting_date = forms.DateField(label='Дата встречи', widget=forms.DateInput(format='%d.%m.%Y'), input_formats=('%d.%m.%Y',))
     meeting_location = forms.CharField(label='Место встречи')
 
 class UserCreationForm(BaseUserCreationForm):

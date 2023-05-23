@@ -77,3 +77,10 @@ class BookPage(models.Model):
 class Meeting(models.Model):
     date = models.DateField()
     location = models.CharField(max_length=100)
+
+class Queue(models.Model):
+    club = models.ForeignKey(BookClub, on_delete=models.CASCADE)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"Queue for {self.club.name}"

@@ -8,7 +8,7 @@ from django.contrib.auth import logout
 from django.http import JsonResponse
 from django.contrib import messages
 from django.http import JsonResponse
-from .models import BookClub, Book,  Rating, UserBook
+from .models import BookClub, Book,  Rating, UserBook, Meeting, Queue
 from .forms import ClubAdminForm
 from datetime import date
 import datetime
@@ -209,15 +209,27 @@ def club_admin(request, club_id):
             book_id = form.cleaned_data['book']
             meeting_date = form.cleaned_data['meeting_date']
             meeting_location = form.cleaned_data['meeting_location']
-            
-            # Назначаем выбранную книгу и создаем встречу
+
+            # Назначаем выбранную книгу
             club.book_id = book_id
-            club.meeting = Meeting.objects.create(date=meeting_date, location=meeting_location)
             club.save()
-            
+
+            # Создаем встречу
+            meeting = Meeting.objects.create(date=meeting_date, location=meeting_location)
+            club.meeting = meeting
+            club.save()
+
             return redirect('club:club_detail', club_id=club_id)
     else:
         form = ClubAdminForm()
-
     return render(request, 'club/admin.html', {'club': club, 'form': form})
 
+
+def add_to_queue(request, club_id):
+    # Retrieve the club object based on club_id
+    club = BookClub.objects.get(id=club_id)
+    # Create a new Queue object
+    queue = Queue(club=club)
+    # Save the queue object
+    queue.save()
+    # Redirect to a success page or any 

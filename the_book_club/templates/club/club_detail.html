@@ -6,7 +6,7 @@
     <div class="club-info">
         <div class="club-cart-image">
             <img src="{{ club.image.url }}" width="120" height="120">
-            <h3>клуб</h3>
+            <h3>Клуб</h3>
             <h2>{{ club.name }}</h2>
             <p><strong>Место проведения: </strong>{{ club.venue }}</p>
             <p><strong>Дата следующей встречи: </strong>{{ club.date }}</p>
@@ -17,7 +17,7 @@
                 <p>{{ club.description }}</p>
             </div>
             <div class="club-members">
-                <p> человек в клубе</p>
+                <p>{{ club.members.count }} человек в клубе</p>
                 <p>Администратор группы: <b>{{ club.admin }}</b></p>
                 <h3>Члены клуба</h3>
                 <ul>
