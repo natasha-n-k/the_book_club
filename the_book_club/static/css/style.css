@@ -296,14 +296,13 @@ a {
     }
 
     .clubs-cart-image{
-
+      
     }
 
     .clubs-cart-image img{
       border-radius: 40px;
       display: block;
-      margin: auto;
-      
+      margin: 0 auto;
     }
 
     .clubs-cart-title{
@@ -315,10 +314,6 @@ a {
     }
 
     .clubs-book-title{
-
-    }
-
-    .clubs-cart-image{
 
     }
 
@@ -375,7 +370,7 @@ a {
       overflow: hidden;
       text-overflow: ellipsis;
       display: -webkit-box;
-      -webkit-line-clamp: 3; /* Количество строк, которые должны отображаться */
+      -webkit-line-clamp: 3;
       -webkit-box-orient: vertical;
   }
   
@@ -869,24 +864,30 @@ a {
       display: flex;
       flex-direction: row;
     }
-    .clubs-cart-image {
+    .club-cart-image {
       background-color: #f7f7f7;
       border-radius: 16px;
       width: 30%;
       padding: 10px 20px ;
       text-align: center;
     }
-    .clubs-cart-desc{
+    .club-cart-desc{
       margin: 0 40px;
       width: 70%;
     }
     .club-members {
+    }
+    .club-selected-book{
+      
     }
     .club-current-book {
     }
     .book-details {
     }
     .book-cover {
+    }
+    .book-cover img{
+      width: 150px;
     }
     .book-info {
     }

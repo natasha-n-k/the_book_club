@@ -4,30 +4,32 @@
 {% block content %}
 <div class="club-details">
     <div class="club-info">
-        <div class="clubs-cart-image">
+        <div class="club-cart-image">
             <img src="{{ club.image.url }}" width="120" height="120">
             <h3>клуб</h3>
             <h2>{{ club.name }}</h2>
             <p><strong>Место проведения: </strong>{{ club.venue }}</p>
             <p><strong>Дата следующей встречи: </strong>{{ club.date }}</p>
         </div>
-        <div class="clubs-cart-desc">
+        <div class="club-cart-desc">
             <div>
                 <h3>О нашем клубе</h3>
                 <p>{{ club.description }}</p>
             </div>
-            <div>
+            <div class="club-members">
                 <p> человек в клубе</p>
+                <p>Администратор группы: <b>{{ club.admin }}</b></p>
                 <h3>Члены клуба</h3>
                 <ul>
                     {% for member in club.members.all %}
                     <li>{{ member }}</li>
                     {% endfor %}
                 </ul>
+                {% if request.user == club.admin %}
+                <a href="{% url 'club:club_admin' club.id %}">Перейти к администрированию клуба</a>
+                {% endif %}
             </div>
         </div>
-    </div>
-    <div class="club-members">
     </div>
     <div class="club-selected-book">
         <h2>Выбранная книга</h2>
@@ -39,7 +41,6 @@
             <div class="book-info">
                 <h3>{{ club.selected_book.name }}</h3>
                 <p><strong>Автор: </strong>{{ club.selected_book.author }}</p>
-                <p>{{ club.selected_book.description }}</p>
                 {% if request.user == club.admin %}
                 <form method="POST" action="{% url 'club:mark_book_read' club.id %}">
                     {% csrf_token %}
