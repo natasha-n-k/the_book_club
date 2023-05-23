@@ -9,6 +9,7 @@ from django.http import JsonResponse
 from django.contrib import messages
 from django.http import JsonResponse
 from .models import BookClub, Book,  Rating, UserBook
+from .forms import ClubAdminForm
 from datetime import date
 import datetime
 
@@ -199,4 +200,24 @@ def mark_book_read(request, club_id):
         messages.error(request, 'У вас нет прав для отметки книги как прочитанной.')
     
     return redirect('club:club_detail', club_id=club_id)
+
+def club_admin(request, club_id):
+    club = BookClub.objects.get(id=club_id)
+    if request.method == 'POST':
+        form = ClubAdminForm(request.POST)
+        if form.is_valid():
+            book_id = form.cleaned_data['book']
+            meeting_date = form.cleaned_data['meeting_date']
+            meeting_location = form.cleaned_data['meeting_location']
+            
+            # Назначаем выбранную книгу и создаем встречу
+            club.book_id = book_id
+            club.meeting = Meeting.objects.create(date=meeting_date, location=meeting_location)
+            club.save()
+            
+            return redirect('club:club_detail', club_id=club_id)
+    else:
+        form = ClubAdminForm()
+
+    return render(request, 'club/admin.html', {'club': club, 'form': form})
 

@@ -1,9 +1,15 @@
 from django import forms
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import UserCreationForm as BaseUserCreationForm
+
 from django.contrib.auth.models import User
+from .models import Book, BookClub
 
+class ClubAdminForm(forms.Form):
+    book = forms.ModelChoiceField(queryset=Book.objects.all(), label='Книга для чтения')
+    meeting_date = forms.DateField(label='Дата встречи')
+    meeting_location = forms.CharField(label='Место встречи')
 
-class UserCreationForm(forms.UserCreationForm):
+class UserCreationForm(BaseUserCreationForm):
     username = forms.CharField(label='имя пользователя')
     password1 = forms.CharField(label='пароль', widget=forms.PasswordInput)
     password2 = forms.CharField(label='подтверждение пароля', widget=forms.PasswordInput)

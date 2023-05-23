@@ -30,6 +30,9 @@ class BookClub(models.Model):
     members = models.ManyToManyField(User, related_name='clubs')
     admin = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, related_name='administered_clubs')
     selected_book = models.ForeignKey(Book, on_delete=models.SET_NULL, null=True, related_name='selected_clubs')
+    book = models.ForeignKey('Book', on_delete=models.SET_NULL, null=True)
+    meeting = models.OneToOneField('Meeting', on_delete=models.SET_NULL, null=True)
+
 
     def __str__(self):
         return self.name
@@ -70,3 +73,7 @@ class BookPage(models.Model):
     book = models.ForeignKey(Book, on_delete=models.CASCADE)
     title = models.CharField(max_length=200)
     content = models.TextField()
+
+class Meeting(models.Model):
+    date = models.DateField()
+    location = models.CharField(max_length=100)
