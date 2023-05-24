@@ -18,10 +18,10 @@
                     <p>{{ club.description }}</p>
                 </div>
                 <div class="clubs-book-title">
-                    <h3>{{ club.book.name }}</h3>
+                    <h4>{{ club.book.name }}</h4>
                 </div>
                 <div class="clubs-book-image">
-                    <img src="{{ club.book.image.url }}">
+                    <img src="{{ club.book.image.url }}" width="150">
                 </div>
                 <div class="clubs-cart-button">
                     {% if request.user in club.members.all %}

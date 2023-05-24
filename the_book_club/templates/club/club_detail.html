@@ -39,7 +39,7 @@
                 <img src="{{ club.selected_book.image.url }}" alt="{{ club.selected_book.name }} cover">
             </div>
             <div class="book-info">
-                <h3>{{ club.selected_book.name }}</h3>
+                <h3>{{ club.book.name }}</h3>
                 <p><strong>Автор: </strong>{{ club.selected_book.author }}</p>
                 {% if request.user == club.admin %}
                 <form method="POST" action="{% url 'club:mark_book_read' club.id %}">
