@@ -30,17 +30,12 @@ class BookClub(models.Model):
     members = models.ManyToManyField(User, related_name='clubs')
     admin = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, related_name='administered_clubs')
     selected_book = models.ForeignKey(Book, on_delete=models.SET_NULL, null=True, related_name='selected_clubs')
-    book = models.ForeignKey('Book', on_delete=models.SET_NULL, null=True)
     meeting = models.OneToOneField('Meeting', on_delete=models.SET_NULL, null=True)
+    book_queue = models.ManyToManyField(Book, related_name='queued_clubs')
 
 
     def __str__(self):
         return self.name
-
-class ClubPage(models.Model):
-    book_club = models.ForeignKey(BookClub, on_delete=models.CASCADE)
-    title = models.CharField(max_length=200)
-    content = models.TextField()
 
 class UserBook(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -68,11 +63,6 @@ class Rating(models.Model):
             user_book, _ = UserBook.objects.get_or_create(user=self.user, book=self.book)
             self.user_book = user_book
         super().save(*args, **kwargs)
-
-class BookPage(models.Model):
-    book = models.ForeignKey(Book, on_delete=models.CASCADE)
-    title = models.CharField(max_length=200)
-    content = models.TextField()
 
 class Meeting(models.Model):
     date = models.DateField()

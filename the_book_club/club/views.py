@@ -9,7 +9,7 @@ from django.http import JsonResponse
 from django.contrib import messages
 from django.http import JsonResponse
 from .models import BookClub, Book,  Rating, UserBook, Meeting, Queue
-from .forms import ClubAdminForm
+from .forms import ClubAdminForm, BookSelectionForm, BookQueueForm
 from datetime import date
 import datetime
 
@@ -172,15 +172,6 @@ def rate_book(request, book_id):
     return redirect('club:book_detail', book_id=book_id)
 
 from django.shortcuts import get_object_or_404
-
-def select_book(request, club_id):
-    if request.method == 'POST':
-        book_id = request.POST.get('book')
-        book = Book.objects.get(id=book_id)
-        club = BookClub.objects.get(id=club_id)
-        club.selected_book = book  # Обновление выбранной книги
-        club.save()
-        return redirect('club:admin_page', club_id=club_id)
     
 @login_required
 def mark_book_read(request, club_id):
@@ -197,33 +188,40 @@ def mark_book_read(request, club_id):
 
 def club_admin(request, club_id):
     club = BookClub.objects.get(id=club_id)
+
     if request.method == 'POST':
-        form = ClubAdminForm(request.POST)
-        if form.is_valid():
-            book_id = form.cleaned_data['book']
-            meeting_date = form.cleaned_data['meeting_date']
-            meeting_location = form.cleaned_data['meeting_location']
+        selection_form = BookSelectionForm(request.POST)
+        queue_form = BookQueueForm(request.POST, club_id=club_id)
 
-            # Назначаем выбранную книгу
-            club.book_id = book_id
+        if selection_form.is_valid():
+            book = selection_form.cleaned_data['book']
+            club.selected_book = book
             club.save()
+            return redirect('club:club_detail', club_id=club_id)
 
-            # Создаем встречу
-            meeting = Meeting.objects.create(date=meeting_date, location=meeting_location)
-            club.meeting = meeting
-            club.save()
-
+        if queue_form.is_valid():
+            book = queue_form.cleaned_data['book']
+            club.book_queue.add(book)
             return redirect('club:club_detail', club_id=club_id)
     else:
-        form = ClubAdminForm()
-    return render(request, 'club/admin.html', {'club': club, 'form': form})
+        selection_form = BookSelectionForm()
+        queue_form = BookQueueForm(club_id=club_id)
 
+    return render(request, 'club/admin.html', {'club': club, 'selection_form': selection_form, 'queue_form': queue_form})
 
 def add_to_queue(request, club_id):
-    # Retrieve the club object based on club_id
-    club = BookClub.objects.get(id=club_id)
-    # Create a new Queue object
-    queue = Queue(club=club)
-    # Save the queue object
-    queue.save()
-    # Redirect to a success page or any 
+    if request.method == 'POST':
+        book_id = request.POST.get('book')
+        club = BookClub.objects.get(id=club_id)
+        book = Book.objects.get(id=book_id)
+        club.book_queue.add(book)
+        return redirect('club:club_admin', club_id=club_id)
+    
+def select_book(request, club_id):
+    if request.method == 'POST':
+        book_id = request.POST.get('book')
+        book = Book.objects.get(id=book_id)
+        club = BookClub.objects.get(id=club_id)
+        club.selected_book = book
+        club.save()
+        return redirect('club:club_admin', club_id=club_id)

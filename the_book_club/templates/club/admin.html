@@ -10,7 +10,7 @@
   </form>
 
   <h3>Добавить книгу в очередь</h3>
-  <form method="POST" action="{% url 'club:club_admin' club_id=club.id %}">
+  <form method="POST" action="{% url 'club:add_to_queue' club_id=club.id %}">
     {% csrf_token %}
     {{ queue_form }}
     <button type="submit">Добавить</button>

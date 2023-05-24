@@ -23,4 +23,14 @@ class UserCreationForm(BaseUserCreationForm):
             'password2': 'Подтверждение пароля',
         }
 
-    
+class BookSelectionForm(forms.Form):
+    book = forms.ModelChoiceField(queryset=Book.objects.all())
+
+class BookQueueForm(forms.Form):
+    def __init__(self, *args, **kwargs):
+        club_id = kwargs.pop('club_id')
+        super(BookQueueForm, self).__init__(*args, **kwargs)
+        club = BookClub.objects.get(id=club_id)
+        self.fields['book'].queryset = Book.objects.exclude(id__in=club.book_queue.all())
+
+    book = forms.ModelChoiceField(queryset=Book.objects.all(), label='Книга')
