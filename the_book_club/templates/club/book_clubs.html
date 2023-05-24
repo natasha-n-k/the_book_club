@@ -18,11 +18,13 @@
                     <p>{{ club.description }}</p>
                 </div>
                 <div class="clubs-book-title">
-                    <h4>{{ club.selected_book.name }}</h4>
+                    <h4>Сейчас читаем:</h4>
                 </div>
                 <div class="clubs-book-image">
                     {% if club.selected_book %}
                     <img src="{{ club.selected_book.image.url }}" alt="{{ club.selected_book.name }} cover" width="150">
+                    {% else %}
+                    <p>Книга не выбрана</p>
                     {% endif %}
                 </div>
                     
