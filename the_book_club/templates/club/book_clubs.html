@@ -18,11 +18,14 @@
                     <p>{{ club.description }}</p>
                 </div>
                 <div class="clubs-book-title">
-                    <h4>{{ club.book.name }}</h4>
+                    <h4>{{ club.selected_book.name }}</h4>
                 </div>
                 <div class="clubs-book-image">
-                    <img src="{{ club.book.image.url }}" width="150">
+                    {% if club.selected_book %}
+                    <img src="{{ club.selected_book.image.url }}" alt="{{ club.selected_book.name }} cover" width="150">
+                    {% endif %}
                 </div>
+                    
                 <div class="clubs-cart-button">
                     {% if request.user in club.members.all %}
                         <span class="already-member">Вы участник клуба</span>
