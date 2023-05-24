@@ -2,55 +2,35 @@
 
 {% block content %}
   <h2>Страница администратора клуба</h2>
-
   <h3>Выберите книгу для чтения</h3>
-
-  <!-- Форма для выбора книги -->
-  <form method="POST" action="{% url 'club:select_book' club.id %}">
+  <form method="POST" action="{% url 'club:club_admin' club_id=club.id %}">
     {% csrf_token %}
-    <select name="book">
-      {% for book in available_books %}
-        <option value="{{ book.id }}">{{ book.name }}</option>
-      {% endfor %}
-    </select>
+    {{ selection_form }}
     <button type="submit">Выбрать</button>
   </form>
 
   <h3>Добавить книгу в очередь</h3>
-
-  <!-- Форма для добавления книги в очередь -->
-  <form method="POST" action="{% url 'club:add_to_queue' club.id %}">
+  <form method="POST" action="{% url 'club:club_admin' club_id=club.id %}">
     {% csrf_token %}
-    <select name="book">
-      {% for book in all_books %}
-        <option value="{{ book.id }}">{{ book.name }}</option>
-      {% endfor %}
-    </select>
+    {{ queue_form }}
     <button type="submit">Добавить</button>
   </form>
-
   <h3>Очередь на прочтение</h3>
-
   <ul>
     {% for book in club.book_queue.all %}
       <li>{{ book.name }}</li>
     {% endfor %}
   </ul>
-
   <h3>Прочитанные книги</h3>
-
   <ul>
     {% for book in club.read_books.all %}
       <li>{{ book.name }}</li>
     {% endfor %}
   </ul>
-
-  <!-- Отображение выбранной книги -->
   <h3>Выбранная книга</h3>
   {% if club.selected_book %}
     <p>{{ club.selected_book.name }}</p>
   {% else %}
     <p>Книга не выбрана</p>
   {% endif %}
-
-{% endblock %}
+  {% endblock %}
