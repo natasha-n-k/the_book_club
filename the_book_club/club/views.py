@@ -171,20 +171,6 @@ def rate_book(request, book_id):
         book.save()
     return redirect('club:book_detail', book_id=book_id)
 
-from django.shortcuts import get_object_or_404
-    
-@login_required
-def mark_book_read(request, club_id):
-    club = get_object_or_404(BookClub, id=club_id)
-    
-    if request.method == 'POST' and request.user == club.admin:
-        club.selected_book = None
-        club.save()
-        messages.success(request, 'Книга успешно отмечена как прочитанная!')
-    else:
-        messages.error(request, 'У вас нет прав для отметки книги как прочитанной.')
-    
-    return redirect('club:club_detail', club_id=club_id)
 
 def club_admin(request, club_id):
     club = BookClub.objects.get(id=club_id)
@@ -207,7 +193,8 @@ def club_admin(request, club_id):
         selection_form = BookSelectionForm()
         queue_form = BookQueueForm(club_id=club_id)
 
-    return render(request, 'club/admin.html', {'club': club, 'selection_form': selection_form, 'queue_form': queue_form})
+        read_books = club.read_books.all()
+        return render(request, 'club/admin.html', {'club': club, 'selection_form': selection_form, 'queue_form': queue_form, 'read_books': read_books})
 
 def add_to_queue(request, club_id):
     if request.method == 'POST':
@@ -225,3 +212,11 @@ def select_book(request, club_id):
         club.selected_book = book
         club.save()
         return redirect('club:club_admin', club_id=club_id)
+    
+def mark_book_read(request, club_id):
+    club = BookClub.objects.get(id=club_id)
+    selected_book = club.selected_book
+    club.read_books.add(selected_book)
+    selected_book.status = 'read'
+    selected_book.save()
+    return redirect('club:club_admin', club_id=club_id)

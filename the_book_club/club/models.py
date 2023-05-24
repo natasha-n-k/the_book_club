@@ -32,6 +32,7 @@ class BookClub(models.Model):
     selected_book = models.ForeignKey(Book, on_delete=models.SET_NULL, null=True, related_name='selected_clubs')
     meeting = models.OneToOneField('Meeting', on_delete=models.SET_NULL, null=True)
     book_queue = models.ManyToManyField(Book, related_name='queued_clubs')
+    read_books = models.ManyToManyField(Book, related_name='read_clubs')
 
 
     def __str__(self):
