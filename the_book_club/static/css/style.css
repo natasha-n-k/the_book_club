@@ -960,4 +960,20 @@ a {
       width: 150px;
       box-shadow: 0 5.5px 5px 0 #000;
     }
+    .admin-container{
+      margin: 0 150px;
+    }
+    .admin-container img{
+      width: 150px;
+      box-shadow: 0 5.5px 5px 0 #000;
+    }
+    .admin-container h2{
+      text-align: center;
+    }
+    .admin-item{
+      background-color: #f7f7f7;
+      border-radius: 16px;
+      margin: 10px 0;
+      padding: 10px 30px;
+    }
 }
