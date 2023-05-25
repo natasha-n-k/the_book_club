@@ -9,7 +9,7 @@
             <h3>Клуб</h3>
             <h2>{{ club.name }}</h2>
             <p><strong>Место проведения: </strong>{{ club.venue }}</p>
-            <p><strong>Дата следующей встречи: </strong>{{ club.date }}</p>
+            <p><strong>Дата следующей встречи: </strong>{{ club.meeting.date|date:"d.m.Y"}}</p>
         </div>
         <div class="club-cart-desc">
             <div>
