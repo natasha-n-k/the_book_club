@@ -18,7 +18,7 @@ a {
 
 /* Стили для мобильных устройств */
 @media screen and (max-width: 767px) {
-   header {
+  header {
     text-align: center;
     position: fixed;
     top: 0;
@@ -860,6 +860,8 @@ a {
       display: flex;
       flex-direction: column;
     }
+    .club-details h2{
+    }
     .club-info {
       display: flex;
       flex-direction: row;
@@ -871,11 +873,24 @@ a {
       padding: 10px 20px ;
       text-align: center;
     }
+    .club-cart-image img{
+      border-radius: 5px;
+    }
     .club-cart-desc{
       margin: 0 40px;
       width: 70%;
     }
     .club-members {
+
+    }
+    .hidden-members {
+      display: none;
+    }
+    .club-members:hover .hidden-members {
+      display: block;
+      box-shadow: 0 5.5px 5px 0 #6998AB;
+      font-family: 'Alegreya Sans', sans-serif;
+      font-weight: 600;
     }
     .club-selected-book{
       background-color: #f7f7f7;

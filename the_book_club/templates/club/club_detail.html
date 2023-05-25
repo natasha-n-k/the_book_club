@@ -20,7 +20,7 @@
                 <p>{{ club.members.count }} человек в клубе</p>
                 <p>Администратор группы: <b>{{ club.admin }}</b></p>
                 <h3>Члены клуба</h3>
-                <ul>
+                <ul class="hidden-members">
                     {% for member in club.members.all %}
                     <li>{{ member }}</li>
                     {% endfor %}
@@ -36,11 +36,9 @@
         {% if club.selected_book %}
         <div class="book-details">
             <div class="book-cover">
-                <img src="{{ club.selected_book.image.url }}" alt="{{ club.selected_book.name }} cover">
+                    <img src="{{ club.selected_book.image.url }}" alt="{{ club.selected_book.name }} cover">
             </div>
             <div class="book-info">
-                <h3>{{ club.book.name }}</h3>
-                <p><strong>Автор: </strong>{{ club.selected_book.author }}</p>
                 {% if request.user == club.admin %}
                 <form method="POST" action="{% url 'club:mark_book_read' club.id %}">
                     {% csrf_token %}
@@ -58,8 +56,8 @@
         <div class="club-queue-container">
             {% for book in club.book_queue.all %}
                 <div class="club-queue-item">
-                    <img src="{{ book.image.url }}" alt="{{book_queue.name }} cover"  height="230">
-                </div>
+                        <img src="{{ book.image.url }}" alt="{{book_queue.name }} cover"  height="230">
+                    </div>
             {% endfor %}
         </div>
     </div>
@@ -68,7 +66,7 @@
         <div class="club-read-container">
             {% for book in club.read_books.all %}
                 <div class="club-read-item">
-                    <img src="{{ book.image.url }}" alt="{{book_read.name }} cover" height="230">
+                        <img src="{{ book.image.url }}" alt="{{book_read.name }} cover" height="230">
                 </div> 
             {% endfor %}
         </div>
