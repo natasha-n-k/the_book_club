@@ -55,19 +55,23 @@
     </div>
     <div class="club-book-queue">
         <h2>Книги в очереди</h2>
-        <ul>
+        <div class="club-queue-container">
             {% for book in club.book_queue.all %}
-            <li>{{ book.name }}</li>
+                <div class="club-queue-item">
+                    <img src="{{ book.image.url }}" alt="{{book_queue.name }} cover"  height="230">
+                </div>
             {% endfor %}
-        </ul>
+        </div>
     </div>
     <div class="club-read-books">
         <h2>Прочитанные книги</h2>
-        <ul>
+        <div class="club-read-container">
             {% for book in club.read_books.all %}
-            <li>{{ book.name }}</li>
+                <div class="club-read-item">
+                    <img src="{{ book.image.url }}" alt="{{book_read.name }} cover" height="230">
+                </div> 
             {% endfor %}
-        </ul>
+        </div>
     </div>
 </div>
 {% endblock %}

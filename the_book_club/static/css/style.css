@@ -878,7 +878,10 @@ a {
     .club-members {
     }
     .club-selected-book{
-      
+      background-color: #f7f7f7;
+      border-radius: 16px;
+      margin: 10px 0;
+      padding: 0px 30px;
     }
     .club-current-book {
     }
@@ -888,15 +891,42 @@ a {
     }
     .book-cover img{
       width: 150px;
+      box-shadow: 0 5.5px 5px 0 #000;
     }
     .book-info {
     }
     .club-book-queue {
+      background-color: #f7f7f7;
+      border-radius: 16px;
+      margin: 10px 0;
+      padding: 10px 30px;
+    }
+    .club-queue-container {
       display: flex;
       flex-direction: row;
     }
+    .club-queue-item{
+        margin-right: 20px;
+    }
+    .club-queue-item img{
+      width: 150px;
+      box-shadow: 0 5.5px 5px 0 #000;
+    }
     .club-read-books {
+      background-color: #f7f7f7;
+      border-radius: 16px;
+      margin: 10px 0;
+      padding: 10px 30px;
+    }
+    .club-read-container {
       display: flex;
       flex-direction: row;
+    }
+    .club-read-item {
+      margin-right: 20px;
+    }
+    .club-read-item img{
+      width: 150px;
+      box-shadow: 0 5.5px 5px 0 #000;
     }
 }
