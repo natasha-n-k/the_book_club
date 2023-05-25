@@ -884,13 +884,17 @@ a {
 
     }
     .hidden-members {
-      display: none;
-    }
-    .club-members:hover .hidden-members {
-      display: block;
-      box-shadow: 0 5.5px 5px 0 #6998AB;
       font-family: 'Alegreya Sans', sans-serif;
-      font-weight: 600;
+    }
+    .club-admin a{
+      display: inline-block;
+      background-color: #6998AB;
+      padding: 10px;
+      border-radius: 6px;
+      outline: 5px solid #eff4f7;
+      border: 1px solid;
+      border-color: #c4c4c4 #d1d1d1 #d4d4d4;
+      box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
     }
     .club-selected-book{
       background-color: #f7f7f7;
@@ -903,12 +907,24 @@ a {
     .book-details {
     }
     .book-cover {
+      padding-left: 40px;
     }
     .book-cover img{
       width: 150px;
       box-shadow: 0 5.5px 5px 0 #000;
     }
     .book-info {
+      padding: 20px;
+    }
+    .book-info button{
+      display: inline-block;
+      background-color: #6998AB;
+      padding: 10px;
+      border-radius: 6px;
+      outline: 5px solid #eff4f7;
+      border: 1px solid;
+      border-color: #c4c4c4 #d1d1d1 #d4d4d4;
+      box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
     }
     .club-book-queue {
       background-color: #f7f7f7;

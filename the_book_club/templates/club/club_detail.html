@@ -25,6 +25,8 @@
                     <li>{{ member }}</li>
                     {% endfor %}
                 </ul>
+            </div>
+            <div class="club-admin">
                 {% if request.user == club.admin %}
                 <a href="{% url 'club:club_admin' club.id %}">Перейти к администрированию клуба</a>
                 {% endif %}
