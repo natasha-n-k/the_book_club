@@ -220,3 +220,12 @@ def mark_book_read(request, club_id):
     selected_book.status = 'read'
     selected_book.save()
     return redirect('club:club_admin', club_id=club_id)
+
+@require_POST
+@login_required
+def remove_from_queue(request, club_id):
+    club = get_object_or_404(BookClub, id=club_id)
+    book_id = request.POST.get('book_id')
+    book = get_object_or_404(Book, id=book_id)
+    club.book_queue.remove(book)
+    return redirect('club:club_admin', club_id=club_id)

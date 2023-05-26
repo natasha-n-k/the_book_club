@@ -31,9 +31,9 @@ class BookClub(models.Model):
     admin = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, related_name='administered_clubs')
     selected_book = models.ForeignKey(Book, on_delete=models.SET_NULL, null=True, related_name='selected_clubs')
     meeting = models.OneToOneField('Meeting', on_delete=models.SET_NULL, null=True)
-    book_queue = models.ManyToManyField(Book, related_name='queued_clubs')
     read_books = models.ManyToManyField(Book, related_name='read_clubs')
-
+    book_queue = models.ManyToManyField(Book, through='Queue', related_name='queued_clubs')
+    book_queue_members = models.ManyToManyField(User, through='Queue', related_name='queued_books')
 
     def __str__(self):
         return self.name
@@ -69,9 +69,13 @@ class Meeting(models.Model):
     date = models.DateField()
     location = models.CharField(max_length=100)
 
+    
+
 class Queue(models.Model):
     club = models.ForeignKey(BookClub, on_delete=models.CASCADE)
+    member = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
+    book = models.ForeignKey(Book, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f"Queue for {self.club.name}"
+        return f"{self.member.username} added {self.book.name} to the queue"

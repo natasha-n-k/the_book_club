@@ -21,9 +21,18 @@
   </div>
   <div class="admin-item">
     <h3>Очередь на прочтение</h3>
+    <div class="admin-queue">
       {% for book in club.book_queue.all %}
-          <img src="{{book.image.url }}" alt="{{ club.book_queue.name }} cover" height="220">
+        <div class="admin-queue-item">
+          <img src="{{ book.image.url }}" alt="{{ book.name }} cover" height="220">
+          <form method="POST" action="{% url 'club:remove_from_queue' club_id=club.id %}">
+            {% csrf_token %}
+            <input type="hidden" name="book_id" value="{{ book.id }}">
+            <button type="submit">Удалить</button>
+          </form>
+        </div>
       {% endfor %}
+    </div>
   </div>
   <div class="admin-item">
     <h3>Прочитанные книги</h3>
@@ -38,6 +47,9 @@
     {% else %}
       <p>Книга не выбрана</p>
     {% endif %}
+  </div>
+  <div class="admin-item">
+    <a href="{% url 'club:club_detail' club_id=club.id %}">Перейти на страницу клуба</a>
   </div>
 </div>
 {% endblock %}

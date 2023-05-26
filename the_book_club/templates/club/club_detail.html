@@ -56,10 +56,12 @@
     <div class="club-book-queue">
         <h2>Книги в очереди</h2>
         <div class="club-queue-container">
-            {% for book in club.book_queue.all %}
+            {% for queue in book_queue %}
                 <div class="club-queue-item">
-                        <img src="{{ book.image.url }}" alt="{{book_queue.name }} cover"  height="230">
-                    </div>
+                    <img src="{{ queue.book.image.url }}" alt="{{ queue.book.name }} cover">
+                    <p>Поставил в очередь: {{ queue.member.username }}</p>
+                    <p>Дата добавления: {{ queue.created_at|date:"d.m.Y" }}</p>
+                </div>
             {% endfor %}
         </div>
     </div>

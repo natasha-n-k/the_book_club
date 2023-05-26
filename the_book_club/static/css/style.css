@@ -976,4 +976,12 @@ a {
       margin: 10px 0;
       padding: 10px 30px;
     }
+    .admin-queue {
+      display: flex;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+    }
+    .admin-queue-item {
+      margin-right: 10px;
+    }
 }
