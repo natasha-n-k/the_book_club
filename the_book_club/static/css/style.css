@@ -938,6 +938,7 @@ a {
     }
     .club-queue-item{
         margin-right: 20px;
+        font-stretch:ultra-condensed;
     }
     .club-queue-item img{
       width: 150px;

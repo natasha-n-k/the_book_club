@@ -27,7 +27,9 @@ def book_clubs(request):
 
 def club_detail(request, club_id):
     club = get_object_or_404(BookClub, id=club_id)
-    return render(request, 'club/club_detail.html', {'club': club})
+    book_queue = Queue.objects.filter(club=club)
+
+    return render(request, 'club/club_detail.html', {'club': club, 'book_queue': book_queue})
 
 def books(request):
     books = Book.objects.all()

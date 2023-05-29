@@ -22,9 +22,9 @@
   <div class="admin-item">
     <h3>Очередь на прочтение</h3>
     <div class="admin-queue">
-      {% for book in club.book_queue.all %}
+      {%  for queue in book_queue %}
         <div class="admin-queue-item">
-          <img src="{{ book.image.url }}" alt="{{ book.name }} cover" height="220">
+          <img src="{{ queue.book.image.url }}" alt="{{ book.name }} cover" height="220">
           <form method="POST" action="{% url 'club:remove_from_queue' club_id=club.id %}">
             {% csrf_token %}
             <input type="hidden" name="book_id" value="{{ book.id }}">

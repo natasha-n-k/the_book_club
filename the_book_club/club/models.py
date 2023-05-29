@@ -78,4 +78,7 @@ class Queue(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f"{self.member.username} added {self.book.name} to the queue"
+        if self.member is not None:
+            return f"{self.member.username} added {self.book.name} to the queue"
+        else:
+            return "Queue object with no member"
