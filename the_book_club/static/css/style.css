@@ -885,6 +885,8 @@ a {
     }
     .hidden-members {
       font-family: 'Alegreya Sans', sans-serif;
+      overflow: auto;
+      height: 100px;
     }
     .club-admin a{
       display: inline-block;

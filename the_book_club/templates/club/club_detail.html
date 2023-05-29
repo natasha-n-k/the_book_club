@@ -17,14 +17,14 @@
                 <p>{{ club.description }}</p>
             </div>
             <div class="club-members">
-                <p>{{ club.members.count }} человек в клубе</p>
+                <p><b>{{ club.members.count }}</b> человек в клубе</p>
                 <p>Администратор группы: <b>{{ club.admin }}</b></p>
                 <h3>Члены клуба</h3>
-                <ul class="hidden-members">
+                <div class="hidden-members">
                     {% for member in club.members.all %}
-                    <li>{{ member }}</li>
+                    <p>{{ member }} ,</p>
                     {% endfor %}
-                </ul>
+                </div>
             </div>
             <div class="club-admin">
                 {% if request.user == club.admin %}
