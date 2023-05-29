@@ -985,4 +985,19 @@ a {
     .admin-queue-item {
       margin-right: 10px;
     }
+    .admin-link{
+      text-align: center;
+    }
+    .admin-link a{
+      display: inline-block;
+      background-color: #f7f7f7;
+      color: #6998AB;
+      padding: 10px 30px;
+      margin: 20px;
+      border-radius: 6px;
+      outline: 5px solid #eff4f7;
+      border: 1px solid;
+      border-color: #c4c4c4 #d1d1d1 #d4d4d4;
+      box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
+    }
 }
