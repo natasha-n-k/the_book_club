@@ -773,7 +773,7 @@ a {
     }
 
     .book-container {
-      height: 600px;
+      height: auto;
     }
     .book-cart-container {
       margin: 50px 200px;
@@ -785,6 +785,7 @@ a {
       align-items: start;
       justify-content: space-around;
       grid-column-gap: 70px;
+      justify-items: center
     }
     .book-cart-image img{
       box-shadow: 0 5.5px 5px 0 #000;
@@ -805,7 +806,7 @@ a {
       background-color:#6998AB ;
       border-radius: 16px;
       text-align: center;
-      padding: 10px;
+      padding: 0 10px 10px 10px;
     }
     .rating-stars {
     }
