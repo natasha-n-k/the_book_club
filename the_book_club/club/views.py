@@ -204,7 +204,7 @@ def add_to_queue(request, club_id):
         club = BookClub.objects.get(id=club_id)
         book = Book.objects.get(id=book_id)
         club.book_queue.add(book)
-        return redirect('club:club_admin', club_id=club_id)
+        return redirect('club:club_admin', club_id=club_id,  book_id=book_id)
     
 def select_book(request, club_id):
     if request.method == 'POST':

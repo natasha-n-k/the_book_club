@@ -805,7 +805,7 @@ a {
       background-color:#6998AB ;
       border-radius: 16px;
       text-align: center;
-      padding: 20px;
+      padding: 10px;
     }
     .rating-stars {
     }
@@ -818,12 +818,12 @@ a {
       margin-top: 20px;
       display: flex;
       flex-direction: row;
-      align-items:center ;
       justify-content: space-around;
+    }
+    .book-status-details {
     }
     .book-status-details p{
       color: #000;
-      box-shadow: inset 0 1px white, 0 1px 2px rgba(0, 0, 0, 0.15);
       padding-left: 40px
     }
     .book-rating select{
@@ -841,8 +841,38 @@ a {
       -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
       box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
     }
+    .book-queue-details{
+      padding: 0 10px;
+    }
+    .book-queue-details select{
+      padding: 4px 8px ;
+      text-align: left;
+      text-shadow: 0 1px #e3f1f1;
+      letter-spacing: 2px;
+      color: #6998AB;
+      background: #f7f7f7;
+      border: 1px solid;
+      border-color: #c4c4c4 #d1d1d1 #d4d4d4;
+      border-radius: 6px;
+      outline: 5px solid #eff4f7;
+      -moz-outline-radius: 3px;
+      -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
+      box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
+    }
+    .book-queue-details button{
+      display: inline-block;
+      background-color: #f7f7f7;
+      color: #6998AB;
+      padding: 10px 30px;
+      margin: 20px;
+      border-radius: 6px;
+      outline: 5px solid #eff4f7;
+      border: 1px solid;
+      border-color: #c4c4c4 #d1d1d1 #d4d4d4;
+      box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
+    }
     .status-form {
-      padding-left: 20px;
+      padding: 25px 0 0 20px;
     }
     .status-form select{
       padding: 8px 20px;
@@ -861,7 +891,6 @@ a {
     }
 
     .purchase-links{
-      padding-bottom: 40px;
       text-align: center;
     }
     .purchase-links img{
