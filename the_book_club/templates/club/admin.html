@@ -20,6 +20,40 @@
     </form>
   </div>
   <div class="admin-item">
+    <h3>Встреча</h3>
+    {% if club.meeting %}
+      <p>Дата: {{ club.meeting.date }}</p>
+      <p>Место: {{ club.meeting.location }}</p>
+      {% if club.meeting.location_link %}
+        <p>Ссылка на онлайн конференцию: <a href="{{ club.meeting.location_link }}" target="_blank">{{ club.meeting.location_link }}</a></p>
+      {% endif %}
+    {% else %}
+      <p>Встреча не назначена</p>
+    {% endif %}
+    <h3>Назначить встречу</h3>
+    <form method="POST" action="{% url 'club:schedule_meeting' club_id=club.id %}">
+      {% csrf_token %}
+      <label for="meeting_date">Дата:</label>
+      <input type="date" id="meeting_date" name="meeting_date" required>
+      <br>
+      <label for="meeting_location">Место:</label>
+      <input type="text" id="meeting_location" name="meeting_location" required>
+      <br>
+      <label for="meeting_location_link">Ссылка на онлайн конференцию (необязательно):</label>
+      <input type="url" id="meeting_location_link" name="meeting_location_link">
+      <br>
+      <button type="submit">Назначить</button>
+    </form>
+  </div>
+    <div class="admin-item">
+    <h3>Выбранная книга</h3>
+    {% if club.selected_book %}
+      <img src="{{ club.selected_book.image.url }}" alt="{{ club.selected_book.name }} cover" height="220">
+    {% else %}
+      <p>Книга не выбрана</p>
+    {% endif %}
+  </div>
+  <div class="admin-item">
     <h3>Очередь на прочтение</h3>
     <div class="admin-queue">
       {%  for queue in book_queue %}
@@ -39,14 +73,6 @@
       {% for book in club.read_books.all %}
         <img src="{{book.image.url }}" alt="{{ club.read_books.name }} cover" height="220">
       {% endfor %}
-  </div>
-  <div class="admin-item">
-    <h3>Выбранная книга</h3>
-    {% if club.selected_book %}
-      <img src="{{ club.selected_book.image.url }}" alt="{{ club.selected_book.name }} cover" height="220">
-    {% else %}
-      <p>Книга не выбрана</p>
-    {% endif %}
   </div>
   <div class="admin-link">
     <a href="{% url 'club:club_detail' club_id=club.id %}">Перейти на страницу клуба</a>

@@ -27,7 +27,6 @@
                     <p>Книга не выбрана</p>
                     {% endif %}
                 </div>
-                    
                 <div class="clubs-cart-button">
                     {% if request.user in club.members.all %}
                         <form action="{% url 'club:club_detail' club.id %}">

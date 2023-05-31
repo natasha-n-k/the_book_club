@@ -68,6 +68,7 @@ class Rating(models.Model):
 class Meeting(models.Model):
     date = models.DateField()
     location = models.CharField(max_length=100)
+    location_link = models.URLField(null=True, blank=True)
 
     
 

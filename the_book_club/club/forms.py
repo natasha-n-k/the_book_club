@@ -34,3 +34,13 @@ class BookQueueForm(forms.Form):
         self.fields['book'].queryset = Book.objects.exclude(id__in=club.book_queue.all())
 
     book = forms.ModelChoiceField(queryset=Book.objects.all(), label='Книга')
+
+
+class MeetingForm(forms.Form):
+    meeting_date = forms.DateField(label='Дата встречи')
+    meeting_location = forms.CharField(label='Место встречи', max_length=100)
+    meeting_location_link = forms.URLField(label='Ссылка на место встречи')
+
+    def __init__(self, *args, **kwargs):
+        super(MeetingForm, self).__init__(*args, **kwargs)
+        self.fields['meeting_date'].widget.attrs.update({'class': 'datepicker'})
