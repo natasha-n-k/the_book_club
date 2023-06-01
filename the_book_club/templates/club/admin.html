@@ -20,17 +20,21 @@
     </form>
   </div>
   <div class="admin-item">
-    <h3>Встреча</h3>
-    {% if club.meeting %}
-      <p>Дата: {{ club.meeting.date }}</p>
-      <p>Место: {{ club.meeting.location }}</p>
-      {% if club.meeting.location_link %}
-        <p>Ссылка на онлайн конференцию: <a href="{{ club.meeting.location_link }}" target="_blank">{{ club.meeting.location_link }}</a></p>
-      {% endif %}
-    {% else %}
-      <p>Встреча не назначена</p>
+    <h3>Встречи</h3>
+    {% for meeting in club.meetings.all %}
+    <p>Дата: {{ meeting.date }}</p>
+    <p>Место: {{ meeting.location }}</p>
+    {% if meeting.location_link %}
+      <p>Ссылка на онлайн конференцию: <a href="{{ meeting.location_link }}" target="_blank">{{ meeting.location_link }}</a></p>
     {% endif %}
-    <h3>Назначить встречу</h3>
+    <form method="POST" action="{% url 'club:delete_meeting' club_id=club.id meeting_id=meeting.id %}">
+      {% csrf_token %}
+      <button type="submit">Удалить</button>
+    </form>
+  {% empty %}
+    <p>Встречи не назначены</p>
+  {% endfor %}
+    <h3>Назначить новую встречу</h3>
     <form method="POST" action="{% url 'club:schedule_meeting' club_id=club.id %}">
       {% csrf_token %}
       <label for="meeting_date">Дата:</label>

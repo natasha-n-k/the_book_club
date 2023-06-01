@@ -26,4 +26,5 @@ urlpatterns = [
     path('<int:club_id>/add_to_queue/', views.add_to_queue, name='add_to_queue'),
     path('<int:club_id>/remove_from_queue/', views.remove_from_queue, name='remove_from_queue'),
     path('<int:club_id>/schedule_meeting/', views.schedule_meeting, name='schedule_meeting'),
+    path('club/<int:club_id>/delete_meeting/<int:meeting_id>/', views.delete_meeting, name='delete_meeting'),
 ]
