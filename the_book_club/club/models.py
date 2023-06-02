@@ -35,6 +35,7 @@ class BookClub(models.Model):
     book_queue_members = models.ManyToManyField(User, through='Queue', related_name='queued_books')
     genre = models.CharField(max_length=100, null=True)
     theme = models.CharField(max_length=100, null=True)
+    
     def __str__(self):
         return self.name
 
