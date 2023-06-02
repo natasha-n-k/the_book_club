@@ -1009,6 +1009,34 @@ a {
     .admin-container{
       margin: 0 150px;
     }
+    .admin-container input,
+    .admin-container select{
+      margin: 5px;
+      padding: 0 10px;
+      width: 200px;
+      height: 34px;
+      color: #6998AB;
+      background: white;
+      border: 1px solid;
+      border-color: #c4c4c4 #d1d1d1 #d4d4d4;
+      border-radius: 2px;
+      outline: 5px solid #eff4f7;
+      -moz-outline-radius: 3px;
+      -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
+      box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
+    }
+    .admin-container button{
+      display: inline-block;
+      background-color: #f7f7f7;
+      color: #6998AB;
+      padding: 10px 30px;
+      margin: 20px;
+      border-radius: 6px;
+      outline: 5px solid #eff4f7;
+      border: 1px solid;
+      border-color: #c4c4c4 #d1d1d1 #d4d4d4;
+      box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
+    }
     .admin-container img{
       width: 150px;
       box-shadow: 0 5.5px 5px 0 #000;
@@ -1045,4 +1073,6 @@ a {
       border-color: #c4c4c4 #d1d1d1 #d4d4d4;
       box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
     }
+
+
 }
