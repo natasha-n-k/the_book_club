@@ -269,9 +269,15 @@ def schedule_meeting(request, club_id):
         meeting_location = request.POST.get('meeting_location')
         meeting_location_link = request.POST.get('meeting_location_link')
 
+        # Получение объекта BookClub
+        club = get_object_or_404(BookClub, id=club_id)
+
         # Создание объекта встречи и сохранение в базе данных
-        meeting = Meeting(club_id=club_id, date=meeting_date, location=meeting_location, location_link=meeting_location_link)
+        meeting = Meeting(date=meeting_date, location=meeting_location, location_link=meeting_location_link)
         meeting.save()
+        
+        # Связывание встречи с клубом
+        meeting.club.add(club)
 
         # Перенаправление на страницу club_admin с передачей club_id в качестве аргумента
         return redirect(reverse('club:club_admin', kwargs={'club_id': club_id}))
@@ -279,10 +285,11 @@ def schedule_meeting(request, club_id):
     # Возвращаем пустой ответ для GET запроса
     return render(request, 'club/admin.html')
 
+
 @require_POST
 @login_required
 def delete_meeting(request, club_id, meeting_id):
     club = get_object_or_404(BookClub, id=club_id)
     meeting = get_object_or_404(Meeting, id=meeting_id)
     meeting.delete()
-    return redirect('club:admin', club_id=club_id)
+    return redirect('club:club_admin', club_id=club_id)

@@ -30,7 +30,6 @@ class BookClub(models.Model):
     members = models.ManyToManyField(User, related_name='clubs')
     admin = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, related_name='administered_clubs')
     selected_book = models.ForeignKey(Book, on_delete=models.SET_NULL, null=True, related_name='selected_clubs')
-    meetings = models.OneToOneField('Meeting', on_delete=models.SET_NULL, null=True, related_name='club_meeting')
     read_books = models.ManyToManyField(Book, related_name='read_clubs')
     book_queue = models.ManyToManyField(Book, through='Queue', related_name='queued_clubs')
     book_queue_members = models.ManyToManyField(User, through='Queue', related_name='queued_books')
@@ -69,7 +68,7 @@ class Meeting(models.Model):
     date = models.DateField()
     location = models.CharField(max_length=100)
     location_link = models.URLField(null=True, blank=True)
-    club = models.ForeignKey(BookClub, on_delete=models.CASCADE, related_name='club_meeting')
+    club = models.ManyToManyField(BookClub, related_name='meetings')
 
     def __str__(self):
         return f"Meeting for {self.club.name}"

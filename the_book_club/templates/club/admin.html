@@ -22,7 +22,7 @@
   <div class="admin-item">
     <h3>Встречи</h3>
     {% for meeting in club.meetings.all %}
-    <p>Дата: {{ meeting.date }}</p>
+    <p>Дата: {{ meeting.date|date:"d.m.Y" }}</p>
     <p>Место: {{ meeting.location }}</p>
     {% if meeting.location_link %}
       <p>Ссылка на онлайн конференцию: <a href="{{ meeting.location_link }}" target="_blank">{{ meeting.location_link }}</a></p>
