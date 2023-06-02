@@ -15,6 +15,8 @@ class Book(models.Model):
     description = models.TextField()
     image = models.ImageField(upload_to='images')
     average_rating = models.DecimalField(max_digits=3, decimal_places=2, null=True)
+    genre = models.CharField(max_length=100, null=True)
+    theme = models.CharField(max_length=100, null=True)
 
     def __str__(self):
         return self.name
@@ -35,7 +37,7 @@ class BookClub(models.Model):
     book_queue_members = models.ManyToManyField(User, through='Queue', related_name='queued_books')
     genre = models.CharField(max_length=100, null=True)
     theme = models.CharField(max_length=100, null=True)
-    
+
     def __str__(self):
         return self.name
 
