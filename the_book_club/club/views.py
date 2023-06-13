@@ -169,9 +169,15 @@ def rate_book(request, book_id):
         rating = float(request.POST.get('rating'))
         book = Book.objects.get(id=book_id)
         user = request.user
+        previous_rating = Rating.objects.filter(user=user, book=book).first()
+
+        if previous_rating:
+            previous_rating.delete()
+
         Rating.objects.create(book=book, user=user, rating=rating)
         book.average_rating = book.calculate_average_rating()
         book.save()
+
     return redirect('club:book_detail', book_id=book_id)
 
 

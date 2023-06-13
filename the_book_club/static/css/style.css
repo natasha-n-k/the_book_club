@@ -338,6 +338,7 @@ a {
       transition: 1s;
     }
 
+    
     .books-container{
       display: flex;
       flex-direction: column;
