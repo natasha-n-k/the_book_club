@@ -981,6 +981,8 @@ a {
     .club-queue-container {
       display: flex;
       flex-direction: row;
+      flex-wrap: nowrap;
+      overflow-x: auto;
     }
     .club-queue-item{
         margin-right: 20px;
@@ -999,6 +1001,7 @@ a {
     .club-read-container {
       display: flex;
       flex-direction: row;
+      overflow-x: auto;
     }
     .club-read-item {
       margin-right: 20px;

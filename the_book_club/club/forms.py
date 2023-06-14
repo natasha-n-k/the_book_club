@@ -24,6 +24,7 @@ class UserCreationForm(BaseUserCreationForm):
         }
 
 class BookSelectionForm(forms.Form):
+    
     book = forms.ModelChoiceField(queryset=Book.objects.all(), label='Книга')
 
 class BookQueueForm(forms.Form):

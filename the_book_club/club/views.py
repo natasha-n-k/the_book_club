@@ -192,14 +192,14 @@ def club_admin(request, club_id):
 
     if request.method == 'POST':
         selection_form = BookSelectionForm(request.POST)
-        queue_form = BookQueueForm(request.POST)
+        queue_form = BookQueueForm(request.POST, club_id=club_id)
         meeting_form = MeetingForm(request.POST)
         if 'selected_book' in request.POST:
             if selection_form.is_valid():
                 book = selection_form.cleaned_data['book']
                 club.selected_book = book
                 club.save()
-                return redirect('club:club_detail', club_id=club_id)
+                return redirect('club:club_admin', club_id=club_id)
 
         if 'add_to_queue' in request.POST:
             queue_form = BookQueueForm(request.POST, club_id=club_id)
@@ -219,7 +219,7 @@ def club_admin(request, club_id):
             
         else:
             selection_form = BookSelectionForm()
-            queue_form = BookQueueForm()
+            queue_form = BookQueueForm(club_id=club_id)
             meeting_form = MeetingForm()
 
     context = {
@@ -228,18 +228,18 @@ def club_admin(request, club_id):
         'meetings': meetings,
         'selection_form': selection_form,
         'queue_form': queue_form,
-        'meeting_form': meeting_form
+        'meeting_form': meeting_form,
     }
 
     return render(request, 'club/admin.html', context)
 
 def add_to_queue(request, club_id):
     if request.method == 'POST':
-        book_id = request.POST.get('book')
         club = get_object_or_404(BookClub, id=club_id)
-        book = get_object_or_404(Book, id=book_id)
+        book_id = request.POST.get('book')
+        book = Book.objects.get(id=book_id)
         club.book_queue.add(book)
-        return redirect('club:club_admin', club_id=club_id,  book_id=book_id)
+        return redirect('club:club_admin', club_id=club_id)
     
 def select_book(request, club_id):
     if request.method == 'POST':

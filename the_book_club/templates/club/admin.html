@@ -5,7 +5,7 @@
   <h2>Страница администратора клуба</h2>
   <div class="admin-item">
     <h3>Выберите книгу для чтения</h3>
-    <form method="POST" action="{% url 'club:club_admin' club_id=club.id %}">
+    <form method="POST" action="{% url 'club:select_book' club_id=club.id %}">
       {% csrf_token %}
       {{ selection_form }}
       <button type="submit">Выбрать</button>
