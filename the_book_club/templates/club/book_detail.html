@@ -56,7 +56,7 @@
                 </div>
                 <div class="book-queue-details">
                     {% if user.is_authenticated %}
-                    <form method="POST" action="#">
+                    <form method="POST" action="{% url 'club:append_to_queue' book.id %}">
                         {% csrf_token %}
                         <select name="club">
                             {% for club in user.clubs.all %}
