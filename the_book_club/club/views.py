@@ -126,7 +126,7 @@ def join_club(request, club_id):
         club = get_object_or_404(BookClub, id=club_id)
         club.members.add(request.user)
         messages.success(request, f'You have joined the "{club.name}" book club!')
-        return redirect('club:book_clubs')
+        return redirect('club:club_detail', club_id=club.id)
     else:
         clubs = BookClub.objects.all()
         context = {
