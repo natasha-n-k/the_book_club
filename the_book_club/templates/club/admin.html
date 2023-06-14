@@ -65,7 +65,7 @@
           <img src="{{ queue.book.image.url }}" alt="{{ book.name }} cover" height="230">
           <form method="POST" action="{% url 'club:remove_from_queue' club_id=club.id %}">
             {% csrf_token %}
-            <input type="hidden" name="book_id" value="{{ book.id }}">
+            <input type="hidden" name="book_id" value="{{ queue.book.id }}">
             <button type="submit">Удалить</button>
           </form>
         </div>

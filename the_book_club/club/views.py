@@ -270,36 +270,25 @@ def mark_book_read(request, club_id):
 @require_POST
 @login_required
 def remove_from_queue(request, club_id):
-    club = get_object_or_404(BookClub, id=club_id)
-    book_id = request.POST.get('book_id')
-    book = get_object_or_404(Book, id=book_id)
-    club.book_queue.remove(book)
+    if request.method == 'POST':
+        book_id = request.POST.get('book_id')
+        queue = Queue.objects.filter(club_id=club_id, book_id=book_id)
+        queue.delete()
     return redirect('club:club_admin', club_id=club_id)
 
 
 def schedule_meeting(request, club_id):
     if request.method == 'POST':
-        # Получение данных из формы
         meeting_date = request.POST.get('meeting_date')
         meeting_location = request.POST.get('meeting_location')
         meeting_location_link = request.POST.get('meeting_location_link')
-
-        # Получение объекта BookClub
         club = get_object_or_404(BookClub, id=club_id)
-
-        # Создание объекта встречи и сохранение в базе данных
         meeting = Meeting(date=meeting_date, location=meeting_location, location_link=meeting_location_link)
         meeting.save()
-        
-        # Связывание встречи с клубом
         meeting.club.add(club)
-
-        # Перенаправление на страницу club_admin с передачей club_id в качестве аргумента
         return redirect(reverse('club:club_admin', kwargs={'club_id': club_id}))
 
-    # Возвращаем пустой ответ для GET запроса
     return render(request, 'club/admin.html')
-
 
 @require_POST
 @login_required
