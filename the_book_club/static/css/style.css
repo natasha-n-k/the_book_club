@@ -813,9 +813,11 @@ a {
 
     .book-container {
       height: auto;
+      background-color: #f7f7f7;
+      padding: 50px 0;
     }
     .book-cart-container {
-      margin: 50px 200px;
+      margin: 0px 200px;
     }
     .book-cart-row {
       display: grid;
