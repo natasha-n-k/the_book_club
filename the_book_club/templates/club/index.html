@@ -19,23 +19,35 @@
     </div>
     <div class="home-row">
         <div class="home-grid">
+            {% for club in clubs %}
             <div class="home-cart">
                 <div class="home-cart-container">
                     <div class="home-cart-image">
+                        <a href="{% url 'club:club_detail' club.id %}"><img src="{{ club.image.url }}" height="150" alt=""></a>
                     </div>
                     <div class="home-cart-title">
+                        <h3><a href="{% url 'club:club_detail' club.id %}">{{ club.name }}</a></h3>
                     </div>
                     <div class="home-cart-desc">
-                    </div>
-                    <div class="home-book-title">
-                    </div>
-                    <div class="home-book-image">
+                        <p>{{ club.description }}</p>
                     </div>
                     <div class="home-cart-button">
-                        <button>Вступить</button>
+                        {% if request.user in club.members.all %}
+                        <form action="{% url 'club:club_detail' club.id %}">
+                            {% csrf_token %}
+                            <button type="submit">Вы участник клуба <br> перейти на страницу клуба</button>
+                        </form>
+                    {% else %}
+                    <form action="{% url 'club:join_club' club.id %}" method="post">
+                            {% csrf_token %}
+                            <input type="hidden" name="club_id" value="{{ club.id }}">
+                            <button type="submit" >Вступить</button>
+                        </form>
+                    {% endif %}
                     </div>
                 </div>
             </div>
+            {% endfor %}
         </div>
     </div>
     <div class="home-row">

@@ -228,25 +228,43 @@ a {
     }
 
     .banner-content button{
-      text-align: center;
-      margin: 0 auto;
       display: block;
+      background-color: #f7f7f7;
+      color: #6998AB;
+      padding: 10px 30px;
+      border-radius: 6px;
+      outline: 5px solid #eff4f7;
+      border: 1px solid;
+      border-color: #c4c4c4 #d1d1d1 #d4d4d4;
+      box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
+      font-weight: 600;
+      margin: 30px auto;
     }
 
     .home-grid{
-
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 20px;
+      padding: 10px;
+      margin: 30px;
     }
 
     .home-cart{
-
+      background-color: #f7f7f7;
+      padding: 20px;
+      text-align: center;
+      border-radius: 20px;
+      box-shadow: 0 5.5px 5px 0 #6998AB;
     }
 
     .home-cart-container{
 
     }
 
-    .home-cart-image{
-
+    .home-cart-image img{
+      border-radius: 40px;
+      display: block;
+      margin: 0 auto;
     }
 
     .home-cart-title{
@@ -254,7 +272,11 @@ a {
     }
 
     .home-cart-desc{
-      
+      display: -webkit-box;
+      -webkit-line-clamp: 3; /* Limit to three lines */
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
     .home-book-title{
@@ -265,8 +287,18 @@ a {
       
     }
 
-    .home-cart-button{
-      
+    .home-cart-button button{
+      display: inline-block;
+      background-color: #f7f7f7;
+      color: #6998AB;
+      padding: 10px 30px;
+      margin: 20px;
+      border-radius: 6px;
+      outline: 5px solid #eff4f7;
+      border: 1px solid;
+      border-color: #c4c4c4 #d1d1d1 #d4d4d4;
+      box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
+      font-weight: 600;
     }
 
     .home-books{

@@ -15,7 +15,8 @@ from django.urls import reverse
 import datetime
 
 def index(request):
-    return render(request, 'club/index.html')
+    clubs = BookClub.objects.all()[:5] 
+    return render(request, 'club/index.html', {'clubs': clubs})
 
 def book_clubs(request):
     clubs = BookClub.objects.all()
