@@ -180,12 +180,13 @@ a {
     }
 
     .home-container{
-      padding: 10px;
+      padding: 20px 50px ;
       display: flex;
       flex-direction: column;
       justify-content: space-around;
       align-items: stretch;
       background-color: #f7f7f7;
+
     }
 
     .home-row{
@@ -197,11 +198,16 @@ a {
       flex-direction: row;
       justify-content: space-around;
       align-items: stretch;
+      background-color: #ffffff;
+      border-radius: 20px;
+      border-color: #c4c4c4 #d1d1d1 #d4d4d4;
+      box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
     }
 
     .banner-picture{
       max-width: 60%;
       overflow: hidden;
+      padding: 10px;
     }
 
     .banner-picture img{

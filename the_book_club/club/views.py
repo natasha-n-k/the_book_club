@@ -244,10 +244,10 @@ def add_to_queue(request, club_id):
 def append_to_queue(request, book_id):
     if request.method == 'POST':
         book = get_object_or_404(Book, id=book_id)
-        member = request.user  # Update variable name to 'member'
+        member = request.user 
         club_id = request.POST.get('club')
         club = get_object_or_404(BookClub, id=club_id)
-        queue = Queue.objects.create(book=book, member=member, club=club)  # Update 'user' to 'member'
+        queue = Queue.objects.create(book=book, member=member, club=club)
         return redirect('club:book_detail', book_id=book_id)
     
 def select_book(request, club_id):
