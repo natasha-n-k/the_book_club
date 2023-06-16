@@ -105,6 +105,11 @@ def user_register(request):
             login(request, user)
             messages.success(request, 'Ваша учетная запись была успешно создана!')
             return redirect('club:account')
+        else:
+            # Добавьте ошибки формы во flash-сообщения
+            for field, errors in form.errors.items():
+                for error in errors:
+                    messages.error(request, error)
     else:
         form = UserCreationForm()
     return render(request, 'club/register.html', {'form': form})

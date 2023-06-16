@@ -11,12 +11,27 @@
         <input type="password" id="password" name="password1" placeholder="Пароль">
         <input type="password" id="password2" name="password2" placeholder="Подтверждение пароля">
         {% if form.errors %}
-            {% for field in form %}
-                {% for error in field.errors %}
-                    <span class="form__error">{{ error }}</span>
-                {% endfor %}
+        {% for field in form %}
+            {% for error in field.errors %}
+                <span class="form__error">
+                    {% if error == "This field is required." %}
+                        <p>Это поле обязательно для заполнения.</p>
+                    {% elif error == "Invalid email address." %}
+                    <p>Неверный адрес электронной почты.</p>
+                    {% elif error == "Password is too short." %}
+                    <p>Слишком короткий пароль.</p>
+                    {% elif error == "The two password fields didn’t match." %}
+                    <p>Два поля пароля не совпадают.</p>
+                    {% elif error == "Enter a valid username. This value may contain only letters, numbers, and @/./+/-/_ characters." %}
+                    <p>Введите действительное имя пользователя. 
+                    Это значение может содержать только буквы, цифры и символы @ . + - _</p>
+                    {% else %}
+                        {{ error }}
+                    {% endif %}
+                </span>
             {% endfor %}
-        {% endif %}
+        {% endfor %}
+    {% endif %}
     </div>
     <p class="submit"><input type="submit" name="commit" value="Зарегистрироваться"></p>
     </form>
