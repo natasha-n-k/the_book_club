@@ -2,15 +2,16 @@
 
 {% block content %}
 <section class="create__container">
-    <div class="create_item">
-        <h2>Создайте свой книжный клуб</h2>
-        <form method="post" enctype="multipart/form-data">
+  <div class="create__content">
+    <div class="create__item">
+        <h1>Создайте свой книжный клуб</h1>
+        <form class="create__form" method="post" enctype="multipart/form-data">
           {% csrf_token %}
           {{ form.as_p }}
           <button type="submit">Создать</button>
         </form>
       {% endblock %}
-
     </div>
-
+</div>
 </section>
+
