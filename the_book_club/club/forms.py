@@ -43,3 +43,16 @@ class MeetingForm(forms.ModelForm):
     class Meta:
         model = Meeting
         fields = ['date', 'location', 'location_link']
+
+class BookClubForm(forms.ModelForm):
+    class Meta:
+        model = BookClub
+        fields = ['name', 'description', 'image', 'venue', 'genre', 'theme']
+        labels = {
+                'name': 'Название', 
+                'description': 'Описание', 
+                'image': 'Изображение', 
+                'venue': 'Место проведения', 
+                'genre': 'Жанр', 
+                'theme': 'Тематика' 
+        }

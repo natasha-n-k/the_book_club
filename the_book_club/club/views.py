@@ -9,7 +9,7 @@ from django.http import JsonResponse
 from django.contrib import messages
 from django.http import JsonResponse
 from .models import BookClub, Book,  Rating, UserBook, Meeting, Queue
-from .forms import ClubAdminForm, BookSelectionForm, BookQueueForm, MeetingForm
+from .forms import ClubAdminForm, BookSelectionForm, BookQueueForm, MeetingForm, BookClubForm
 from datetime import date
 from django.urls import reverse
 import datetime
@@ -106,7 +106,6 @@ def user_register(request):
             messages.success(request, 'Ваша учетная запись была успешно создана!')
             return redirect('club:account')
         else:
-            # Добавьте ошибки формы во flash-сообщения
             for field, errors in form.errors.items():
                 for error in errors:
                     messages.error(request, error)
@@ -303,3 +302,17 @@ def delete_meeting(request, club_id, meeting_id):
     meeting = get_object_or_404(Meeting, id=meeting_id)
     meeting.delete()
     return redirect('club:club_admin', club_id=club_id)
+
+@login_required 
+def create_book_club(request):
+    if request.method == 'POST':
+        form = BookClubForm(request.POST, request.FILES)
+        if form.is_valid():
+            club = form.save(commit=False)
+            club.admin = request.user  
+            club.save()
+            return redirect('club:club_detail', club_id=club.id) 
+    else:
+        form = BookClubForm()
+    
+    return render(request, 'club/create_club.html', {'form': form})

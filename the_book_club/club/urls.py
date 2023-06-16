@@ -28,4 +28,5 @@ urlpatterns = [
     path('<int:club_id>/remove_from_queue/', views.remove_from_queue, name='remove_from_queue'),
     path('<int:club_id>/schedule_meeting/', views.schedule_meeting, name='schedule_meeting'),
     path('club/<int:club_id>/delete_meeting/<int:meeting_id>/', views.delete_meeting, name='delete_meeting'),
+    path('create_club/', views.create_book_club, name='create_club'),
 ]

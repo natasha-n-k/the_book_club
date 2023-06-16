@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="create__container">
+    <div class="create_item">
+        <h2>Создайте свой книжный клуб</h2>
+        <form method="post" enctype="multipart/form-data">
+          {% csrf_token %}
+          {{ form.as_p }}
+          <button type="submit">Создать</button>
+        </form>
+      {% endblock %}
+
+    </div>
+
+</section>
