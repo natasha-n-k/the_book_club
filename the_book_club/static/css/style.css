@@ -189,8 +189,9 @@ a {
 
     }
 
-    .home-row{
-
+    .home-row h2{
+      padding-top: 20px;
+      text-align: center;
     }
 
     .home-banner-container{
@@ -301,14 +302,39 @@ a {
       font-weight: 600;
     }
 
-    .home-books{
+    .home-create{
+      background-color: #ffffff;
+      margin: 20px auto;
+      padding: 0 20px 20px 20px;
+      width: 400px;
+      text-align: center;
+      border-radius: 6px;
+      outline: 5px solid #eff4f7;
+      border: 1px solid;
+      border-color: #c4c4c4 #d1d1d1 #d4d4d4;
+      box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
+    }
+    .home-create-image{
 
     }
-
-    .home-books-image{
-
+    .home-create-image img{
+      border-radius: 10px;
     }
-
+    .home-create-descr{
+    }
+    .home-create-descr a{
+      display: inline-block;
+      background-color: #f7f7f7;
+      color: #6998AB;
+      padding: 10px 30px;
+      margin: 20px;
+      border-radius: 6px;
+      outline: 5px solid #eff4f7;
+      border: 1px solid;
+      border-color: #c4c4c4 #d1d1d1 #d4d4d4;
+      box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
+      font-weight: 600;
+    }
 
     .clubs-container{
       padding: 30px 100px ;

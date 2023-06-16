@@ -20,6 +20,7 @@
         </div>
     </div>
     <div class="home-row">
+        <h2>Выберете идеальный книжный клуб</h2>
         <div class="home-grid">
             {% for club in clubs %}
             <div class="home-cart">
@@ -54,11 +55,20 @@
     </div>
     <div class="home-row">
         <div class="home-create">
-            <a href="{% url 'club:create_club' %}">Создайте книжный клуб</a>
+            <div class="home-create-image">
+                <img src="{% static 'img/5.jpg' %}" alt="" height="300"> 
+            </div>
+            <div class="home-create-descr">
+                <p>Организуйте свой новый книжный клуб или добавь уже существующий.</p>
+                <a href="{% url 'club:create_club' %}">Создайте книжный клуб</a>
+            </div>
         </div>
-        <div class="home-create-image">
-            <img src="" alt=""> 
+    </div>
+    <div class="home-row">
+        <div class="home-book">
+
         </div>
+
     </div>
 </div>
 {% endblock %}
