@@ -11,9 +11,11 @@
                 <h1>Добро пожаловать <br> в мир книг! </h1>
                 <p>Здесь мы делимся своими впечатлениями, обмениваемся мнениями и вместе открываем для себя новые книги</p>
                 <p>Найди свою следующую любимую книгу с нами.</p>
-                <button>
-                    Присоединяйся
-                </button>
+                <form action="{% url 'club:register' %}" method="post">
+                    {% csrf_token %}
+                    <input type="hidden" name="user_register">
+                    <button type="submit" >Присоединяйся</button>
+                </form>
             </div>
         </div>
     </div>
