@@ -41,7 +41,7 @@
         {% if club.selected_book %}
         <div class="book-details">
             <div class="book-cover">
-                    <img src="{{ club.selected_book.image.url }}" alt="{{ club.selected_book.name }} cover">
+                <a href="{% url 'club:book_detail' club.selected_book.id  %}"><img src="{{ club.selected_book.image.url }}" alt="{{ club.selected_book.name }} cover"></a>
             </div>
             <div class="book-info">
                 {% if request.user == club.admin %}
@@ -61,7 +61,7 @@
         <div class="club-queue-container">
             {% for queue in book_queue %}
                 <div class="club-queue-item">
-                    <img src="{{ queue.book.image.url }}" alt="{{ queue.book.name }} cover" height="230">
+                    <a href="{% url 'club:book_detail' queue.book.id  %}"><img src="{{ queue.book.image.url }}" alt="{{ queue.book.name }} cover" height="230"></a>
                     <p>Поставил(а) в очередь: <br> <b>{{ queue.member.username }}</b></p>
                     <p>Дата добавления: <br> <b>{{ queue.created_at|date:"d.m.Y" }}</b></p>
                 </div>
@@ -73,7 +73,7 @@
         <div class="club-read-container">
             {% for book in club.read_books.all %}
                 <div class="club-read-item">
-                    <img src="{{ book.image.url }}" alt="{{book_read.name }} cover" height="230">
+                    <a href="{% url 'club:book_detail' book.id  %}"><img src="{{ book.image.url }}" alt="{{book_read.name }} cover" height="230"></a>
                 </div> 
             {% endfor %}
         </div>
