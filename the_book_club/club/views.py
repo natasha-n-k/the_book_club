@@ -24,9 +24,9 @@ def book_clubs(request):
     genre = request.GET.get('genre')
     theme = request.GET.get('theme')
     if genre:
-        clubs = clubs.filter(selected_book__genre=genre)
+        clubs = clubs.filter(genre=genre)
     if theme:
-        clubs = clubs.filter(selected_book__theme=theme)
+        clubs = clubs.filter(theme=theme)
     context = {
         'clubs': clubs,
         'books': books,
@@ -41,6 +41,12 @@ def club_detail(request, club_id):
 
 def books(request):
     books = Book.objects.all()
+    genre = request.GET.get('genre')
+    theme = request.GET.get('theme')
+    if genre:
+        books = books.filter(genre=genre)
+    if theme:
+        books = books.filter(theme=theme)
     context = {
         'books':books
     }

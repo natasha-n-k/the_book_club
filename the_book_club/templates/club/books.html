@@ -4,17 +4,48 @@
 {% block content %}
 <script>
     const clampedElements = document.querySelectorAll('.clamp');
-
 // Для каждого элемента добавляем обработчик клика
     clampedElements.forEach((element) => {
         element.addEventListener('click', () => {
             element.classList.toggle('expanded');
         });
     });
-
 </script>
 
+<div class="books-filter">
+    <form action="{% url 'club:books' %}" method="GET">
+        <label for="genre">Жанр:</label>
+        <select name="genre" id="genre">
+            <option value="">Все</option>
+            <option value="Фантастика">Фантастика</option>
+            <option value="Детектив">Детектив</option>
+            <option value="Драма">Драма</option>
+            <option value="Ужасы">Ужасы</option>
+            <option value="Фэнтези">Фэнтези</option>
+            <option value="Психология">Психология</option>
+            <option value="Нонфикшн">Нонфикшн</option>
+            <option value="Поэзия">Поэзия</option>
+            <option value="Классическая литература">Классическая литература</option>
+            <option value="Современная проза">Современная проза</option>
+            <option value="Биография">Биография</option>
+            <option value="Пьеса">Пьеса</option>
+        </select>
 
+        <label for="theme">Тема:</label>
+        <select name="theme" id="theme">
+            <option value="">Все</option>
+            <option value="Саморазвитие">Саморазвитие</option>
+            <option value="Любовь">Любовь</option>
+            <option value="Философия">Философия</option>
+            <option value="Приключения">Приключения</option>
+            <option value="Сильные женщины">Сильные женщины</option>
+            <option value="Космос">Космос</option>
+            <option value="Война">Война</option>
+            <option value="Отношения">Отношения</option>
+        </select>
+        <button type="submit">Фильтровать</button>
+    </form>
+</div>
 {% for book in books %}
 <div class="books-container">
     <div class="books-cart-container">

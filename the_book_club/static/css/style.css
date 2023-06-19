@@ -336,6 +336,10 @@ a {
       font-weight: 600;
     }
 
+    .clubs-filter{
+      padding: 20px 200px;
+
+    }
     .clubs-container{
       padding: 30px 100px ;
     }

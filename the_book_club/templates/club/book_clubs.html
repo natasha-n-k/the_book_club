@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block content %}
-<div class="filter">
+<div class="clubs-filter">
     <form action="{% url 'club:book_clubs' %}" method="GET">
         <label for="genre">Жанр:</label>
         <select name="genre" id="genre">
@@ -10,7 +10,7 @@
             <option value="Фантастика">Фантастика</option>
             <option value="Детектив">Детектив</option>
             <option value="Драма">Драма</option>
-            <option value="Ужас">Ужас</option>
+            <option value="Ужасы">Ужасы</option>
             <option value="Фэнтези">Фэнтези</option>
             <option value="Психология">Психология</option>
             <option value="Нонфикшн">Нонфикшн</option>
@@ -33,11 +33,9 @@
             <option value="Война">Война</option>
             <option value="Отношения">Отношения</option>
         </select>
-
         <button type="submit">Фильтровать</button>
     </form>
 </div>
-
 <div class="clubs-container">
     <div class="clubs-grid">
         {% for club in clubs %}
