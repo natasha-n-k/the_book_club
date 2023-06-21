@@ -180,6 +180,7 @@ a {
     }
 
     .home-container{
+      max-width: 100%;
       padding: 20px 50px ;
       display: flex;
       flex-direction: column;
@@ -244,7 +245,7 @@ a {
 
     .home-grid{
       display: grid;
-      grid-template-columns: repeat(5, 1fr);
+      grid-template-columns: repeat(4, 1fr);
       gap: 20px;
       padding: 10px;
       margin: 30px;
@@ -274,7 +275,7 @@ a {
 
     .home-cart-desc{
       display: -webkit-box;
-      -webkit-line-clamp: 3; /* Limit to three lines */
+      -webkit-line-clamp: 3;
       -webkit-box-orient: vertical;
       overflow: hidden;
       text-overflow: ellipsis;
@@ -748,7 +749,8 @@ a {
     }
     
     
-    .account-container {
+    .account-content-row img{
+      box-shadow: 0 5.5px 5px 0 #000
     }
     .account-content-container {
       display: flex;
