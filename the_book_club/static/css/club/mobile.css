@@ -1,0 +1,55 @@
+
+/* Стили для мобильных устройств */
+@media screen and (max-width: 767px) {
+    header {
+      text-align: center;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background-color:  #6998AB;
+    }
+  
+    nav {
+      display: none;
+    }
+  
+    nav:before {
+      content: '\2630';
+      display: block;
+      font-size: 28px;
+      padding: 10px;
+      text-align: right;
+    }
+  
+    nav ul {
+      display: block;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+  
+    nav li {
+      display: block;
+      margin: 0;
+      padding: 10px;
+    }
+    
+    nav li a {
+      display: block;
+      padding: 10px;
+      }
+  
+    footer {     
+          bottom: 0;
+          left: 0;
+          right: 0;
+          padding: 10px;
+          background-color:  #6998AB;
+      }
+  
+      main {
+        padding-top: 50px;
+      }
+    }
+      

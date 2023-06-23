@@ -3,6 +3,9 @@
 <html lang="{{ language }}">
 <head>
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/club/desktop.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/club/mobile.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/club/tablet.css' %}">
     <!-- Подключаем шрифты -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,7 +23,11 @@
 </head>
 <body>
 <header>
-    <div class="logo"><a class="logo" href="{% url 'club:index'  %}"><h3>The book clubs</h3></a></div>
+    <div class="logo">
+        <a class="logo" href="{% url 'club:index'  %}">
+            <h3>The book clubs</h3>
+        </a>
+    </div>
     <nav>
         <ul>
             <li><a href="{% url 'club:index'  %}">Главная</a></li>
@@ -29,7 +36,6 @@
             <li><a href="{% url 'club:account'  %}">Личный кабинет</a></li>
         </ul>
     </nav>
-
 </header>
 <main class="main-container">
     {% block content %}
