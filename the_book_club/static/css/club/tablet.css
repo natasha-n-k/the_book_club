@@ -183,7 +183,7 @@
           background-color: #f7f7f7;
           color: #6998AB;
           padding: 8px 25px;
-          margin: 20px;
+          margin: 15px;
           border-radius: 6px;
           outline: 5px solid #eff4f7;
           border: 1px solid;
@@ -191,5 +191,97 @@
           box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
           font-weight: 600;
         }
-
+        .clubs-filter,
+        .books-filter{
+          padding: 15px 100px;
+        }
+        .clubs-filter button,
+        .books-filter button{
+          display: inline-block;
+          background-color: #f7f7f7;
+          color: #6998AB;
+          padding: 7px 25px;
+          margin: 15px;
+          border-radius: 6px;
+          outline: 5px solid #eff4f7;
+          border: 1px solid;
+          border-color: #c4c4c4 #d1d1d1 #d4d4d4;
+          box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
+          font-weight: 600;
+        }
+        .clubs-filter select,
+        .books-filter select{
+          margin: 5px;
+          padding: 0 10px;
+          width: 230px;
+          height: 30px;
+          color: #6998AB;
+          background: white;
+          border: 1px solid;
+          border-color: #c4c4c4 #d1d1d1 #d4d4d4;
+          border-radius: 2px;
+          outline: 5px solid #eff4f7;
+          -moz-outline-radius: 3px;
+          -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
+          box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
+        }
+        .clubs-container{
+          padding: 20px 50px ;
+        }
+    
+        .clubs-grid{
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 20px;
+          padding: 10px;
+        }
+    
+        .clubs-cart{
+          background-color: #f7f7f7;
+          padding: 15px;
+          text-align: center;
+          border-radius: 20px;
+          box-shadow: 0 5.5px 5px 0 #6998AB
+        }
+    
+        .clubs-cart-image img{
+          border-radius: 40px;
+          display: block;
+          margin: 0 auto;
+          width: 60%;
+          height: 60%;
+        }
+    
+        .clubs-cart-title{
+          font-size: 12px;
+        }
+    
+        .clubs-cart-desc{
+          font-size: 12px;
+          padding: 0 7px;
+        }
+        .clubs-book-image img{
+          width: 50%;
+        }
+    
+        .clubs-cart-button button{
+          display: inline-block;
+          background-color: #f7f7f7;
+          color: #6998AB;
+          padding: 7px 25px;
+          margin: 10px;
+          border-radius: 6px;
+          outline: 5px solid #eff4f7;
+          border: 1px solid;
+          border-color: #c4c4c4 #d1d1d1 #d4d4d4;
+          box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
+          font-weight: 600;
+        }
+        .clubs-cart-button button:hover{
+          -webkit-transform: scale(1.1);
+          -ms-ransform: scale(1.1);
+          transform: scale(1.1);
+          transition: 1s;
+        }
+    
 }
