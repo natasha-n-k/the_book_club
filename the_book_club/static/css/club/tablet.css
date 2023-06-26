@@ -599,7 +599,68 @@
           box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.2);
         }
         
-
-
+        .account-content-row img{
+          box-shadow: 0 5.5px 5px 0 #000;
+          width: 80px;
+        }
+        .account-clubs-row img{
+          height: 90px;
+        }
+        .account-content-container {
+          height: auto;
+          display: flex;
+          flex-direction: column;
+          padding: 10px 70px;
+        }
+        .account-content-row {
+          width: 100%;
+          background-color: #f7f7f7;
+          margin-bottom: 15px;
+          border-radius: 10px;
+          padding: 10px;
+          overflow-x: auto;
+        }
+        .account-prof {
+          color: #6998AB;
+          text-shadow: #c4c4c4 5px 0 10px;
+          font-weight: 600;
+          padding-right: 30px;
+        }
+        .account-clubs-container,
+        .account-books-container {
+          display: flex;
+          flex-direction: row;
+          justify-content: flex-start;
+          align-items: flex-start;
+          padding: 7px;
+          overflow-x: auto;
+        }
+        .account-clubs-row,
+        .account-books-row {
+          flex: 0 0 170px;
+          height: 230px;
+          margin-left: 7px;
+          text-align: center;
+          padding: 10px;
+          background-color: #f2f2f2;
+          border-color: #9eb9c2 #b3c0c8 #b4ccce;
+          box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.2);
+          border-radius: 5px;
+          scroll-snap-align: start;
+        }
+        .account-books-row h4,
+        .account-books-row h5 {
+          font-stretch: ultra-condensed;
+          line-height: 17px;
+          overflow: hidden;
+          display: -webkit-box;
+          -webkit-box-orient: vertical;
+          -webkit-line-clamp: 3;
+          text-overflow: ellipsis;
+        }
+        .account-clubs-row.active,
+        .account-books-row.active {
+          border: 2px solid #6998AB;    
+        }
     
 }

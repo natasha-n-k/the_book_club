@@ -1,8 +1,14 @@
     /* Стили для десктопов */
     @media screen and (min-width: 1024px) {
+      html{
+          height: 100%;
+        }
       body {
+          height: 100%;
           font-size: 16px;
           line-height: 1.5;
+          display: flex;
+          flex-direction: column;
         }
         header {
         text-align: center;
@@ -56,7 +62,8 @@
             display: none;
           }
     
-        footer {     
+        footer {  
+          flex: 0 0 auto;   
           max-width: 100%;
           background-color: #6998AB;
           color: #f7f7f7;
@@ -64,6 +71,7 @@
     
         main {
           padding-top: 50px;
+          flex: 1 0 auto;
         }
     
         .home-container{
