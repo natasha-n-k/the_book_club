@@ -7,7 +7,6 @@
           height: 100%;
           font-size: 16px;
           line-height: 1.5;
-          display: flex;
           flex-direction: column;
         }
         header {
@@ -62,8 +61,7 @@
             display: none;
           }
     
-        footer {  
-          flex: 0 0 auto;   
+        footer {   
           max-width: 100%;
           background-color: #6998AB;
           color: #f7f7f7;
@@ -71,7 +69,6 @@
     
         main {
           padding-top: 50px;
-          flex: 1 0 auto;
         }
     
         .home-container{
