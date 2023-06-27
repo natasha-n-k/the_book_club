@@ -17,7 +17,7 @@
         {% for club in clubs %}
         <div class="account-clubs-row">
           <a href="{% url 'club:club_detail' club.id %}">
-            <img src="{{ club.image.url }}" width="100">
+            <img src="{{ club.image.url }}" width="100" height="100">
             <h4>{{ club.name }}</h4>
           </a>
           <p>{{ club.venue }}</p>
