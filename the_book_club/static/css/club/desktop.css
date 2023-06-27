@@ -1,22 +1,17 @@
     /* Стили для десктопов */
     @media screen and (min-width: 1024px) {
-      html{
-          height: 100%;
-        }
       body {
           height: 100%;
           font-size: 16px;
           line-height: 1.5;
           flex-direction: column;
         }
-        header {
-        text-align: center;
-        position: fixed;
-        background-color:  #6998AB;
-        height: 50px;
+        main {
+          padding-top: 50px;
         }
         
         header {
+          text-align: center;
           display: flex;
           justify-content: space-between;
           align-items: center; 
@@ -26,7 +21,13 @@
           width: 100%;
           top: 0;
           left: 0;
-          }
+        }
+        footer {   
+          max-width: 100%;
+          background-color: #6998AB;
+          color: #f7f7f7;
+          position: relative;
+        }
           
           nav {
           display: flex; 
@@ -60,16 +61,6 @@
           .burger-icon {
             display: none;
           }
-    
-        footer {   
-          max-width: 100%;
-          background-color: #6998AB;
-          color: #f7f7f7;
-      }
-    
-        main {
-          padding-top: 50px;
-        }
     
         .home-container{
           max-width: 100%;
