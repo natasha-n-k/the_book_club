@@ -133,7 +133,7 @@ def edit_profile(request):
         user.last_name = request.POST.get('last_name')
         user.date_of_birth = request.POST.get('date_of_birth')
         user.save()
-        return redireFalsect('club:account')
+        return redirect('club:account')
     else:
         return render(request, 'club/edit_profile.html')
 
