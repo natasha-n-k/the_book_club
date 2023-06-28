@@ -365,11 +365,11 @@
         .login__container {
           margin: 80px auto;
           width: 640px;
-          height: 390px;
+          max-height: auto;
+          min-height: 700px;
         }
         
         .login {
-          position: relative;
           margin: 150px auto 0 auto;
           padding: 20px 20px 20px;
           width: 350px;
@@ -380,7 +380,7 @@
         }
         .login:before {
           content: '';
-          position: absolute;
+
           top: -8px;
           right: -8px;
           bottom: -8px;
@@ -667,7 +667,7 @@
         .edit-profile-container {
           height: 600px;
           text-align: center;
-      }
+        }
       .edit-profile-content-container {
       }
       .edit-profile-content-row {
@@ -857,5 +857,115 @@
       .purchase-links img{
         border-radius: 5px;
         box-shadow: 0 2.5px 2px 0 #000
+      }
+
+
+      .club-details {
+        margin: 10px 70px;
+        display: flex;
+        flex-direction: column;
+      }
+      .club-details h2{
+      }
+      .club-info {
+        display: flex;
+        flex-direction: row;
+      }
+      .club-cart-image {
+        background-color: #f7f7f7;
+        border-radius: 16px;
+        width: 30%;
+        padding: 10px 20px ;
+        text-align: center;
+  
+      }
+      .club-cart-image img{
+        border-radius: 5px;
+      }
+      .club-cart-desc{
+        margin: 0 40px;
+        width: 70%;
+      }
+      .hidden-members {
+        font-family: 'Alegreya Sans', sans-serif;
+        overflow: auto;
+        height: 80px;
+      }
+      .club-admin a{
+        display: inline-block;
+        background-color: #6998AB;
+        padding: 7px;
+        border-radius: 6px;
+        outline: 5px solid #eff4f7;
+        border: 1px solid;
+        border-color: #c4c4c4 #d1d1d1 #d4d4d4;
+        box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
+      }
+      .club-selected-book{
+        background-color: #f7f7f7;
+        border-radius: 16px;
+        margin: 10px 0;
+        padding: 0px 30px;
+      }
+      .book-cover {
+        padding-left: 40px;
+      }
+      .book-cover img{
+        width: 130px;
+        height: 200px;
+        box-shadow: 0 5.5px 5px 0 #000;
+      }
+      .book-info {
+        padding: 20px;
+      }
+      .book-info button{
+        display: inline-block;
+        background-color: #6998AB;
+        padding: 7px;
+        border-radius: 6px;
+        outline: 5px solid #eff4f7;
+        border: 1px solid;
+        border-color: #c4c4c4 #d1d1d1 #d4d4d4;
+        box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
+      }
+      .club-book-queue {
+        background-color: #f7f7f7;
+        border-radius: 16px;
+        margin: 10px 0;
+        padding: 10px 30px;
+      }
+      .club-queue-container {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+      }
+      .club-queue-item{
+          margin-right: 20px;
+          font-size: 12px;
+      }
+      .club-queue-item img{
+        width: 130px;
+        height: 200px;
+        box-shadow: 0 5.5px 5px 0 #000;
+      }
+      .club-read-books {
+        background-color: #f7f7f7;
+        border-radius: 16px;
+        margin: 10px 0;
+        padding: 10px 30px;
+      }
+      .club-read-container {
+        display: flex;
+        flex-direction: row;
+        overflow-x: auto;
+      }
+      .club-read-item {
+        margin-right: 20px;
+      }
+      .club-read-item img{
+        width: 130px;
+        height: 200px;
+        box-shadow: 0 5.5px 5px 0 #000;
       }
 }

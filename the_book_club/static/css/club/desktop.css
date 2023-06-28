@@ -911,9 +911,6 @@
           margin: 0 40px;
           width: 70%;
         }
-        .club-members {
-    
-        }
         .hidden-members {
           font-family: 'Alegreya Sans', sans-serif;
           overflow: auto;
@@ -934,10 +931,6 @@
           border-radius: 16px;
           margin: 10px 0;
           padding: 0px 30px;
-        }
-        .club-current-book {
-        }
-        .book-details {
         }
         .book-cover {
           padding-left: 40px;
