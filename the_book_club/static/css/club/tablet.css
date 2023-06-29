@@ -323,7 +323,7 @@
           flex-direction: column;
           justify-content: space-around;
           align-items: start;
-          padding: 20px 50px;
+          padding: 20px 40px;
         }
     
         .books-cart-container{
@@ -338,19 +338,20 @@
         .books-cart-row{
           padding: 0px 30px;
         }
-    
-        .books-cart-image{
-          
-        }
         
         .books-cart-image img{
           box-shadow: 0 5.5px 5px 0 #000;
-          width: 120px;
+          width: 100px;
           
         }
     
         .books-cart-title{
           font-size: 14px;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          display: -webkit-box;
+          -webkit-line-clamp: 3;
+          -webkit-box-orient: vertical;
         }
     
         .books-cart-desc {
@@ -371,7 +372,7 @@
       }
     
         .books-cart-button{
-          margin: 10px 0;
+          margin: 10px 0 0 0;
         }
     
         .books-cart-button button{
