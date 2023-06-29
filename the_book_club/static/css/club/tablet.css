@@ -397,14 +397,14 @@
 
         
         .login__container {
-          margin: 80px auto;
+          margin: 60px auto;
           width: 640px;
           max-height: auto;
           min-height: 700px;
         }
         
         .login {
-          margin: 150px auto 0 auto;
+          margin: 100px auto 0 auto;
           padding: 20px 20px 20px;
           width: 350px;
           background: white;
@@ -448,7 +448,7 @@
         }
         .login p.remember_me {
           float: left;
-          line-height: 31px;
+          line-height: 25px;
         }
         .login p.remember_me label {
           font-size: 12px;
@@ -499,7 +499,7 @@
           margin: 5px;
           padding: 0 10px;
           width: 200px;
-          height: 34px;
+          height: 25px;
           color: #6998AB;
           background: white;
           border: 1px solid;
