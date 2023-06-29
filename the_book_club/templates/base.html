@@ -5,6 +5,7 @@
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/club/desktop.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/club/mobile.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/club/netbook.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/club/tablet.css' %}">
     <!-- Подключаем шрифты -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -36,6 +37,11 @@
             <li><a href="{% url 'club:account'  %}">Личный кабинет</a></li>
         </ul>
     </nav>
+    <div class="menu-burger__header">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
 </header>
 <main class="main-container">
     {% block content %}
@@ -44,5 +50,13 @@
 <footer>
     <p> © The book clubs
 </footer>
+<script>
+    var menuBurger = document.querySelector('.menu-burger__header');
+    var nav = document.querySelector('nav');
+
+    menuBurger.addEventListener('click', function() {
+        nav.classList.toggle('menu-active');
+    });
+</script>
 </body>
 </html>

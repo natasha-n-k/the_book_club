@@ -1,6 +1,6 @@
 
     /* Стили для планшетов */
-    @media screen and (min-width: 768px) and (max-width: 1023px) {
+    @media screen and (min-width: 481px) and (max-width: 767px) {
       body {
         font-size: 14px;
         line-height: 1.2;
@@ -24,6 +24,7 @@
           
           nav ul {
           display: flex;
+          flex-direction: column;
           margin: 0;
           padding: 0;
           }
@@ -45,12 +46,42 @@
           color: #f7f7f7;
           font-size: 20px;
           }
-    
-          .burger-icon {
+
+          .menu-burger__header {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            height: 20px;
+            width: 30px;
+            cursor: pointer;
+            padding: 5px;
+          }
+          
+          .menu-burger__header span {
+            display: block;
+            height: 3px;
+            width: 100%;
+            background-color: #f7f7f7;
+            margin-bottom: 5px;
+          }
+          
+          /* Скрываем навигацию по умолчанию */
+          nav ul {
             display: none;
           }
+          
+          /* Показываем навигацию при активации бургер-меню */
+          .menu-active nav ul {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+          }
+          
+          .menu-active nav li {
+            margin: 10px 0;
+          }
     
-        
         footer {     
             bottom: 0;
             left: 0;
