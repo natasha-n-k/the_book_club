@@ -759,59 +759,58 @@
       .book-container {
         height: auto;
         background-color: #f7f7f7;
-        padding: 50px 0;
+        padding: 50px 30px;
       }
       .book-cart-container {
-        margin: 0px 200px;
+        margin: 0px 70px;
       }
       .book-cart-row {
-        display: grid;
-        grid-template-columns: auto 1fr;
-        grid-template-rows: auto 1fr;
-        align-items: start;
+        display: flex;
+        flex-direction: column;
         justify-content: space-around;
-        grid-column-gap: 70px;
-        justify-items: center
+        align-items: stretch;
+      }
+      .book-cart-image {
+        text-align: center;
       }
       .book-cart-image img{
         box-shadow: 0 5.5px 5px 0 #000;
-        margin-top: 10px;
-        width: 170px;
-        height: 250px;
+        margin: 10px auto;
+        width: 130px;
+        height: 180px;
       }
       .book-cart-details {
-        background-color:#f7f7f7 ;
-        border-radius: 16px;
-        padding: 20px;
+        background-color:#ffffff ;
+        border-radius: 26px 8px;
+        margin: 10px 0;
+        padding: 10px;
       }
       .book-cart-details h3,
       .book-cart-details h4{
-        padding-left: 30px;
+        padding-left: 20px;
       }
       .book-rating {
         background-color:#6998AB ;
         border-radius: 16px;
         text-align: center;
         padding: 0 10px 10px 10px;
-      }
-      .rating-stars {
-      }
-      .book.user_rating {
+        width: 100px;
+        margin: auto;
       }
       .book-status {
         background-color:#f7f7f7 ;
         border-radius: 16px;
         padding-top: 20px;
-        margin-top: 20px;
+        margin: 0 auto;
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
+        align-items: center;
         justify-content: space-around;
-      }
-      .book-status-details {
       }
       .book-status-details p{
         color: #000;
-        padding-left: 40px
+        padding-left: 40px;
+
       }
       .book-rating select{
         padding: 4px 8px ;
@@ -832,6 +831,7 @@
         padding: 0 10px;
       }
       .book-queue-details select{
+        width: 200px;
         padding: 4px 8px ;
         text-align: left;
         text-shadow: 0 1px #e3f1f1;
@@ -850,8 +850,8 @@
         display: inline-block;
         background-color: #f7f7f7;
         color: #6998AB;
-        padding: 10px 30px;
-        margin: 20px;
+        padding: 7px 10px;
+        margin: 15px;
         border-radius: 6px;
         outline: 5px solid #eff4f7;
         border: 1px solid;
@@ -859,10 +859,10 @@
         box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
       }
       .status-form {
-        padding: 25px 0 0 20px;
+        padding: 20px 0 0 15px;
       }
       .status-form select{
-        padding: 8px 20px;
+        padding: 6px 16px;
         text-align: left;
         text-shadow: 0 1px #e3f1f1;
         letter-spacing: 2px;
@@ -876,13 +876,14 @@
         -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
         box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
       }
-  
       .purchase-links{
         text-align: center;
       }
       .purchase-links img{
         border-radius: 5px;
-        box-shadow: 0 2.5px 2px 0 #000
+        box-shadow: 0 2.5px 2px 0 #000;
+        width: 100px;
+        height: 70%;
       }
 
 
@@ -890,8 +891,6 @@
         margin: 10px 70px;
         display: flex;
         flex-direction: column;
-      }
-      .club-details h2{
       }
       .club-info {
         display: flex;
