@@ -635,16 +635,16 @@
         
         .account-content-row img{
           box-shadow: 0 5.5px 5px 0 #000;
-          width: 80px;
+          width: 60px;
         }
         .account-clubs-row img{
-          height: 90px;
+          height: 70px;
         }
         .account-content-container {
           height: auto;
           display: flex;
           flex-direction: column;
-          padding: 10px 70px;
+          padding: 10px 40px;
         }
         .account-content-row {
           width: 100%;
@@ -702,8 +702,7 @@
           height: 600px;
           text-align: center;
         }
-      .edit-profile-content-container {
-      }
+        
       .edit-profile-content-row {
         position: relative;
         margin: 100px auto 0 auto;
