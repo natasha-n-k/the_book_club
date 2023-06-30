@@ -1008,14 +1008,14 @@
       }
 
       .admin-container{
-        margin: 0 70px;
+        margin: 0 40px;
       }
       .admin-container input,
       .admin-container select{
         margin: 5px;
         padding: 0 7px;
         width: 200px;
-        height: 25px;
+        height: 20px;
         color: #6998AB;
         background: white;
         border: 1px solid;
@@ -1030,8 +1030,8 @@
         display: inline-block;
         background-color: #f7f7f7;
         color: #6998AB;
-        padding: 7px 25px;
-        margin: 15px;
+        padding: 3px 10px;
+        margin: 5px auto;
         border-radius: 6px;
         outline: 5px solid #eff4f7;
         border: 1px solid;
@@ -1039,8 +1039,8 @@
         box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
       }
       .admin-container img{
-        width: 130px;
-        height: 200px;
+        width: 110px;
+        height: 170px;
         box-shadow: 0 5.5px 5px 0 #000;
       }
       .admin-container h2{
@@ -1062,6 +1062,19 @@
       .admin-read-item {
         margin-right: 10px;
       }
+      .admin-queue-item button,
+      .admin-read-item button{
+        display: block;
+        background-color: #f7f7f7;
+        color: #6998AB;
+        padding: 3px 10px;
+        margin: 5px auto;
+        border-radius: 6px;
+        outline: 2px solid #eff4f7;
+        border: 1px solid;
+        border-color: #c4c4c4 #d1d1d1 #d4d4d4;
+        box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
+      }
       .admin-link{
         text-align: center;
       }
@@ -1069,8 +1082,8 @@
         display: inline-block;
         background-color: #f7f7f7;
         color: #6998AB;
-        padding: 7px 25px;
-        margin: 20px;
+        padding: 5px 20px;
+        margin: 10px;
         border-radius: 6px;
         outline: 5px solid #eff4f7;
         border: 1px solid;
