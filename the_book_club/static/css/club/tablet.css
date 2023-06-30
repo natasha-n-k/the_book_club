@@ -698,13 +698,11 @@
         }
     
     
-        .edit-profile-container {
+      .edit-profile-container {
           height: 600px;
           text-align: center;
-        }
-        
+      }
       .edit-profile-content-row {
-        position: relative;
         margin: 100px auto 0 auto;
         padding: 15px 15px 15px;
         width: 300px;
@@ -715,7 +713,6 @@
       }
       .edit-profile-content-row:before {
         content: '';
-        position: absolute;
         top: -8px;
         right: -8px;
         bottom: -8px;
@@ -724,15 +721,11 @@
         background: rgba(0, 0, 0, 0.08);
         border-radius: 4px;
       }
-      .edit-profile-content-row form{
-      }
-      .edit-profile-content-row label{
-      }
       .edit-profile-content-row input{
         margin: 5px;
         padding: 0 10px;
         width: 250px;
-        height: 34px;
+        height: 27px;
         color: #6998AB;
         background: white;
         border: 1px solid;
@@ -746,7 +739,7 @@
       .edit-profile-content-row button{
         padding: 0 15px;
         margin-top: 25px;
-        height: 29px;
+        height: 25px;
         font-size: 12px;
         font-weight: bold;
         color: #6998AB;
