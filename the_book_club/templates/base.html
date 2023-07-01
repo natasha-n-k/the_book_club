@@ -23,40 +23,41 @@
     <title>The book clubs</title>
 </head>
 <body>
-<header>
-    <div class="logo">
-        <a class="logo" href="{% url 'club:index'  %}">
-            <h3>The book clubs</h3>
-        </a>
-    </div>
-    <nav>
-        <ul>
-            <li><a href="{% url 'club:index'  %}">Главная</a></li>
-            <li><a href="{% url 'club:book_clubs'  %}">Выбрать книжный клуб</a></li>
-            <li><a href="{% url 'club:books'  %}">Книги</a></li>
-            <li><a href="{% url 'club:account'  %}">Личный кабинет</a></li>
-        </ul>
-    </nav>
-    <div class="menu-burger__header">
-        <span></span>
-        <span></span>
-        <span></span>
-    </div>
-</header>
+    <header>
+        <div class="logo">
+            <a class="logo" href="{% url 'club:index'  %}">
+                <h3>The book clubs</h3>
+            </a>
+        </div>
+        <nav class="main-nav"> 
+            <ul class="header__list"> 
+                <li><a href="{% url 'club:index'  %}">Главная</a></li>
+                <li><a href="{% url 'club:book_clubs'  %}">Выбрать книжный клуб</a></li>
+                <li><a href="{% url 'club:books'  %}">Книги</a></li>
+                <li><a href="{% url 'club:account'  %}">Личный кабинет</a></li>
+            </ul>
+        </nav>
+        <div class="menu-burger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </header>
 <main class="main-container">
     {% block content %}
     {% endblock %}
 </main>
 <footer>
-    <p> © The book clubs
+    <p> © The book clubs </p>
 </footer>
 <script>
-    var menuBurger = document.querySelector('.menu-burger__header');
-    var nav = document.querySelector('nav');
+const headerToggle = document.querySelector('.menu-burger');
+const headerList = document.querySelector('.header__list');
 
-    menuBurger.addEventListener('click', function() {
-        nav.classList.toggle('menu-active');
-    });
+headerToggle.addEventListener('click', () => {
+    headerToggle.classList.toggle('is-active');
+    headerList.classList.toggle('is-active');
+});
 </script>
 </body>
 </html>
