@@ -50,16 +50,12 @@
           display: block;
           padding: 10px;
           }
-          
+
           .logo {
           padding: 10px 50px;
           text-align: center;
           color: #f7f7f7;
           font-size: 20px;
-          }
-    
-          .burger-icon {
-            display: none;
           }
     
         .home-container{

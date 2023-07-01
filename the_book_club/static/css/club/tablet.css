@@ -16,68 +16,55 @@
         top: 0;
         left: 0;
     }
+    .header__list {
+      display: none;
+      background-color: #f7f7f7;
+  }
+  .header__list.active {
+      display: block;
+  }
 
-    .main-nav { /* Use main-nav class instead of nav */
-        display: flex;
-        align-items: center;
+  .menu-burger {
+      display: block;
+      cursor: pointer;
+      margin-right: 20px;
+  }
+
+  .menu-burger span {
+      display: block;
+      width: 30px;
+      height: 4px;
+      margin-bottom: 5px;
+      background-color: #000;
+  }
+
+  .header__list {
+      list-style-type: none;
+      padding: 100px 0;
+  }
+  .header__list.is-active {
+    transform: translateX(0);
     }
+  .header__list li {
+      margin-bottom: 10px;
+  }
+  .menu.active {
+    padding: 200px 0;
+    display: block;
+  }
 
-    .header__list { /* Modify class from nav to header__list */
-        display: flex;
-        flex-direction: column;
-        margin: 0;
-        padding: 0;
-    }
-
-    .header__list li { /* Modify class from nav to header__list */
-        margin: 0;
-        padding: 10px;
-        list-style: none;
-    }
-
-    .header__list li a { /* Modify class from nav to header__list */
-        display: block;
-        padding: 10px;
-    }
-
-    .logo {
+      .logo{
         padding: 10px 50px;
         text-align: center;
         color: #f7f7f7;
         font-size: 20px;
-    }
-
-    .menu-burger {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        align-items: center;
-        height: 20px;
-        width: 30px;
-        cursor: pointer;
-        padding: 5px;
-    }
-
-    .menu-burger span {
-        display: block;
-        height: 3px;
-        width: 100%;
-        background-color: #f7f7f7;
-        margin-bottom: 5px;
-    }
-
-    /* Hide the navigation by default */
-    .header__list {
-        display: none;
-    }
-    
+      }
         footer {     
             bottom: 0;
             left: 0;
             right: 0;
             padding: 10px;
             background-color:  #6998AB;
-
         }
         main {
           padding-top: 50px;
