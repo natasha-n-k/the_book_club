@@ -17,12 +17,29 @@
         left: 0;
     }
     .header__list {
-      display: none;
-      background-color: #f7f7f7;
+      position: fixed;
+      top: 50px;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      flex-direction: column;
+      justify-content: center;
+      background-color: #6998AB;
+      padding: 20px;
+      overflow-y: auto;
+      transform: translateX(100%);
+      transition: transform 0.3s ease-in-out;
+      z-index: 998;
   }
   .header__list.active {
-      display: block;
+			transform: translateX(0);
   }
+
+  .header__list a {
+    color: #f7eef9;
+    font-size: 18px;
+    padding-left: 20px;
+    }
 
   .menu-burger {
       display: block;
@@ -44,7 +61,7 @@
   }
   .header__list.is-active {
     transform: translateX(0);
-    }
+  }
   .header__list li {
       margin-bottom: 10px;
   }
