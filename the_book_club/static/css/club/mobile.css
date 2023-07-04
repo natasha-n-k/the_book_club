@@ -221,14 +221,20 @@
         }
         .clubs-filter,
         .books-filter{
-          padding: 15px 60px;
+          padding: 30px 40px;
+        }
+        .clubs-filter form,
+        .books-filter form{
+          display: flex;
+          flex-direction: column;
+          text-align: center;
         }
         .clubs-filter button,
         .books-filter button{
           display: inline-block;
           background-color: #f7f7f7;
           color: #6998AB;
-          padding: 7px 20px;
+          padding: 5px 20px;
           margin: 15px;
           border-radius: 6px;
           outline: 5px solid #eff4f7;
@@ -239,10 +245,10 @@
         }
         .clubs-filter select,
         .books-filter select{
-          margin: 5px;
+          margin: 5px auto;
           padding: 0 10px;
           width: 180px;
-          height: 30px;
+          height: 25px;
           color: #6998AB;
           background: white;
           border: 1px solid;
@@ -259,7 +265,7 @@
     
         .clubs-grid{
           display: grid;
-          grid-template-columns: repeat(2, 1fr);
+          grid-template-columns: repeat(1, 1fr);
           gap: 20px;
           padding: 10px;
         }
@@ -294,15 +300,15 @@
           -webkit-box-orient: vertical;
         }
         .clubs-book-image img{
-          width: 40%;
-          height: 40%;
+          width: 35%;
+          height: 35%;
         }
     
         .clubs-cart-button button{
           display: inline-block;
           background-color: #f7f7f7;
           color: #6998AB;
-          padding: 7px 25px;
+          padding: 5px 20px;
           margin: 10px;
           border-radius: 6px;
           outline: 5px solid #eff4f7;
@@ -359,7 +365,7 @@
           overflow: hidden;
           text-overflow: ellipsis;
           display: -webkit-box;
-          -webkit-line-clamp: 3;
+          -webkit-line-clamp: 6;
           -webkit-box-orient: vertical;
       }
       
@@ -379,7 +385,7 @@
           display: inline-block;
           background-color: #f7f7f7;
           color: #6998AB;
-          padding: 7px 25px;
+          padding: 5px 15px;
           margin: 10px;
           border-radius: 6px;
           outline: 5px solid #eff4f7;
