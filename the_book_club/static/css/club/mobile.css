@@ -420,7 +420,6 @@
         }
         .login:before {
           content: '';
-
           top: -8px;
           right: -8px;
           bottom: -8px;
@@ -551,13 +550,13 @@
         
         .register__container {
           margin: 80px auto;
-          width: 640px;
-          height: 390px;
+          width: 350px;
+          height: 520px;
         }
         
         .register {
           position: relative;
-          margin: 130px auto 0 auto;
+          margin: 50px auto 0 auto;
           padding: 20px 20px 10px;
           max-width: 350px;
           background: white;
@@ -595,7 +594,7 @@
         .register__form input[type=password] {
           margin: 5px;
           padding: 0 10px;
-          width: 300px;
+          width: 250px;
           height: 25px;
           color: #6998AB;
           background: white;
@@ -616,7 +615,7 @@
     
         .register__form input[type=submit] {
           padding: 0 18px;
-          height: 29px;
+          height: 22px;
           font-size: 12px;
           font-weight: bold;
           color: #6998AB;
