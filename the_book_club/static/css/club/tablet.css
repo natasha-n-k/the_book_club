@@ -252,7 +252,7 @@
           box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
         }
         .clubs-container{
-          padding: 20px 40px ;
+          padding: 10px 40px ;
         }
     
         .clubs-grid{
@@ -285,6 +285,11 @@
         .clubs-cart-desc{
           font-size: 12px;
           padding: 0 7px;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          display: -webkit-box;
+          -webkit-line-clamp: 3;
+          -webkit-box-orient: vertical;
         }
         .clubs-book-image img{
           width: 40%;
@@ -316,7 +321,7 @@
           flex-direction: column;
           justify-content: space-around;
           align-items: start;
-          padding: 20px 40px;
+          padding: 10px 40px;
         }
     
         .books-cart-container{
