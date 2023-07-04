@@ -757,7 +757,7 @@
       .book-container {
         height: auto;
         background-color: #f7f7f7;
-        padding: 50px 30px;
+        padding: 20px 30px;
       }
       .book-cart-container {
         margin: 0px 70px;
@@ -792,7 +792,7 @@
         border-radius: 16px;
         text-align: center;
         padding: 0 10px 10px 10px;
-        width: 100px;
+        width: 150px;
         margin: auto;
       }
       .book-status {
