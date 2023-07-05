@@ -914,6 +914,8 @@
       }
       .club-cart-image img{
         border-radius: 5px;
+        width: 40%;
+        height: 40%;
       }
       .club-cart-desc{
         margin: 20px auto;
@@ -928,7 +930,7 @@
       .hidden-members {
         font-family: 'Alegreya Sans', sans-serif;
         overflow: auto;
-        height: 80px;
+        height: 60px;
         padding-bottom: 20px;
       }
       .club-admin a{
@@ -951,7 +953,7 @@
         padding: 0px 30px;
       }
       .book-cover {
-        padding-left: 40px;
+        padding-left: 20px;
       }
       .book-cover img{
         width: 110px;
@@ -959,7 +961,7 @@
         box-shadow: 0 5.5px 5px 0 #000;
       }
       .book-info {
-        padding: 20px;
+        padding: 10px 0;
       }
       .book-info button{
         display: inline-block;
