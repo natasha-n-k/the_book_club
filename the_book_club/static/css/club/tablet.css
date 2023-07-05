@@ -1096,7 +1096,7 @@
         margin: 0px auto;
         padding: 10px;
         max-width: 540px;
-        height: 580px;
+        min-height: 640px;
       } 
       .create__item {
         margin: 0 auto;
