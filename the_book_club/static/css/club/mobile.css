@@ -1014,7 +1014,7 @@
       }
 
       .admin-container{
-        margin: 0 40px;
+        margin: 0 30px;
       }
       .admin-container input,
       .admin-container select{
@@ -1045,8 +1045,8 @@
         box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
       }
       .admin-container img{
-        width: 110px;
-        height: 170px;
+        width: 90px;
+        height: 130px;
         box-shadow: 0 5.5px 5px 0 #000;
       }
       .admin-container h2{
