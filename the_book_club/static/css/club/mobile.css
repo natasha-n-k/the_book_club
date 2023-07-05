@@ -852,7 +852,7 @@
         box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
       }
       .book-queue-details button{
-        display: inline-block;
+        display: block;
         background-color: #f7f7f7;
         color: #6998AB;
         padding: 7px 10px;
