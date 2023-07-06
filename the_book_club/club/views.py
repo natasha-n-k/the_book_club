@@ -54,13 +54,13 @@ def books(request):
 
 def book_detail(request, book_id):
     book = get_object_or_404(Book, id=book_id)
-    user_book, created = UserBook.objects.get_or_create(user=request.user, book=book)
+    user_book, created = UserBook.objects.get_or_create(user=None, book=book)
 
     if request.method == 'POST':
         rating = request.POST.get('rating')
         if rating is not None:
             rating = int(rating)
-            Rating.objects.update_or_create(user=request.user, book=book, defaults={'rating': rating})
+            Rating.objects.update_or_create(user=None, book=book, defaults={'rating': rating})
             average_rating = book.calculate_average_rating()
             book.average_rating = round(average_rating, 1) if average_rating else None
             book.save()
@@ -80,7 +80,7 @@ def book_detail(request, book_id):
                 'date_read': user_book.date_read.strftime('%Y-%m-%d') if user_book.date_read else None
             })
 
-    return render(request, 'club/book_detail.html', {'book': book, 'user_book': user_book,})
+    return render(request, 'club/book_detail.html', {'book': book, 'user_book': user_book})
 
 @csrf_protect
 def user_login(request):

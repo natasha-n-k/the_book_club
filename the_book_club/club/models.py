@@ -42,7 +42,7 @@ class BookClub(models.Model):
         return self.name
 
 class UserBook(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
     book = models.ForeignKey('Book', on_delete=models.CASCADE)
     is_want_to_read = models.BooleanField(default=False)
     is_read = models.BooleanField(default=False)
