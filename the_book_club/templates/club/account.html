@@ -8,8 +8,8 @@
       <p><b>Имя:</b> {{ user.first_name }} {{ user.last_name }}</p>
       <p><b>Дата рождения:</b> {{ user.profile.date_of_birth }}</p>
       <p><b>Дата регистрации:</b> {{ user.date_joined }}</p>
-      <a class="account-prof" href="{% url 'club:edit_profile' %}">Редактировать профиль</a>
-      <a class="account-prof" href="{% url 'club:logout' %}">Выйти из профиля</a>
+      <a class="account-prof" href="{% url 'club:edit_profile' %}">Редактировать</a>
+      <a class="account-prof" href="{% url 'club:logout' %}">Выйти </a>
     </div>
     <div class="account-content-row">
       <h2>Мои клубы</h2>

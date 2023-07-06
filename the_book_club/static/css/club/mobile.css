@@ -663,7 +663,7 @@
           color: #6998AB;
           text-shadow: #c4c4c4 5px 0 10px;
           font-weight: 600;
-          padding-right: 30px;
+          padding-right: 10px;
         }
         .account-clubs-container,
         .account-books-container {
@@ -686,6 +686,7 @@
           box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.2);
           border-radius: 5px;
           scroll-snap-align: start;
+          padding: 10px;
         }
         .account-books-row h4,
         .account-books-row h5 {
