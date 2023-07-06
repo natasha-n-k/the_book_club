@@ -906,7 +906,6 @@
           -webkit-box-shadow: 0 1px whitesmoke;
           box-shadow: 0 1px whitesmoke;
         }
-    
         .create__form input[type=text],
         .create__form textarea{
           margin: 5px;
@@ -928,7 +927,6 @@
           outline-color: #dceefc;
           outline-offset: 0;
         }
-    
         .create__form button:active {
           background: #cde5ef;
           border-color: #9eb9c2 #b3c0c8 #b4ccce;
