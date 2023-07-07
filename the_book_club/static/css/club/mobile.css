@@ -1,10 +1,10 @@
-
 /* Стили для планшетов */
 @media screen and (max-width: 480px) {
   body {
     font-size: 14px;
     line-height: 1.2;
   }
+
   header {
     display: flex;
     justify-content: space-between;
@@ -16,6 +16,7 @@
     top: 0;
     left: 0;
   }
+
   .header__list {
     position: fixed;
     top: 50px;
@@ -31,15 +32,16 @@
     transition: transform 0.3s ease-in-out;
     z-index: 998;
   }
+
   .header__list.active {
-			transform: translateX(0);
+    transform: translateX(0);
   }
 
   .header__list a {
     color: #f7eef9;
     font-size: 18px;
     padding-left: 20px;
-    }
+  }
 
   .menu-burger {
     display: block;
@@ -59,35 +61,41 @@
     list-style-type: none;
     padding: 100px 0;
   }
+
   .header__list.is-active {
     transform: translateX(0);
   }
+
   .header__list li {
     margin-bottom: 10px;
   }
+
   .menu.active {
     padding: 200px 0;
     display: block;
   }
 
-  .logo{
+  .logo {
     padding: 10px 50px;
     text-align: center;
     color: #f7f7f7;
     font-size: 20px;
   }
-  footer {     
+
+  footer {
     bottom: 0;
     left: 0;
     right: 0;
     padding: 10px;
-    background-color:  #6998AB;
+    background-color: #6998AB;
   }
+
   main {
     padding-top: 50px;
   }
-    /* Стили для buttons */
-  .banner-content button{
+
+  /* Стили для buttons */
+  .banner-content button {
     display: block;
     background-color: #f7f7f7;
     color: #6998AB;
@@ -100,8 +108,9 @@
     font-weight: 600;
     margin: 30px auto;
   }
+
   .home-cart-button button,
-  .home-create-descr a{
+  .home-create-descr a {
     display: inline-block;
     background-color: #f7f7f7;
     color: #6998AB;
@@ -114,10 +123,11 @@
     box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
     font-weight: 600;
   }
+
   .clubs-filter button,
   .books-filter button,
   .clubs-cart-button button,
-  .books-cart-button button{
+  .books-cart-button button {
     display: inline-block;
     background-color: #f7f7f7;
     color: #6998AB;
@@ -130,8 +140,9 @@
     box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
     font-weight: 600;
   }
+
   .edit-profile-content-row button,
-  .create__form button{
+  .create__form button {
     font-size: 12px;
     font-weight: bold;
     color: #6998AB;
@@ -147,7 +158,8 @@
     -webkit-box-shadow: inset 0 1px white, 0 1px 2px rgba(0, 0, 0, 0.15);
     box-shadow: inset 0 1px white, 0 1px 2px rgba(0, 0, 0, 0.15);
   }
-  .book-queue-details button{
+
+  .book-queue-details button {
     display: block;
     background-color: #f7f7f7;
     color: #6998AB;
@@ -159,7 +171,8 @@
     border-color: #c4c4c4 #d1d1d1 #d4d4d4;
     box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
   }
-  .club-admin a{
+
+  .club-admin a {
     margin: 10px auto;
     display: block;
     width: 300px;
@@ -172,7 +185,8 @@
     border-color: #c4c4c4 #d1d1d1 #d4d4d4;
     box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
   }
-  .book-info button{
+
+  .book-info button {
     display: inline-block;
     background-color: #6998AB;
     padding: 7px;
@@ -182,7 +196,8 @@
     border-color: #c4c4c4 #d1d1d1 #d4d4d4;
     box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
   }
-  .admin-container button{
+
+  .admin-container button {
     display: inline-block;
     background-color: #f7f7f7;
     color: #6998AB;
@@ -194,8 +209,9 @@
     border-color: #c4c4c4 #d1d1d1 #d4d4d4;
     box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
   }
+
   .admin-queue-item button,
-  .admin-read-item button{
+  .admin-read-item button {
     display: block;
     background-color: #f7f7f7;
     color: #6998AB;
@@ -207,7 +223,8 @@
     border-color: #c4c4c4 #d1d1d1 #d4d4d4;
     box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
   }
-  .admin-link a{
+
+  .admin-link a {
     display: inline-block;
     background-color: #f7f7f7;
     color: #6998AB;
@@ -219,83 +236,97 @@
     border-color: #c4c4c4 #d1d1d1 #d4d4d4;
     box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
   }
-  .create__form button{
+
+  .create__form button {
     padding: 5px 20px;
   }
-  .edit-profile-content-row button{
+
+  .edit-profile-content-row button {
     padding: 0 15px;
     margin-top: 25px;
     height: 25px;
   }
+
   /* Стили для img */
-  .banner-picture img{
+  .banner-picture img {
     max-width: 100%;
   }
+
   .home-cart-image img,
-  .clubs-cart-image img{
+  .clubs-cart-image img {
     border-radius: 10px;
     display: block;
     margin: 0 auto;
     width: 40%;
     height: 40%;
   }
-  .home-create-image img{
+
+  .home-create-image img {
     width: 80%;
     height: 80%;
     border-radius: 10px;
   }
-  .clubs-book-image img{
+
+  .clubs-book-image img {
     width: 35%;
     height: 35%;
   }
-  .books-cart-image img{
+
+  .books-cart-image img {
     box-shadow: 0 5.5px 5px 0 #000;
     width: 100px;
   }
-  .account-content-row img{
+
+  .account-content-row img {
     box-shadow: 0 5.5px 5px 0 #000;
     width: 60px;
   }
-  .book-cart-image img{
+
+  .book-cart-image img {
     box-shadow: 0 5.5px 5px 0 #000;
     margin: 10px auto;
     width: 130px;
     height: 180px;
   }
-  .purchase-links img{
+
+  .purchase-links img {
     border-radius: 5px;
     box-shadow: 0 2.5px 2px 0 #000;
     width: 100px;
     height: 70%;
   }
-  .club-cart-image img{
+
+  .club-cart-image img {
     border-radius: 5px;
     width: 40%;
     height: 40%;
   }
+
   .book-cover img,
   .club-queue-item img,
   .club-read-item img,
-  .admin-container img{
+  .admin-container img {
     width: 90px;
     height: 130px;
     box-shadow: 0 5.5px 5px 0 #000;
-    }
+  }
 
   .home-container {
     max-width: 100%;
-    padding: 15px 30px ;
+    padding: 15px 30px;
     display: flex;
     -direction: column;
     justify-content: space-around;
     align-items: stretch;
     background-color: #f7f7f7;
   }
-  .home-row h2{
+
+  .home-row h2 {
     padding-top: 17px;
     text-align: center;
     font-size: 16px;
   }
+
   .home-banner-container {
     display: flex;
     flex-direction: column;
@@ -306,42 +337,49 @@
     border-color: #c4c4c4 #d1d1d1 #d4d4d4;
     box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
   }
-  .banner-picture{
+
+  .banner-picture {
     max-width: 100%;
     overflow: hidden;
     padding: 10px;
   }
+
   .banner-content {
     max-width: 100%;
     padding: 10px 30px;
     text-align: center;
   }
-  .banner-content h1{
+
+  .banner-content h1 {
     text-align: center;
     font-size: 18px;
   }
-  .home-grid{
+
+  .home-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 20px;
     padding: 10px;
     margin: 15px;
   }
-  .home-cart{
+
+  .home-cart {
     background-color: #f7f7f7;
     padding: 10px;
     text-align: center;
     border-radius: 20px;
     box-shadow: 0 5.5px 5px 0 #6998AB;
   }
-  .home-cart-desc{
+
+  .home-cart-desc {
     display: -webkit-box;
     -webkit-line-clamp: 5;
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
   }
-  .home-create{
+
+  .home-create {
     background-color: #ffffff;
     margin: 15px auto;
     padding: 0 10px 10px 10px;
@@ -353,18 +391,21 @@
     border-color: #c4c4c4 #d1d1d1 #d4d4d4;
     box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
   }
+
   .clubs-filter,
-  .books-filter{
+  .books-filter {
     padding: 30px 40px;
   }
+
   .clubs-filter form,
-  .books-filter form{
+  .books-filter form {
     display: flex;
     flex-direction: column;
     text-align: center;
   }
+
   .clubs-filter select,
-  .books-filter select{
+  .books-filter select {
     margin: 5px auto;
     padding: 0 10px;
     width: 180px;
@@ -379,26 +420,31 @@
     -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
     box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
   }
-  .clubs-container{
-    padding: 10px 40px ;
+
+  .clubs-container {
+    padding: 10px 40px;
   }
-  .clubs-grid{
+
+  .clubs-grid {
     display: grid;
     grid-template-columns: repeat(1, 1fr);
     gap: 20px;
     padding: 10px;
   }
-  .clubs-cart{
+
+  .clubs-cart {
     background-color: #f7f7f7;
     padding: 15px;
     text-align: center;
     border-radius: 20px;
     box-shadow: 0 5.5px 5px 0 #6998AB
   }
-  .clubs-cart-title{
+
+  .clubs-cart-title {
     font-size: 12px;
   }
-  .clubs-cart-desc{
+
+  .clubs-cart-desc {
     font-size: 12px;
     padding: 0 7px;
     overflow: hidden;
@@ -407,20 +453,23 @@
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
   }
-  .clubs-cart-button button:hover{
+
+  .clubs-cart-button button:hover {
     -webkit-transform: scale(1.1);
     -ms-ransform: scale(1.1);
     transform: scale(1.1);
     transition: 1s;
   }
-  .books-container{
+
+  .books-container {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: start;
     padding: 10px 40px;
   }
-  .books-cart-container{
+
+  .books-cart-container {
     display: flex;
     background-color: #f2f2f2;
     flex-direction: row;
@@ -428,10 +477,12 @@
     align-items: center;
     padding: 10px;
   }
-  .books-cart-row{
+
+  .books-cart-row {
     padding: 0px 30px;
   }
-  .books-cart-title{
+
+  .books-cart-title {
     font-size: 14px;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -439,6 +490,7 @@
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
   }
+
   .books-cart-desc {
     font-size: 12px;
     overflow: hidden;
@@ -447,24 +499,29 @@
     -webkit-line-clamp: 6;
     -webkit-box-orient: vertical;
   }
+
   .books-cart-desc.expanded {
     -webkit-line-clamp: initial;
   }
+
   .books-cart-desc:hover {
     cursor: pointer;
   }
-  .books-cart-button button:hover{
+
+  .books-cart-button button:hover {
     -webkit-transform: scale(1.1);
     -ms-ransform: scale(1.1);
     transform: scale(1.1);
     transition: 1s;
   }
+
   .login__container {
     margin: 60px auto;
     max-width: 350px;
     max-height: auto;
     min-height: 700px;
   }
+
   .login {
     margin: 100px auto 0 auto;
     padding: 20px 20px 20px;
@@ -474,6 +531,7 @@
     -webkit-box-shadow: 0 0 200px #f7f7f7, 0 1px 2px rgba(0, 0, 0, 0.3);
     box-shadow: 0 0 200px #f7f7f7, 0 1px 2px rgba(0, 0, 0, 0.3);
   }
+
   .login:before {
     content: '';
     top: -8px;
@@ -484,6 +542,7 @@
     background: rgba(0, 0, 0, 0.08);
     border-radius: 4px;
   }
+
   .login h1 {
     margin: -20px -20px 21px;
     line-height: 40px;
@@ -498,33 +557,42 @@
     -webkit-box-shadow: 0 1px whitesmoke;
     box-shadow: 0 1px whitesmoke;
   }
+
   .login p {
     margin: 20px 0 0;
   }
+
   .login p:first-child {
     margin-top: 0;
   }
-  .login input[type=text], .login input[type=password] {
+
+  .login input[type=text],
+  .login input[type=password] {
     width: 278px;
   }
+
   .login p.remember_me {
     float: left;
     line-height: 25px;
   }
+
   .login p.remember_me label {
     font-size: 12px;
     color: #000;
     cursor: pointer;
   }
+
   .login p.remember_me input {
     position: relative;
     bottom: 1px;
     margin-right: 4px;
     vertical-align: middle;
   }
+
   .login p.submit {
     text-align: right;
   }
+
   .login-help {
     margin: 20px 0;
     font-size: 11px;
@@ -532,24 +600,30 @@
     text-align: center;
     text-shadow: 0 1px #6998AB;
   }
+
   .login-help a {
     color: #000;
   }
+
   .login-help a:hover {
     text-decoration: underline;
   }
+
   :-moz-placeholder {
     color: #6998AB !important;
     font-size: 13px;
   }
+
   ::-webkit-input-placeholder {
     color: #6998AB;
     font-size: 13px;
   }
+
   .login input {
     font-family: 'Lucida Grande', Tahoma, Verdana, sans-serif;
     font-size: 14px;
   }
+
   .login__form input[type=text],
   .login__form input[type=password] {
     margin: 5px;
@@ -566,12 +640,14 @@
     -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
     box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
   }
-  .login__form input[type=text]:focus, 
-  .login__form  input[type=password]:focus {
+
+  .login__form input[type=text]:focus,
+  .login__form input[type=password]:focus {
     border-color: #6998AB;
     outline-color: #dceefc;
     outline-offset: 0;
   }
+
   .login__form input[type=submit] {
     padding: 0 18px;
     height: 22px;
@@ -590,18 +666,20 @@
     -webkit-box-shadow: inset 0 1px white, 0 1px 2px rgba(0, 0, 0, 0.15);
     box-shadow: inset 0 1px white, 0 1px 2px rgba(0, 0, 0, 0.15);
   }
+
   .login__form input[type=submit]:active {
     background: #cde5ef;
     border-color: #9eb9c2 #b3c0c8 #b4ccce;
     -webkit-box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.2);
     box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.2);
   }
-  
+
   .register__container {
     margin: 80px auto;
     width: 350px;
     height: 520px;
   }
+
   .register {
     position: relative;
     margin: 50px auto 0 auto;
@@ -612,6 +690,7 @@
     -webkit-box-shadow: 0 0 200px #f7f7f7, 0 1px 2px rgba(0, 0, 0, 0.3);
     box-shadow: 0 0 200px #f7f7f7, 0 1px 2px rgba(0, 0, 0, 0.3);
   }
+
   .register:before {
     content: '';
     position: absolute;
@@ -623,6 +702,7 @@
     background: rgba(0, 0, 0, 0.08);
     border-radius: 4px;
   }
+
   .register h1 {
     margin: -20px -20px 21px;
     line-height: 40px;
@@ -637,6 +717,7 @@
     -webkit-box-shadow: 0 1px whitesmoke;
     box-shadow: 0 1px whitesmoke;
   }
+
   .register__form input[type=text],
   .register__form input[type=password] {
     margin: 5px;
@@ -653,12 +734,14 @@
     -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
     box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
   }
-  .register__form input[type=text]:focus, 
-  .register__form  input[type=password]:focus {
+
+  .register__form input[type=text]:focus,
+  .register__form input[type=password]:focus {
     border-color: #6998AB;
     outline-color: #dceefc;
     outline-offset: 0;
   }
+
   .register__form input[type=submit] {
     padding: 0 18px;
     height: 22px;
@@ -677,18 +760,21 @@
     -webkit-box-shadow: inset 0 1px white, 0 1px 2px rgba(0, 0, 0, 0.15);
     box-shadow: inset 0 1px white, 0 1px 2px rgba(0, 0, 0, 0.15);
   }
+
   .register__form input[type=submit]:active {
     background: #cde5ef;
     border-color: #9eb9c2 #b3c0c8 #b4ccce;
     -webkit-box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.2);
     box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.2);
   }
+
   .account-content-container {
     height: auto;
     display: flex;
     flex-direction: column;
     padding: 10px 40px;
   }
+
   .account-content-row {
     width: 100%;
     background-color: #f7f7f7;
@@ -697,12 +783,14 @@
     padding: 10px;
     overflow-x: auto;
   }
+
   .account-prof {
     color: #6998AB;
     text-shadow: #c4c4c4 5px 0 10px;
     font-weight: 600;
     padding-right: 10px;
   }
+
   .account-clubs-container,
   .account-books-container {
     display: flex;
@@ -712,6 +800,7 @@
     padding: 7px;
     overflow-x: auto;
   }
+
   .account-clubs-row,
   .account-books-row {
     flex: 0 0 140px;
@@ -726,6 +815,7 @@
     scroll-snap-align: start;
     padding: 10px;
   }
+
   .account-books-row h4,
   .account-books-row h5 {
     font-stretch: ultra-condensed;
@@ -736,15 +826,17 @@
     -webkit-line-clamp: 3;
     text-overflow: ellipsis;
   }
+
   .account-clubs-row.active,
   .account-books-row.active {
-    border: 2px solid #6998AB;    
+    border: 2px solid #6998AB;
   }
-  
+
   .edit-profile-container {
     height: 600px;
     text-align: center;
   }
+
   .edit-profile-content-row {
     margin: 50px auto 0 auto;
     padding: 15px 15px 15px;
@@ -753,7 +845,8 @@
     border-radius: 3px;
     -webkit-box-shadow: 0 0 200px #f7f7f7, 0 1px 2px rgba(0, 0, 0, 0.3);
     box-shadow: 0 0 200px #f7f7f7, 0 1px 2px rgba(0, 0, 0, 0.3);
-}
+  }
+
   .edit-profile-content-row:before {
     content: '';
     top: -8px;
@@ -764,7 +857,8 @@
     background: rgba(0, 0, 0, 0.08);
     border-radius: 4px;
   }
-  .edit-profile-content-row input{
+
+  .edit-profile-content-row input {
     margin: 5px;
     padding: 0 10px;
     width: 250px;
@@ -779,43 +873,51 @@
     -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
     box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
   }
+
   .book-container {
     height: auto;
     background-color: #f7f7f7;
     padding: 20px 30px;
   }
+
   .book-cart-container {
     margin: 0px 70px;
   }
+
   .book-cart-row {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: stretch;
   }
+
   .book-cart-image {
     text-align: center;
   }
+
   .book-cart-details {
-    background-color:#ffffff ;
+    background-color: #ffffff;
     border-radius: 26px 8px;
     margin: 10px 0;
     padding: 10px;
   }
+
   .book-cart-details h3,
-  .book-cart-details h4{
+  .book-cart-details h4 {
     padding-left: 20px;
   }
+
   .book-rating {
-    background-color:#6998AB ;
+    background-color: #6998AB;
     border-radius: 16px;
     text-align: center;
     padding: 0 10px 10px 10px;
     width: 150px;
     margin: auto;
   }
+
   .book-status {
-    background-color:#f7f7f7 ;
+    background-color: #f7f7f7;
     border-radius: 16px;
     padding-top: 20px;
     margin: 0 auto;
@@ -824,31 +926,14 @@
     align-items: center;
     justify-content: space-around;
   }
-  .book-status-details p{
+
+  .book-status-details p {
     color: #000;
     padding-left: 40px;
   }
-  .book-rating select{
-  padding: 4px 8px ;
-  text-align: left;
-  text-shadow: 0 1px #e3f1f1;
-  letter-spacing: 2px;
-  color: #6998AB;
-  background: #f7f7f7;
-  border: 1px solid;
-  border-color: #c4c4c4 #d1d1d1 #d4d4d4;
-  border-radius: 6px;
-  outline: 5px solid #eff4f7;
-  -moz-outline-radius: 3px;
-  -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
-  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
-}
-.book-queue-details{
-  padding: 10px;
-}
-.book-queue-details select{
-    width: 200px;
-    padding: 4px 8px ;
+
+  .book-rating select {
+    padding: 4px 8px;
     text-align: left;
     text-shadow: 0 1px #e3f1f1;
     letter-spacing: 2px;
@@ -862,10 +947,33 @@
     -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
     box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
   }
+
+  .book-queue-details {
+    padding: 10px;
+  }
+
+  .book-queue-details select {
+    width: 200px;
+    padding: 4px 8px;
+    text-align: left;
+    text-shadow: 0 1px #e3f1f1;
+    letter-spacing: 2px;
+    color: #6998AB;
+    background: #f7f7f7;
+    border: 1px solid;
+    border-color: #c4c4c4 #d1d1d1 #d4d4d4;
+    border-radius: 6px;
+    outline: 5px solid #eff4f7;
+    -moz-outline-radius: 3px;
+    -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
+  }
+
   .status-form {
     padding: 20px 0 0 15px;
   }
-  .status-form select{
+
+  .status-form select {
     padding: 6px 16px;
     text-align: left;
     text-shadow: 0 1px #e3f1f1;
@@ -879,93 +987,111 @@
     -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
     box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
   }
-  .purchase-links{
+
+  .purchase-links {
     text-align: center;
   }
+
   .club-details {
     margin: 10px 40px;
     display: flex;
     flex-direction: column;
   }
-  .club-details h2{
+
+  .club-details h2 {
     font-size: 16px;
   }
+
   .club-info {
     display: flex;
     flex-direction: column;
   }
+
   .club-cart-image {
     background-color: #f7f7f7;
     border-radius: 16px;
     width: 60%;
-    padding: 10px 20px ;
+    padding: 10px 20px;
     text-align: center;
     margin: auto;
   }
-  .club-cart-desc{
+
+  .club-cart-desc {
     margin: 10px auto;
   }
-  .club-members{
+
+  .club-members {
     margin: 0px auto;
     padding: 10px;
     text-align: center;
     background-color: #f7f7f7;
     border-radius: 10px;
   }
+
   .hidden-members {
     font-family: 'Alegreya Sans', sans-serif;
     overflow: auto;
     height: 60px;
     padding-bottom: 20px;
   }
-  .club-selected-book{
+
+  .club-selected-book {
     background-color: #f7f7f7;
     border-radius: 16px;
     margin: 10px 0;
     padding: 0px 30px;
   }
+
   .book-cover {
     padding-left: 20px;
   }
+
   .book-info {
     padding: 10px 0;
   }
+
   .club-book-queue {
     background-color: #f7f7f7;
     border-radius: 16px;
     margin: 10px 0;
     padding: 10px 30px;
   }
+
   .club-queue-container {
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
     overflow-x: auto;
   }
-  .club-queue-item{
+
+  .club-queue-item {
     margin-right: 20px;
     font-size: 12px;
   }
+
   .club-read-books {
     background-color: #f7f7f7;
     border-radius: 16px;
     margin: 10px 0;
     padding: 10px 30px;
   }
+
   .club-read-container {
     display: flex;
     flex-direction: row;
     overflow-x: auto;
   }
+
   .club-read-item {
     margin-right: 20px;
   }
 
-  .admin-container{
+  .admin-container {
     margin: 0 30px;
   }
+
   .admin-container input,
-  .admin-container select{
+  .admin-container select {
     margin: 5px;
     padding: 0 7px;
     width: 200px;
@@ -980,37 +1106,45 @@
     -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
     box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
   }
-  .admin-container h2{
+
+  .admin-container h2 {
     text-align: center;
   }
-  .admin-item{
+
+  .admin-item {
     background-color: #f7f7f7;
     border-radius: 16px;
     margin: 10px 0;
     padding: 10px 30px;
   }
+
   .admin-queue,
   .admin-read {
     display: flex;
     flex-wrap: nowrap;
     overflow-x: auto;
   }
+
   .admin-queue-item,
   .admin-read-item {
     margin-right: 10px;
   }
-  .admin-link{
+
+  .admin-link {
     text-align: center;
   }
+
   .create__container {
     background-color: #f7f7f7;
   }
+
   .create__content {
     margin: 0px auto;
     padding: 10px;
     max-width: 340px;
     min-height: 640px;
-  } 
+  }
+
   .create__item {
     margin: 0 auto;
     padding: 20px 20px 20px;
@@ -1020,6 +1154,7 @@
     -webkit-box-shadow: 0 0 200px #f7f7f7, 0 1px 2px rgba(0, 0, 0, 0.3);
     box-shadow: 0 0 200px #f7f7f7, 0 1px 2px rgba(0, 0, 0, 0.3);
   }
+
   .create__item h1 {
     margin: -20px -20px 21px;
     line-height: 40px;
@@ -1034,8 +1169,9 @@
     -webkit-box-shadow: 0 1px whitesmoke;
     box-shadow: 0 1px whitesmoke;
   }
+
   .create__form input[type=text],
-  .create__form textarea{
+  .create__form textarea {
     margin: 5px;
     padding: 0 10px;
     width: 250px;
@@ -1050,11 +1186,13 @@
     -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
     box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
   }
+
   .create__form input[type=text]:focus {
     border-color: #6998AB;
     outline-color: #dceefc;
     outline-offset: 0;
   }
+
   .create__form button:active {
     background: #cde5ef;
     border-color: #9eb9c2 #b3c0c8 #b4ccce;
