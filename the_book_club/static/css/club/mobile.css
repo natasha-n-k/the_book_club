@@ -86,7 +86,202 @@
         main {
           padding-top: 50px;
         }
-    
+    /* Стили для buttons */
+    .banner-content button{
+      display: block;
+      background-color: #f7f7f7;
+      color: #6998AB;
+      padding: 5px 20px;
+      border-radius: 6px;
+      outline: 5px solid #eff4f7;
+      border: 1px solid;
+      border-color: #c4c4c4 #d1d1d1 #d4d4d4;
+      box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
+      font-weight: 600;
+      margin: 30px auto;
+    }
+    .home-cart-button button,
+    .home-create-descr a{
+      display: inline-block;
+      background-color: #f7f7f7;
+      color: #6998AB;
+      padding: 5px 20px;
+      margin: 10px;
+      border-radius: 6px;
+      outline: 5px solid #eff4f7;
+      border: 1px solid;
+      border-color: #c4c4c4 #d1d1d1 #d4d4d4;
+      box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
+      font-weight: 600;
+    }
+    .clubs-filter button,
+    .books-filter button,
+    .clubs-cart-button button,
+    .books-cart-button button{
+      display: inline-block;
+      background-color: #f7f7f7;
+      color: #6998AB;
+      padding: 5px 15px;
+      margin: 15px;
+      border-radius: 6px;
+      outline: 5px solid #eff4f7;
+      border: 1px solid;
+      border-color: #c4c4c4 #d1d1d1 #d4d4d4;
+      box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
+      font-weight: 600;
+    }
+    .edit-profile-content-row button,
+    .create__form button{
+      font-size: 12px;
+      font-weight: bold;
+      color: #6998AB;
+      text-shadow: 0 1px #e3f1f1;
+      background: #cde5ef;
+      border: 1px solid;
+      border-color: #b4ccce #b3c0c8 #9eb9c2;
+      border-radius: 16px;
+      outline: 0;
+      -webkit-box-sizing: content-box;
+      -moz-box-sizing: content-box;
+      box-sizing: content-box;
+      -webkit-box-shadow: inset 0 1px white, 0 1px 2px rgba(0, 0, 0, 0.15);
+      box-shadow: inset 0 1px white, 0 1px 2px rgba(0, 0, 0, 0.15);
+    }
+    .book-queue-details button{
+      display: block;
+      background-color: #f7f7f7;
+      color: #6998AB;
+      padding: 7px 10px;
+      margin: 15px;
+      border-radius: 6px;
+      outline: 5px solid #eff4f7;
+      border: 1px solid;
+      border-color: #c4c4c4 #d1d1d1 #d4d4d4;
+      box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
+    }
+    .club-admin a{
+      margin: 10px auto;
+      display: block;
+      width: 300px;
+      text-align: center;
+      background-color: #6998AB;
+      padding: 7px;
+      border-radius: 6px;
+      outline: 5px solid #eff4f7;
+      border: 1px solid;
+      border-color: #c4c4c4 #d1d1d1 #d4d4d4;
+      box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
+    }
+    .book-info button{
+      display: inline-block;
+      background-color: #6998AB;
+      padding: 7px;
+      border-radius: 6px;
+      outline: 5px solid #eff4f7;
+      border: 1px solid;
+      border-color: #c4c4c4 #d1d1d1 #d4d4d4;
+      box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
+    }
+    .admin-container button{
+      display: inline-block;
+      background-color: #f7f7f7;
+      color: #6998AB;
+      padding: 3px 10px;
+      margin: 5px auto;
+      border-radius: 6px;
+      outline: 5px solid #eff4f7;
+      border: 1px solid;
+      border-color: #c4c4c4 #d1d1d1 #d4d4d4;
+      box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
+    }
+    .admin-queue-item button,
+    .admin-read-item button{
+      display: block;
+      background-color: #f7f7f7;
+      color: #6998AB;
+      padding: 3px 10px;
+      margin: 5px auto;
+      border-radius: 6px;
+      outline: 2px solid #eff4f7;
+      border: 1px solid;
+      border-color: #c4c4c4 #d1d1d1 #d4d4d4;
+      box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
+    }
+    .admin-link a{
+      display: inline-block;
+      background-color: #f7f7f7;
+      color: #6998AB;
+      padding: 5px 20px;
+      margin: 10px;
+      border-radius: 6px;
+      outline: 5px solid #eff4f7;
+      border: 1px solid;
+      border-color: #c4c4c4 #d1d1d1 #d4d4d4;
+      box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
+    }
+    .create__form button{
+      padding: 5px 20px;
+    }
+    .edit-profile-content-row button{
+      padding: 0 15px;
+      margin-top: 25px;
+      height: 25px;
+    }
+    /* Стили для img */
+    .banner-picture img{
+      max-width: 100%;
+    }
+    .home-cart-image img,
+    .clubs-cart-image img{
+      border-radius: 10px;
+      display: block;
+      margin: 0 auto;
+      width: 40%;
+      height: 40%;
+    }
+    .home-create-image img{
+      width: 80%;
+      height: 80%;
+      border-radius: 10px;
+    }
+    .clubs-book-image img{
+      width: 35%;
+      height: 35%;
+    }
+    .books-cart-image img{
+      box-shadow: 0 5.5px 5px 0 #000;
+      width: 100px;
+    }
+    .account-content-row img{
+      box-shadow: 0 5.5px 5px 0 #000;
+      width: 60px;
+    }
+    .book-cart-image img{
+      box-shadow: 0 5.5px 5px 0 #000;
+      margin: 10px auto;
+      width: 130px;
+      height: 180px;
+    }
+    .purchase-links img{
+      border-radius: 5px;
+      box-shadow: 0 2.5px 2px 0 #000;
+      width: 100px;
+      height: 70%;
+    }
+    .club-cart-image img{
+      border-radius: 5px;
+      width: 40%;
+      height: 40%;
+    }
+    .book-cover img,
+    .club-queue-item img,
+    .club-read-item img,
+    .admin-container img{
+      width: 90px;
+      height: 130px;
+      box-shadow: 0 5.5px 5px 0 #000;
+    }
+
         .home-container {
           max-width: 100%;
           padding: 15px 30px ;
@@ -116,22 +311,6 @@
           overflow: hidden;
           padding: 10px;
         }
-        .banner-picture img{
-          max-width: 100%;
-        }
-        .banner-content button{
-          display: block;
-          background-color: #f7f7f7;
-          color: #6998AB;
-          padding: 5px 20px;
-          border-radius: 6px;
-          outline: 5px solid #eff4f7;
-          border: 1px solid;
-          border-color: #c4c4c4 #d1d1d1 #d4d4d4;
-          box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
-          font-weight: 600;
-          margin: 30px auto;
-        }
         .banner-content {
           max-width: 100%;
           padding: 10px 30px;
@@ -148,7 +327,6 @@
           padding: 10px;
           margin: 15px;
         }
-    
         .home-cart{
           background-color: #f7f7f7;
           padding: 10px;
@@ -156,15 +334,6 @@
           border-radius: 20px;
           box-shadow: 0 5.5px 5px 0 #6998AB;
         }
-    
-        .home-cart-image img{
-          border-radius: 10px;
-          display: block;
-          margin: 0 auto;
-          width: 40%;
-          height: 40%;
-        }
-
         .home-cart-desc{
           display: -webkit-box;
           -webkit-line-clamp: 5;
@@ -172,21 +341,6 @@
           overflow: hidden;
           text-overflow: ellipsis;
         }
-    
-        .home-cart-button button{
-          display: inline-block;
-          background-color: #f7f7f7;
-          color: #6998AB;
-          padding: 5px 20px;
-          margin: 10px;
-          border-radius: 6px;
-          outline: 5px solid #eff4f7;
-          border: 1px solid;
-          border-color: #c4c4c4 #d1d1d1 #d4d4d4;
-          box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
-          font-weight: 600;
-        }
-    
         .home-create{
           background-color: #ffffff;
           margin: 15px auto;
@@ -199,26 +353,6 @@
           border-color: #c4c4c4 #d1d1d1 #d4d4d4;
           box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
         }
-
-        .home-create-image img{
-          width: 80%;
-          height: 80%;
-          border-radius: 10px;
-        }
-        
-        .home-create-descr a{
-          display: inline-block;
-          background-color: #f7f7f7;
-          color: #6998AB;
-          padding: 5px 20px;
-          margin: 15px;
-          border-radius: 6px;
-          outline: 5px solid #eff4f7;
-          border: 1px solid;
-          border-color: #c4c4c4 #d1d1d1 #d4d4d4;
-          box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
-          font-weight: 600;
-        }
         .clubs-filter,
         .books-filter{
           padding: 30px 40px;
@@ -228,20 +362,6 @@
           display: flex;
           flex-direction: column;
           text-align: center;
-        }
-        .clubs-filter button,
-        .books-filter button{
-          display: inline-block;
-          background-color: #f7f7f7;
-          color: #6998AB;
-          padding: 5px 20px;
-          margin: 15px;
-          border-radius: 6px;
-          outline: 5px solid #eff4f7;
-          border: 1px solid;
-          border-color: #c4c4c4 #d1d1d1 #d4d4d4;
-          box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
-          font-weight: 600;
         }
         .clubs-filter select,
         .books-filter select{
@@ -262,14 +382,12 @@
         .clubs-container{
           padding: 10px 40px ;
         }
-    
         .clubs-grid{
           display: grid;
           grid-template-columns: repeat(1, 1fr);
           gap: 20px;
           padding: 10px;
         }
-    
         .clubs-cart{
           background-color: #f7f7f7;
           padding: 15px;
@@ -277,19 +395,9 @@
           border-radius: 20px;
           box-shadow: 0 5.5px 5px 0 #6998AB
         }
-    
-        .clubs-cart-image img{
-          border-radius: 20px;
-          display: block;
-          margin: 0 auto;
-          width: 40%;
-          height: 40%;
-        }
-    
         .clubs-cart-title{
           font-size: 12px;
         }
-    
         .clubs-cart-desc{
           font-size: 12px;
           padding: 0 7px;
@@ -299,31 +407,12 @@
           -webkit-line-clamp: 3;
           -webkit-box-orient: vertical;
         }
-        .clubs-book-image img{
-          width: 35%;
-          height: 35%;
-        }
-    
-        .clubs-cart-button button{
-          display: inline-block;
-          background-color: #f7f7f7;
-          color: #6998AB;
-          padding: 5px 20px;
-          margin: 10px;
-          border-radius: 6px;
-          outline: 5px solid #eff4f7;
-          border: 1px solid;
-          border-color: #c4c4c4 #d1d1d1 #d4d4d4;
-          box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
-          font-weight: 600;
-        }
         .clubs-cart-button button:hover{
           -webkit-transform: scale(1.1);
           -ms-ransform: scale(1.1);
           transform: scale(1.1);
           transition: 1s;
         }
-    
         .books-container{
           display: flex;
           flex-direction: column;
@@ -331,7 +420,6 @@
           align-items: start;
           padding: 10px 40px;
         }
-    
         .books-cart-container{
           display: flex;
           background-color: #f2f2f2;
@@ -340,17 +428,9 @@
           align-items: center;
           padding: 10px;
         }
-    
         .books-cart-row{
           padding: 0px 30px;
         }
-        
-        .books-cart-image img{
-          box-shadow: 0 5.5px 5px 0 #000;
-          width: 100px;
-          
-        }
-    
         .books-cart-title{
           font-size: 14px;
           overflow: hidden;
@@ -359,7 +439,6 @@
           -webkit-line-clamp: 3;
           -webkit-box-orient: vertical;
         }
-    
         .books-cart-desc {
           font-size: 12px;
           overflow: hidden;
@@ -368,32 +447,12 @@
           -webkit-line-clamp: 6;
           -webkit-box-orient: vertical;
       }
-      
       .books-cart-desc.expanded {
           -webkit-line-clamp: initial;
       }
-      
       .books-cart-desc:hover {
           cursor: pointer;
       }
-    
-        .books-cart-button{
-          margin: 10px 0 0 0;
-        }
-    
-        .books-cart-button button{
-          display: inline-block;
-          background-color: #f7f7f7;
-          color: #6998AB;
-          padding: 5px 15px;
-          margin: 10px;
-          border-radius: 6px;
-          outline: 5px solid #eff4f7;
-          border: 1px solid;
-          border-color: #c4c4c4 #d1d1d1 #d4d4d4;
-          box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
-          font-weight: 600;
-        }
         .books-cart-button button:hover{
           -webkit-transform: scale(1.1);
           -ms-ransform: scale(1.1);
@@ -401,14 +460,12 @@
           transition: 1s;
         }
 
-        
         .login__container {
           margin: 60px auto;
           max-width: 350px;
           max-height: auto;
           min-height: 700px;
         }
-        
         .login {
           margin: 100px auto 0 auto;
           padding: 20px 20px 20px;
@@ -469,7 +526,6 @@
         .login p.submit {
           text-align: right;
         }
-        
         .login-help {
           margin: 20px 0;
           font-size: 11px;
@@ -483,22 +539,18 @@
         .login-help a:hover {
           text-decoration: underline;
         }
-        
         :-moz-placeholder {
           color: #6998AB !important;
           font-size: 13px;
         }
-        
         ::-webkit-input-placeholder {
           color: #6998AB;
           font-size: 13px;
         }
-        
         .login input {
           font-family: 'Lucida Grande', Tahoma, Verdana, sans-serif;
           font-size: 14px;
         }
-        
         .login__form input[type=text],
         .login__form input[type=password] {
           margin: 5px;
@@ -521,7 +573,6 @@
           outline-color: #dceefc;
           outline-offset: 0;
         }
-        
         .login__form input[type=submit] {
           padding: 0 18px;
           height: 22px;
@@ -547,13 +598,11 @@
           box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.2);
         }
         
-        
         .register__container {
           margin: 80px auto;
           width: 350px;
           height: 520px;
         }
-        
         .register {
           position: relative;
           margin: 50px auto 0 auto;
@@ -589,7 +638,6 @@
           -webkit-box-shadow: 0 1px whitesmoke;
           box-shadow: 0 1px whitesmoke;
         }
-    
         .register__form input[type=text],
         .register__form input[type=password] {
           margin: 5px;
@@ -612,7 +660,6 @@
           outline-color: #dceefc;
           outline-offset: 0;
         }
-    
         .register__form input[type=submit] {
           padding: 0 18px;
           height: 22px;
@@ -636,14 +683,6 @@
           border-color: #9eb9c2 #b3c0c8 #b4ccce;
           -webkit-box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.2);
           box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.2);
-        }
-        
-        .account-content-row img{
-          box-shadow: 0 5.5px 5px 0 #000;
-          width: 60px;
-        }
-        .account-clubs-row img{
-          height: 70px;
         }
         .account-content-container {
           height: auto;
@@ -702,8 +741,7 @@
         .account-books-row.active {
           border: 2px solid #6998AB;    
         }
-    
-    
+        
       .edit-profile-container {
           height: 600px;
           text-align: center;
@@ -742,26 +780,6 @@
         -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
         box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
       }
-      .edit-profile-content-row button{
-        padding: 0 15px;
-        margin-top: 25px;
-        height: 25px;
-        font-size: 12px;
-        font-weight: bold;
-        color: #6998AB;
-        text-shadow: 0 1px #e3f1f1;
-        background: #cde5ef;
-        border: 1px solid;
-        border-color: #b4ccce #b3c0c8 #9eb9c2;
-        border-radius: 16px;
-        outline: 0;
-        -webkit-box-sizing: content-box;
-        -moz-box-sizing: content-box;
-        box-sizing: content-box;
-        -webkit-box-shadow: inset 0 1px white, 0 1px 2px rgba(0, 0, 0, 0.15);
-        box-shadow: inset 0 1px white, 0 1px 2px rgba(0, 0, 0, 0.15);
-      }
-
       .book-container {
         height: auto;
         background-color: #f7f7f7;
@@ -778,12 +796,6 @@
       }
       .book-cart-image {
         text-align: center;
-      }
-      .book-cart-image img{
-        box-shadow: 0 5.5px 5px 0 #000;
-        margin: 10px auto;
-        width: 130px;
-        height: 180px;
       }
       .book-cart-details {
         background-color:#ffffff ;
@@ -816,7 +828,6 @@
       .book-status-details p{
         color: #000;
         padding-left: 40px;
-
       }
       .book-rating select{
         padding: 4px 8px ;
@@ -834,7 +845,7 @@
         box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
       }
       .book-queue-details{
-        padding: 0 10px;
+        padding: 10px;
       }
       .book-queue-details select{
         width: 200px;
@@ -850,18 +861,6 @@
         outline: 5px solid #eff4f7;
         -moz-outline-radius: 3px;
         -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
-        box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
-      }
-      .book-queue-details button{
-        display: block;
-        background-color: #f7f7f7;
-        color: #6998AB;
-        padding: 7px 10px;
-        margin: 15px;
-        border-radius: 6px;
-        outline: 5px solid #eff4f7;
-        border: 1px solid;
-        border-color: #c4c4c4 #d1d1d1 #d4d4d4;
         box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
       }
       .status-form {
@@ -885,12 +884,6 @@
       .purchase-links{
         text-align: center;
       }
-      .purchase-links img{
-        border-radius: 5px;
-        box-shadow: 0 2.5px 2px 0 #000;
-        width: 100px;
-        height: 70%;
-      }
 
       .club-details {
         margin: 10px 40px;
@@ -912,11 +905,6 @@
         text-align: center;
         margin: auto;
       }
-      .club-cart-image img{
-        border-radius: 5px;
-        width: 40%;
-        height: 40%;
-      }
       .club-cart-desc{
         margin: 10px auto;
       }
@@ -933,19 +921,6 @@
         height: 60px;
         padding-bottom: 20px;
       }
-      .club-admin a{
-        margin: 10px auto;
-        display: block;
-        width: 300px;
-        text-align: center;
-        background-color: #6998AB;
-        padding: 7px;
-        border-radius: 6px;
-        outline: 5px solid #eff4f7;
-        border: 1px solid;
-        border-color: #c4c4c4 #d1d1d1 #d4d4d4;
-        box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
-      }
       .club-selected-book{
         background-color: #f7f7f7;
         border-radius: 16px;
@@ -955,23 +930,8 @@
       .book-cover {
         padding-left: 20px;
       }
-      .book-cover img{
-        width: 90px;
-        height: 130px;
-        box-shadow: 0 5.5px 5px 0 #000;
-      }
       .book-info {
         padding: 10px 0;
-      }
-      .book-info button{
-        display: inline-block;
-        background-color: #6998AB;
-        padding: 7px;
-        border-radius: 6px;
-        outline: 5px solid #eff4f7;
-        border: 1px solid;
-        border-color: #c4c4c4 #d1d1d1 #d4d4d4;
-        box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
       }
       .club-book-queue {
         background-color: #f7f7f7;
@@ -989,11 +949,6 @@
           margin-right: 20px;
           font-size: 12px;
       }
-      .club-queue-item img{
-        width: 90px;
-        height: 130px;
-        box-shadow: 0 5.5px 5px 0 #000;
-      }
       .club-read-books {
         background-color: #f7f7f7;
         border-radius: 16px;
@@ -1007,11 +962,6 @@
       }
       .club-read-item {
         margin-right: 20px;
-      }
-      .club-read-item img{
-        width: 90px;
-        height: 130px;
-        box-shadow: 0 5.5px 5px 0 #000;
       }
 
       .admin-container{
@@ -1033,23 +983,6 @@
         -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
         box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
       }
-      .admin-container button{
-        display: inline-block;
-        background-color: #f7f7f7;
-        color: #6998AB;
-        padding: 3px 10px;
-        margin: 5px auto;
-        border-radius: 6px;
-        outline: 5px solid #eff4f7;
-        border: 1px solid;
-        border-color: #c4c4c4 #d1d1d1 #d4d4d4;
-        box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
-      }
-      .admin-container img{
-        width: 90px;
-        height: 130px;
-        box-shadow: 0 5.5px 5px 0 #000;
-      }
       .admin-container h2{
         text-align: center;
       }
@@ -1069,35 +1002,9 @@
       .admin-read-item {
         margin-right: 10px;
       }
-      .admin-queue-item button,
-      .admin-read-item button{
-        display: block;
-        background-color: #f7f7f7;
-        color: #6998AB;
-        padding: 3px 10px;
-        margin: 5px auto;
-        border-radius: 6px;
-        outline: 2px solid #eff4f7;
-        border: 1px solid;
-        border-color: #c4c4c4 #d1d1d1 #d4d4d4;
-        box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
-      }
       .admin-link{
         text-align: center;
       }
-      .admin-link a{
-        display: inline-block;
-        background-color: #f7f7f7;
-        color: #6998AB;
-        padding: 5px 20px;
-        margin: 10px;
-        border-radius: 6px;
-        outline: 5px solid #eff4f7;
-        border: 1px solid;
-        border-color: #c4c4c4 #d1d1d1 #d4d4d4;
-        box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
-      }
-
       .create__container {
         background-color: #f7f7f7;
       }
@@ -1130,7 +1037,6 @@
         -webkit-box-shadow: 0 1px whitesmoke;
         box-shadow: 0 1px whitesmoke;
       }
-  
       .create__form input[type=text],
       .create__form textarea{
         margin: 5px;
@@ -1151,24 +1057,6 @@
         border-color: #6998AB;
         outline-color: #dceefc;
         outline-offset: 0;
-      }
-  
-      .create__form button{
-        padding: 5px 20px;
-        font-size: 12px;
-        font-weight: bold;
-        color: #6998AB;
-        text-shadow: 0 1px #e3f1f1;
-        background: #cde5ef;
-        border: 1px solid;
-        border-color: #b4ccce #b3c0c8 #9eb9c2;
-        border-radius: 16px;
-        outline: 0;
-        -webkit-box-sizing: content-box;
-        -moz-box-sizing: content-box;
-        box-sizing: content-box;
-        -webkit-box-shadow: inset 0 1px white, 0 1px 2px rgba(0, 0, 0, 0.15);
-        box-shadow: inset 0 1px white, 0 1px 2px rgba(0, 0, 0, 0.15);
       }
       .create__form button:active {
         background: #cde5ef;
