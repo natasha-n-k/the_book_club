@@ -1,1057 +1,1189 @@
-
-    /* Стили для планшетов */
-    @media screen and (min-width: 481px) and (max-width: 767px) {
-      body {
-        font-size: 14px;
-        line-height: 1.2;
-      }
-      header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        position: fixed;
-        background-color: #6998AB;
-        height: 50px;
-        width: 100%;
-        top: 0;
-        left: 0;
-    }
-    .header__list {
-      position: fixed;
-      top: 50px;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      flex-direction: column;
-      justify-content: center;
-      background-color: #6998AB;
-      padding: 20px;
-      overflow-y: auto;
-      transform: translateX(100%);
-      transition: transform 0.3s ease-in-out;
-      z-index: 998;
+/* Стили для планшетов */
+@media screen and (min-width: 481px) and (max-width: 767px) {
+  body {
+    font-size: 14px;
+    line-height: 1.2;
   }
+
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    background-color: #6998AB;
+    height: 50px;
+    width: 100%;
+    top: 0;
+    left: 0;
+  }
+
+  .header__list {
+    position: fixed;
+    top: 50px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #6998AB;
+    padding: 20px;
+    overflow-y: auto;
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out;
+    z-index: 998;
+  }
+
   .header__list.active {
-			transform: translateX(0);
+    transform: translateX(0);
   }
 
   .header__list a {
     color: #f7eef9;
     font-size: 18px;
     padding-left: 20px;
-    }
+  }
 
   .menu-burger {
-      display: block;
-      cursor: pointer;
-      margin-right: 20px;
+    display: block;
+    cursor: pointer;
+    margin-right: 20px;
   }
 
   .menu-burger span {
-      display: block;
-      width: 30px;
-      height: 4px;
-      margin-bottom: 5px;
-      background-color: #000;
+    display: block;
+    width: 30px;
+    height: 4px;
+    margin-bottom: 5px;
+    background-color: #000;
   }
 
   .header__list {
-      list-style-type: none;
-      padding: 100px 0;
+    list-style-type: none;
+    padding: 100px 0;
   }
+
   .header__list.is-active {
     transform: translateX(0);
   }
+
   .header__list li {
-      margin-bottom: 10px;
+    margin-bottom: 10px;
   }
+
   .menu.active {
     padding: 200px 0;
     display: block;
   }
 
-      .logo{
-        padding: 10px 50px;
-        text-align: center;
-        color: #f7f7f7;
-        font-size: 20px;
-      }
-        footer {     
-            bottom: 0;
-            left: 0;
-            right: 0;
-            padding: 10px;
-            background-color:  #6998AB;
-        }
-        main {
-          padding-top: 50px;
-        }
-    /* Стили для buttons */
-    .banner-content button,
-    .home-cart-button button{
-      display: block;
-      background-color: #f7f7f7;
-      color: #6998AB;
-      padding: 8px 25px;
-      border-radius: 6px;
-      outline: 5px solid #eff4f7;
-      border: 1px solid;
-      border-color: #c4c4c4 #d1d1d1 #d4d4d4;
-      box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
-      font-weight: 600;
-      margin: 30px auto;
-    }
-    .clubs-cart-button button,
-    .books-cart-button button,
-    .admin-link a{
-      display: inline-block;
-      background-color: #f7f7f7;
-      color: #6998AB;
-      padding: 7px 25px;
-      margin: 10px;
-      border-radius: 6px;
-      outline: 5px solid #eff4f7;
-      border: 1px solid;
-      border-color: #c4c4c4 #d1d1d1 #d4d4d4;
-      box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
-      font-weight: 600;
-    }
-    .books-cart-button{
-      margin: 10px 0 0 0;
-    }
-    .edit-profile-content-row button,
-    .create__form button{
-      font-size: 12px;
-      font-weight: bold;
-      color: #6998AB;
-      text-shadow: 0 1px #e3f1f1;
-      background: #cde5ef;
-      border: 1px solid;
-      border-color: #b4ccce #b3c0c8 #9eb9c2;
-      border-radius: 16px;
-      outline: 0;
-      -webkit-box-sizing: content-box;
-      -moz-box-sizing: content-box;
-      box-sizing: content-box;
-      -webkit-box-shadow: inset 0 1px white, 0 1px 2px rgba(0, 0, 0, 0.15);
-      box-shadow: inset 0 1px white, 0 1px 2px rgba(0, 0, 0, 0.15);
-    }
-    .book-queue-details button{
-      display: inline-block;
-      background-color: #f7f7f7;
-      color: #6998AB;
-      padding: 7px 10px;
-      margin: 15px;
-      border-radius: 6px;
-      outline: 5px solid #eff4f7;
-      border: 1px solid;
-      border-color: #c4c4c4 #d1d1d1 #d4d4d4;
-      box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
-    }
-    .book-info button{
-      display: inline-block;
-      background-color: #6998AB;
-      padding: 7px;
-      border-radius: 6px;
-      outline: 5px solid #eff4f7;
-      border: 1px solid;
-      border-color: #c4c4c4 #d1d1d1 #d4d4d4;
-      box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
-    }
-    .admin-queue-item button,
-    .admin-read-item button{
-      display: block;
-      background-color: #f7f7f7;
-      color: #6998AB;
-      padding: 3px 10px;
-      margin: 5px auto;
-      border-radius: 6px;
-      outline: 2px solid #eff4f7;
-      border: 1px solid;
-      border-color: #c4c4c4 #d1d1d1 #d4d4d4;
-      box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
-    }
-    .create__form button{
-      padding: 5px 20px;
-    }
-    .edit-profile-content-row button{
-      padding: 0 15px;
-      margin-top: 25px;
-      height: 25px;
-    }
-    /* Стили для img */
-    .banner-picture img{
-      max-width: 100%;
-    }
-    .home-cart-image img,
-    .clubs-cart-image img{
-      border-radius: 10px;
-      display: block;
-      margin: 0 auto;
-      width: 40%;
-      height: 40%;
-    }
-    .home-create-image img{
-      width: 80%;
-      height: 80%;
-      border-radius: 10px;
-    }
-    .clubs-book-image img{
-      width: 40%;
-      height: 40%;
-    }
-    .books-cart-image img{
-      box-shadow: 0 5.5px 5px 0 #000;
-      width: 100px;
-    }
-    .account-content-row img{
-      box-shadow: 0 5.5px 5px 0 #000;
-      width: 60px;
-    }
-    .account-clubs-row img{
-      height: 70px;
-    }
-    .book-cart-image img{
-      box-shadow: 0 5.5px 5px 0 #000;
-      margin: 10px auto;
-      width: 130px;
-      height: 180px;
-    }
-    .purchase-links img{
-      border-radius: 5px;
-      box-shadow: 0 2.5px 2px 0 #000;
-      width: 100px;
-      height: 70%;
-    }
-    .club-cart-image img{
-      border-radius: 5px;
-    }
-    .book-cover img,
-    .club-queue-item img,
-    .admin-container img{
-      width: 110px;
-      height: 170px;
-      box-shadow: 0 5.5px 5px 0 #000;
-    }
+  .logo {
+    padding: 10px 50px;
+    text-align: center;
+    color: #f7f7f7;
+    font-size: 20px;
+  }
+
+  footer {
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 10px;
+    background-color: #6998AB;
+  }
+
+  main {
+    padding-top: 50px;
+  }
+
+  /* Стили для buttons */
+  .banner-content button,
+  .home-cart-button button {
+    display: block;
+    background-color: #f7f7f7;
+    color: #6998AB;
+    padding: 8px 25px;
+    border-radius: 6px;
+    outline: 5px solid #eff4f7;
+    border: 1px solid;
+    border-color: #c4c4c4 #d1d1d1 #d4d4d4;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
+    font-weight: 600;
+    margin: 30px auto;
+  }
+
+  .clubs-cart-button button,
+  .books-cart-button button,
+  .admin-link a {
+    display: inline-block;
+    background-color: #f7f7f7;
+    color: #6998AB;
+    padding: 7px 25px;
+    margin: 10px;
+    border-radius: 6px;
+    outline: 5px solid #eff4f7;
+    border: 1px solid;
+    border-color: #c4c4c4 #d1d1d1 #d4d4d4;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
+    font-weight: 600;
+  }
+
+  .books-cart-button {
+    margin: 10px 0 0 0;
+  }
+
+  .edit-profile-content-row button,
+  .create__form button {
+    font-size: 12px;
+    font-weight: bold;
+    color: #6998AB;
+    text-shadow: 0 1px #e3f1f1;
+    background: #cde5ef;
+    border: 1px solid;
+    border-color: #b4ccce #b3c0c8 #9eb9c2;
+    border-radius: 16px;
+    outline: 0;
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    -webkit-box-shadow: inset 0 1px white, 0 1px 2px rgba(0, 0, 0, 0.15);
+    box-shadow: inset 0 1px white, 0 1px 2px rgba(0, 0, 0, 0.15);
+  }
+
+  .book-queue-details button {
+    display: inline-block;
+    background-color: #f7f7f7;
+    color: #6998AB;
+    padding: 7px 10px;
+    margin: 15px;
+    border-radius: 6px;
+    outline: 5px solid #eff4f7;
+    border: 1px solid;
+    border-color: #c4c4c4 #d1d1d1 #d4d4d4;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
+  }
+
+  .book-info button {
+    display: inline-block;
+    background-color: #6998AB;
+    padding: 7px;
+    border-radius: 6px;
+    outline: 5px solid #eff4f7;
+    border: 1px solid;
+    border-color: #c4c4c4 #d1d1d1 #d4d4d4;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
+  }
+
+  .admin-queue-item button,
+  .admin-read-item button {
+    display: block;
+    background-color: #f7f7f7;
+    color: #6998AB;
+    padding: 3px 10px;
+    margin: 5px auto;
+    border-radius: 6px;
+    outline: 2px solid #eff4f7;
+    border: 1px solid;
+    border-color: #c4c4c4 #d1d1d1 #d4d4d4;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
+  }
+
+  .create__form button {
+    padding: 5px 20px;
+  }
+
+  .edit-profile-content-row button {
+    padding: 0 15px;
+    margin-top: 25px;
+    height: 25px;
+  }
+
+  /* Стили для img */
+  .banner-picture img {
+    max-width: 100%;
+  }
+
+  .home-cart-image img,
+  .clubs-cart-image img {
+    border-radius: 10px;
+    display: block;
+    margin: 0 auto;
+    width: 40%;
+    height: 40%;
+  }
+
+  .home-create-image img {
+    width: 80%;
+    height: 80%;
+    border-radius: 10px;
+  }
+
+  .clubs-book-image img {
+    width: 40%;
+    height: 40%;
+  }
+
+  .books-cart-image img {
+    box-shadow: 0 5.5px 5px 0 #000;
+    width: 100px;
+  }
+
+  .account-content-row img {
+    box-shadow: 0 5.5px 5px 0 #000;
+    width: 60px;
+  }
+
+  .account-clubs-row img {
+    height: 70px;
+  }
+
+  .book-cart-image img {
+    box-shadow: 0 5.5px 5px 0 #000;
+    margin: 10px auto;
+    width: 130px;
+    height: 180px;
+  }
+
+  .purchase-links img {
+    border-radius: 5px;
+    box-shadow: 0 2.5px 2px 0 #000;
+    width: 100px;
+    height: 70%;
+  }
+
+  .club-cart-image img {
+    border-radius: 5px;
+  }
+
+  .book-cover img,
+  .club-queue-item img,
+  .admin-container img {
+    width: 110px;
+    height: 170px;
+    box-shadow: 0 5.5px 5px 0 #000;
+  }
 
 
-        .home-container {
-          max-width: 100%;
-          padding: 15px 30px ;
-          display: flex;
-          flex-direction: column;
-          justify-content: space-around;
-          align-items: stretch;
-          background-color: #f7f7f7;
-        }
-        .home-row h2{
-          padding-top: 17px;
-          text-align: center;
-        }
-        .home-banner-container {
-          display: flex;
-          flex-direction: column;
-          justify-content: space-around;
-          align-items: stretch;
-          background-color: #ffffff;
-          border-radius: 20px;
-          border-color: #c4c4c4 #d1d1d1 #d4d4d4;
-          box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
-        }
-        .banner-picture{
-          max-width: 100%;
-          overflow: hidden;
-          padding: 10px;
-        }
-        .banner-content {
-          max-width: 100%;
-          padding: 10px 30px;
-          text-align: center;
-        }
-        .banner-content h1{
-          text-align: center;
-        }
-        .home-grid{
-          display: grid;
-          grid-template-columns: repeat(2, 1fr);
-          gap: 20px;
-          padding: 10px;
-          margin: 25px;
-        }
-        .home-cart{
-          background-color: #f7f7f7;
-          padding: 15px;
-          text-align: center;
-          border-radius: 20px;
-          box-shadow: 0 5.5px 5px 0 #6998AB;
-        }
-        .home-cart-desc{
-          display: -webkit-box;
-          -webkit-line-clamp: 5;
-          -webkit-box-orient: vertical;
-          overflow: hidden;
-          text-overflow: ellipsis;
-        }
-        .home-create{
-          background-color: #ffffff;
-          margin: 15px auto;
-          padding: 0 15px 15px 15px;
-          width: 350px;
-          text-align: center;
-          border-radius: 6px;
-          outline: 5px solid #eff4f7;
-          border: 1px solid;
-          border-color: #c4c4c4 #d1d1d1 #d4d4d4;
-          box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
-        }
-        .home-create-descr a{
-          display: inline-block;
-          background-color: #f7f7f7;
-          color: #6998AB;
-          padding: 8px 25px;
-          margin: 15px;
-          border-radius: 6px;
-          outline: 5px solid #eff4f7;
-          border: 1px solid;
-          border-color: #c4c4c4 #d1d1d1 #d4d4d4;
-          box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
-          font-weight: 600;
-        }
-        .clubs-filter,
-        .books-filter{
-          padding: 15px 60px;
-        }
-        .clubs-filter select,
-        .books-filter select{
-          margin: 5px;
-          padding: 0 10px;
-          width: 180px;
-          height: 30px;
-          color: #6998AB;
-          background: white;
-          border: 1px solid;
-          border-color: #c4c4c4 #d1d1d1 #d4d4d4;
-          border-radius: 2px;
-          outline: 5px solid #eff4f7;
-          -moz-outline-radius: 3px;
-          -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
-          box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
-        }
-        .clubs-container{
-          padding: 10px 40px ;
-        }
-        .clubs-grid{
-          display: grid;
-          grid-template-columns: repeat(2, 1fr);
-          gap: 20px;
-          padding: 10px;
-        }
-        .clubs-cart{
-          background-color: #f7f7f7;
-          padding: 15px;
-          text-align: center;
-          border-radius: 20px;
-          box-shadow: 0 5.5px 5px 0 #6998AB
-        }
-        .clubs-cart-title{
-          font-size: 12px;
-        }
-        .clubs-cart-desc{
-          font-size: 12px;
-          padding: 0 7px;
-          overflow: hidden;
-          text-overflow: ellipsis;
-          display: -webkit-box;
-          -webkit-line-clamp: 3;
-          -webkit-box-orient: vertical;
-        }
-        .clubs-cart-button button:hover{
-          -webkit-transform: scale(1.1);
-          -ms-ransform: scale(1.1);
-          transform: scale(1.1);
-          transition: 1s;
-        }
-        .books-container{
-          display: flex;
-          flex-direction: column;
-          justify-content: space-around;
-          align-items: start;
-          padding: 10px 40px;
-        }
-        .books-cart-container{
-          display: flex;
-          background-color: #f2f2f2;
-          flex-direction: row;
-          justify-content: space-around;
-          align-items: center;
-          padding: 10px;
-        }
-        .books-cart-row{
-          padding: 0px 30px;
-        }
-        .books-cart-title{
-          font-size: 14px;
-          overflow: hidden;
-          text-overflow: ellipsis;
-          display: -webkit-box;
-          -webkit-line-clamp: 3;
-          -webkit-box-orient: vertical;
-        }
-        .books-cart-desc {
-          font-size: 12px;
-          overflow: hidden;
-          text-overflow: ellipsis;
-          display: -webkit-box;
-          -webkit-line-clamp: 3;
-          -webkit-box-orient: vertical;
-      }
-      .books-cart-desc.expanded {
-          -webkit-line-clamp: initial;
-      }
-      .books-cart-desc:hover {
-          cursor: pointer;
-      }
-        .books-cart-button{
-          margin: 10px 0 0 0;
-        }
-        .books-cart-button button:hover{
-          -webkit-transform: scale(1.1);
-          -ms-ransform: scale(1.1);
-          transform: scale(1.1);
-          transition: 1s;
-        }
+  .home-container {
+    max-width: 100%;
+    padding: 15px 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: stretch;
+    background-color: #f7f7f7;
+  }
 
-        .login__container {
-          margin: 60px auto;
-          width: 640px;
-          max-height: auto;
-          min-height: 700px;
-        }
-        .login {
-          margin: 100px auto 0 auto;
-          padding: 20px 20px 20px;
-          width: 350px;
-          background: white;
-          border-radius: 3px;
-          -webkit-box-shadow: 0 0 200px #f7f7f7, 0 1px 2px rgba(0, 0, 0, 0.3);
-          box-shadow: 0 0 200px #f7f7f7, 0 1px 2px rgba(0, 0, 0, 0.3);
-        }
-        .login:before {
-          content: '';
-          top: -8px;
-          right: -8px;
-          bottom: -8px;
-          left: -8px;
-          z-index: -1;
-          background: rgba(0, 0, 0, 0.08);
-          border-radius: 4px;
-        }
-        .login h1 {
-          margin: -20px -20px 21px;
-          line-height: 40px;
-          font-size: 15px;
-          font-weight: bold;
-          color: #000;
-          text-align: center;
-          text-shadow: 0 1px white;
-          background: #f7f7f7;
-          border-bottom: 1px solid #f7f7f7;
-          border-radius: 3px 3px 0 0;
-          -webkit-box-shadow: 0 1px whitesmoke;
-          box-shadow: 0 1px whitesmoke;
-        }
-        .login p {
-          margin: 20px 0 0;
-        }
-        .login p:first-child {
-          margin-top: 0;
-        }
-        .login input[type=text], .login input[type=password] {
-          width: 278px;
-        }
-        .login p.remember_me {
-          float: left;
-          line-height: 25px;
-        }
-        .login p.remember_me label {
-          font-size: 12px;
-          color: #000;
-          cursor: pointer;
-        }
-        .login p.remember_me input {
-          position: relative;
-          bottom: 1px;
-          margin-right: 4px;
-          vertical-align: middle;
-        }
-        .login p.submit {
-          text-align: right;
-        }
-        
-        .login-help {
-          margin: 20px 0;
-          font-size: 11px;
-          color: #000;
-          text-align: center;
-          text-shadow: 0 1px #6998AB;
-        }
-        .login-help a {
-          color: #000;
-        }
-        .login-help a:hover {
-          text-decoration: underline;
-        }
-        
-        :-moz-placeholder {
-          color: #6998AB !important;
-          font-size: 13px;
-        }
-        
-        ::-webkit-input-placeholder {
-          color: #6998AB;
-          font-size: 13px;
-        }
-        
-        .login input {
-          font-family: 'Lucida Grande', Tahoma, Verdana, sans-serif;
-          font-size: 14px;
-        }
-        
-        .login__form input[type=text],
-        .login__form input[type=password] {
-          margin: 5px;
-          padding: 0 10px;
-          width: 200px;
-          height: 25px;
-          color: #6998AB;
-          background: white;
-          border: 1px solid;
-          border-color: #c4c4c4 #d1d1d1 #d4d4d4;
-          border-radius: 2px;
-          outline: 5px solid #eff4f7;
-          -moz-outline-radius: 3px;
-          -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
-          box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
-        }
-        .login__form input[type=text]:focus, 
-        .login__form  input[type=password]:focus {
-          border-color: #6998AB;
-          outline-color: #dceefc;
-          outline-offset: 0;
-        }
-        .login__form input[type=submit] {
-          padding: 0 18px;
-          height: 29px;
-          font-size: 12px;
-          font-weight: bold;
-          color: #6998AB;
-          text-shadow: 0 1px #e3f1f1;
-          background: #cde5ef;
-          border: 1px solid;
-          border-color: #b4ccce #b3c0c8 #9eb9c2;
-          border-radius: 16px;
-          outline: 0;
-          -webkit-box-sizing: content-box;
-          -moz-box-sizing: content-box;
-          box-sizing: content-box;
-          -webkit-box-shadow: inset 0 1px white, 0 1px 2px rgba(0, 0, 0, 0.15);
-          box-shadow: inset 0 1px white, 0 1px 2px rgba(0, 0, 0, 0.15);
-        }
-        .login__form input[type=submit]:active {
-          background: #cde5ef;
-          border-color: #9eb9c2 #b3c0c8 #b4ccce;
-          -webkit-box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.2);
-          box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.2);
-        }
+  .home-row h2 {
+    padding-top: 17px;
+    text-align: center;
+  }
 
-        .register__container {
-          margin: 80px auto;
-          width: 640px;
-          height: 390px;
-        }
-        .register {
-          position: relative;
-          margin: 130px auto 0 auto;
-          padding: 20px 20px 10px;
-          max-width: 350px;
-          background: white;
-          border-radius: 3px;
-          -webkit-box-shadow: 0 0 200px #f7f7f7, 0 1px 2px rgba(0, 0, 0, 0.3);
-          box-shadow: 0 0 200px #f7f7f7, 0 1px 2px rgba(0, 0, 0, 0.3);
-        }
-        .register:before {
-          content: '';
-          position: absolute;
-          top: -8px;
-          right: -8px;
-          bottom: -8px;
-          left: -8px;
-          z-index: -1;
-          background: rgba(0, 0, 0, 0.08);
-          border-radius: 4px;
-        }
-        .register h1 {
-          margin: -20px -20px 21px;
-          line-height: 40px;
-          font-size: 15px;
-          font-weight: bold;
-          color: #000;
-          text-align: center;
-          text-shadow: 0 1px white;
-          background: #f7f7f7;
-          border-bottom: 1px solid #f7f7f7;
-          border-radius: 3px 3px 0 0;
-          -webkit-box-shadow: 0 1px whitesmoke;
-          box-shadow: 0 1px whitesmoke;
-        }
-        .register__form input[type=text],
-        .register__form input[type=password] {
-          margin: 5px;
-          padding: 0 10px;
-          width: 300px;
-          height: 25px;
-          color: #6998AB;
-          background: white;
-          border: 1px solid;
-          border-color: #c4c4c4 #d1d1d1 #d4d4d4;
-          border-radius: 2px;
-          outline: 5px solid #eff4f7;
-          -moz-outline-radius: 3px;
-          -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
-          box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
-        }
-        .register__form input[type=text]:focus, 
-        .register__form  input[type=password]:focus {
-          border-color: #6998AB;
-          outline-color: #dceefc;
-          outline-offset: 0;
-        }
-        .register__form input[type=submit] {
-          padding: 0 18px;
-          height: 29px;
-          font-size: 12px;
-          font-weight: bold;
-          color: #6998AB;
-          text-shadow: 0 1px #e3f1f1;
-          background: #cde5ef;
-          border: 1px solid;
-          border-color: #b4ccce #b3c0c8 #9eb9c2;
-          border-radius: 16px;
-          outline: 0;
-          -webkit-box-sizing: content-box;
-          -moz-box-sizing: content-box;
-          box-sizing: content-box;
-          -webkit-box-shadow: inset 0 1px white, 0 1px 2px rgba(0, 0, 0, 0.15);
-          box-shadow: inset 0 1px white, 0 1px 2px rgba(0, 0, 0, 0.15);
-        }
-        .register__form input[type=submit]:active {
-          background: #cde5ef;
-          border-color: #9eb9c2 #b3c0c8 #b4ccce;
-          -webkit-box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.2);
-          box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.2);
-        }
-        .account-content-container {
-          height: auto;
-          display: flex;
-          flex-direction: column;
-          padding: 10px 40px;
-        }
-        .account-content-row {
-          width: 100%;
-          background-color: #f7f7f7;
-          margin-bottom: 15px;
-          border-radius: 10px;
-          padding: 10px;
-          overflow-x: auto;
-        }
-        .account-prof {
-          color: #6998AB;
-          text-shadow: #c4c4c4 5px 0 10px;
-          font-weight: 600;
-          padding-right: 30px;
-        }
-        .account-clubs-container,
-        .account-books-container {
-          display: flex;
-          flex-direction: row;
-          justify-content: flex-start;
-          align-items: flex-start;
-          padding: 7px;
-          overflow-x: auto;
-        }
-        .account-clubs-row,
-        .account-books-row {
-          flex: 0 0 170px;
-          height: 230px;
-          margin-left: 7px;
-          text-align: center;
-          padding: 10px;
-          background-color: #f2f2f2;
-          border-color: #9eb9c2 #b3c0c8 #b4ccce;
-          box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.2);
-          border-radius: 5px;
-          scroll-snap-align: start;
-        }
-        .account-books-row h4,
-        .account-books-row h5 {
-          font-stretch: ultra-condensed;
-          line-height: 15px;
-          overflow: hidden;
-          display: -webkit-box;
-          -webkit-box-orient: vertical;
-          -webkit-line-clamp: 3;
-          text-overflow: ellipsis;
-        }
-        .account-clubs-row.active,
-        .account-books-row.active {
-          border: 2px solid #6998AB;    
-        }
-    
-      .edit-profile-container {
-          height: 600px;
-          text-align: center;
-      }
-      .edit-profile-content-row {
-        margin: 100px auto 0 auto;
-        padding: 15px 15px 15px;
-        width: 300px;
-        background: white;
-        border-radius: 3px;
-        -webkit-box-shadow: 0 0 200px #f7f7f7, 0 1px 2px rgba(0, 0, 0, 0.3);
-        box-shadow: 0 0 200px #f7f7f7, 0 1px 2px rgba(0, 0, 0, 0.3);
-      }
-      .edit-profile-content-row:before {
-        content: '';
-        top: -8px;
-        right: -8px;
-        bottom: -8px;
-        left: -8px;
-        z-index: -1;
-        background: rgba(0, 0, 0, 0.08);
-        border-radius: 4px;
-      }
-      .edit-profile-content-row input{
-        margin: 5px;
-        padding: 0 10px;
-        width: 250px;
-        height: 27px;
-        color: #6998AB;
-        background: white;
-        border: 1px solid;
-        border-color: #c4c4c4 #d1d1d1 #d4d4d4;
-        border-radius: 2px;
-        outline: 5px solid #eff4f7;
-        -moz-outline-radius: 3px;
-        -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
-        box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
-      }
-      .book-container {
-        height: auto;
-        background-color: #f7f7f7;
-        padding: 20px 30px;
-      }
-      .book-cart-container {
-        margin: 0px 70px;
-      }
-      .book-cart-row {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-around;
-        align-items: stretch;
-      }
-      .book-cart-image {
-        text-align: center;
-      }
-      .book-cart-details {
-        background-color:#ffffff ;
-        border-radius: 26px 8px;
-        margin: 10px 0;
-        padding: 10px;
-      }
-      .book-cart-details h3,
-      .book-cart-details h4{
-        padding-left: 20px;
-      }
-      .book-rating {
-        background-color:#6998AB ;
-        border-radius: 16px;
-        text-align: center;
-        padding: 0 10px 10px 10px;
-        width: 150px;
-        margin: auto;
-      }
-      .book-status {
-        background-color:#f7f7f7 ;
-        border-radius: 16px;
-        padding-top: 20px;
-        margin: 0 auto;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: space-around;
-      }
-      .book-status-details p{
-        color: #000;
-        padding-left: 40px;
-      }
-      .book-rating select{
-        padding: 4px 8px ;
-        text-align: left;
-        text-shadow: 0 1px #e3f1f1;
-        letter-spacing: 2px;
-        color: #6998AB;
-        background: #f7f7f7;
-        border: 1px solid;
-        border-color: #c4c4c4 #d1d1d1 #d4d4d4;
-        border-radius: 6px;
-        outline: 5px solid #eff4f7;
-        -moz-outline-radius: 3px;
-        -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
-        box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
-      }
-      .book-queue-details{
-        padding: 0 10px;
-      }
-      .book-queue-details select{
-        width: 200px;
-        padding: 4px 8px ;
-        text-align: left;
-        text-shadow: 0 1px #e3f1f1;
-        letter-spacing: 2px;
-        color: #6998AB;
-        background: #f7f7f7;
-        border: 1px solid;
-        border-color: #c4c4c4 #d1d1d1 #d4d4d4;
-        border-radius: 6px;
-        outline: 5px solid #eff4f7;
-        -moz-outline-radius: 3px;
-        -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
-        box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
-      }
-      .book-queue-details button{
-        display: inline-block;
-        background-color: #f7f7f7;
-        color: #6998AB;
-        padding: 7px 10px;
-        margin: 15px;
-        border-radius: 6px;
-        outline: 5px solid #eff4f7;
-        border: 1px solid;
-        border-color: #c4c4c4 #d1d1d1 #d4d4d4;
-        box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
-      }
-      .status-form {
-        padding: 20px 0 0 15px;
-      }
-      .status-form select{
-        padding: 6px 16px;
-        text-align: left;
-        text-shadow: 0 1px #e3f1f1;
-        letter-spacing: 2px;
-        color: #f7f7f7;
-        background: #6998AB;
-        border: 1px solid;
-        border-color: #c4c4c4 #d1d1d1 #d4d4d4;
-        border-radius: 6px;
-        outline: 5px solid #eff4f7;
-        -moz-outline-radius: 3px;
-        -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
-        box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
-      }
-      .purchase-links{
-        text-align: center;
-      }
-      .club-details {
-        margin: 10px 50px;
-        display: flex;
-        flex-direction: column;
-      }
-      .club-details h2{
-        font-size: 16px;
-      }
-      .club-info {
-        display: flex;
-        flex-direction: column;
-      }
-      .club-cart-image {
-        background-color: #f7f7f7;
-        border-radius: 16px;
-        width: 60%;
-        padding: 10px 20px ;
-        text-align: center;
-        margin: auto;
-      }
-      .club-cart-desc{
-        margin: 20px auto;
-      }
-      .club-members{
-        margin: 10px auto;
-        padding: 10px;
-        text-align: center;
-        background-color: #f7f7f7;
-        border-radius: 10px;
-      }
-      .hidden-members {
-        font-family: 'Alegreya Sans', sans-serif;
-        overflow: auto;
-        height: 80px;
-        padding-bottom: 20px;
-      }
-      .club-admin a{
-        margin: 10px auto;
-        display: block;
-        width: 300px;
-        text-align: center;
-        background-color: #6998AB;
-        padding: 7px;
-        border-radius: 6px;
-        outline: 5px solid #eff4f7;
-        border: 1px solid;
-        border-color: #c4c4c4 #d1d1d1 #d4d4d4;
-        box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
-      }
-      .club-selected-book{
-        background-color: #f7f7f7;
-        border-radius: 16px;
-        margin: 10px 0;
-        padding: 0px 30px;
-      }
-      .book-cover {
-        padding-left: 40px;
-      }
-      .book-info {
-        padding: 20px;
-      }
-      .club-book-queue {
-        background-color: #f7f7f7;
-        border-radius: 16px;
-        margin: 10px 0;
-        padding: 10px 30px;
-      }
-      .club-queue-container {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: nowrap;
-        overflow-x: auto;
-      }
-      .club-queue-item{
-          margin-right: 20px;
-          font-size: 12px;
-      }
-      .club-read-books {
-        background-color: #f7f7f7;
-        border-radius: 16px;
-        margin: 10px 0;
-        padding: 10px 30px;
-      }
-      .club-read-container {
-        display: flex;
-        flex-direction: row;
-        overflow-x: auto;
-      }
-      .club-read-item {
-        margin-right: 20px;
-      }
+  .home-banner-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: stretch;
+    background-color: #ffffff;
+    border-radius: 20px;
+    border-color: #c4c4c4 #d1d1d1 #d4d4d4;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
+  }
 
-      .admin-container{
-        margin: 0 40px;
-      }
-      .admin-container input,
-      .admin-container select{
-        margin: 5px;
-        padding: 0 7px;
-        width: 200px;
-        height: 20px;
-        color: #6998AB;
-        background: white;
-        border: 1px solid;
-        border-color: #c4c4c4 #d1d1d1 #d4d4d4;
-        border-radius: 2px;
-        outline: 5px solid #eff4f7;
-        -moz-outline-radius: 3px;
-        -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
-        box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
-      }
-      .admin-container h2{
-        text-align: center;
-      }
-      .admin-item{
-        background-color: #f7f7f7;
-        border-radius: 16px;
-        margin: 10px 0;
-        padding: 10px 30px;
-      }
-      .admin-queue,
-      .admin-read {
-        display: flex;
-        flex-wrap: nowrap;
-        overflow-x: auto;
-      }
-      .admin-queue-item,
-      .admin-read-item {
-        margin-right: 10px;
-      }
-      .admin-link{
-        text-align: center;
-      }
-      .create__container {
-        background-color: #f7f7f7;
-      }
-      .create__content {
-        margin: 0px auto;
-        padding: 10px;
-        max-width: 540px;
-        min-height: 640px;
-      } 
-      .create__item {
-        margin: 0 auto;
-        padding: 20px 20px 20px;
-        max-width: 800px;
-        background: white;
-        border-radius: 3px;
-        -webkit-box-shadow: 0 0 200px #f7f7f7, 0 1px 2px rgba(0, 0, 0, 0.3);
-        box-shadow: 0 0 200px #f7f7f7, 0 1px 2px rgba(0, 0, 0, 0.3);
-      }
-      .create__item h1 {
-        margin: -20px -20px 21px;
-        line-height: 40px;
-        font-size: 15px;
-        font-weight: bold;
-        color: #000;
-        text-align: center;
-        text-shadow: 0 1px white;
-        background: #f7f7f7;
-        border-bottom: 1px solid #f7f7f7;
-        border-radius: 3px 3px 0 0;
-        -webkit-box-shadow: 0 1px whitesmoke;
-        box-shadow: 0 1px whitesmoke;
-      }
-  
-      .create__form input[type=text],
-      .create__form textarea{
-        margin: 5px;
-        padding: 0 10px;
-        width: 250px;
-        height: 20px;
-        color: #6998AB;
-        background: white;
-        border: 1px solid;
-        border-color: #c4c4c4 #d1d1d1 #d4d4d4;
-        border-radius: 2px;
-        outline: 5px solid #eff4f7;
-        -moz-outline-radius: 3px;
-        -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
-        box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
-      }
-      .create__form input[type=text]:focus {
-        border-color: #6998AB;
-        outline-color: #dceefc;
-        outline-offset: 0;
-      }
-      .create__form button:active {
-        background: #cde5ef;
-        border-color: #9eb9c2 #b3c0c8 #b4ccce;
-        -webkit-box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.2);
-        box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.2);
-      }
+  .banner-picture {
+    max-width: 100%;
+    overflow: hidden;
+    padding: 10px;
+  }
+
+  .banner-content {
+    max-width: 100%;
+    padding: 10px 30px;
+    text-align: center;
+  }
+
+  .banner-content h1 {
+    text-align: center;
+  }
+
+  .home-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    padding: 10px;
+    margin: 25px;
+  }
+
+  .home-cart {
+    background-color: #f7f7f7;
+    padding: 15px;
+    text-align: center;
+    border-radius: 20px;
+    box-shadow: 0 5.5px 5px 0 #6998AB;
+  }
+
+  .home-cart-desc {
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .home-create {
+    background-color: #ffffff;
+    margin: 15px auto;
+    padding: 0 15px 15px 15px;
+    width: 350px;
+    text-align: center;
+    border-radius: 6px;
+    outline: 5px solid #eff4f7;
+    border: 1px solid;
+    border-color: #c4c4c4 #d1d1d1 #d4d4d4;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
+  }
+
+  .home-create-descr a {
+    display: inline-block;
+    background-color: #f7f7f7;
+    color: #6998AB;
+    padding: 8px 25px;
+    margin: 15px;
+    border-radius: 6px;
+    outline: 5px solid #eff4f7;
+    border: 1px solid;
+    border-color: #c4c4c4 #d1d1d1 #d4d4d4;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
+    font-weight: 600;
+  }
+
+  .clubs-filter,
+  .books-filter {
+    padding: 15px 60px;
+  }
+
+  .clubs-filter select,
+  .books-filter select {
+    margin: 5px;
+    padding: 0 10px;
+    width: 180px;
+    height: 30px;
+    color: #6998AB;
+    background: white;
+    border: 1px solid;
+    border-color: #c4c4c4 #d1d1d1 #d4d4d4;
+    border-radius: 2px;
+    outline: 5px solid #eff4f7;
+    -moz-outline-radius: 3px;
+    -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
+  }
+
+  .clubs-container {
+    padding: 10px 40px;
+  }
+
+  .clubs-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    padding: 10px;
+  }
+
+  .clubs-cart {
+    background-color: #f7f7f7;
+    padding: 15px;
+    text-align: center;
+    border-radius: 20px;
+    box-shadow: 0 5.5px 5px 0 #6998AB
+  }
+
+  .clubs-cart-title {
+    font-size: 12px;
+  }
+
+  .clubs-cart-desc {
+    font-size: 12px;
+    padding: 0 7px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+  }
+
+  .clubs-cart-button button:hover {
+    -webkit-transform: scale(1.1);
+    -ms-ransform: scale(1.1);
+    transform: scale(1.1);
+    transition: 1s;
+  }
+
+  .books-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: start;
+    padding: 10px 40px;
+  }
+
+  .books-cart-container {
+    display: flex;
+    background-color: #f2f2f2;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px;
+  }
+
+  .books-cart-row {
+    padding: 0px 30px;
+  }
+
+  .books-cart-title {
+    font-size: 14px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+  }
+
+  .books-cart-desc {
+    font-size: 12px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+  }
+
+  .books-cart-desc.expanded {
+    -webkit-line-clamp: initial;
+  }
+
+  .books-cart-desc:hover {
+    cursor: pointer;
+  }
+
+  .books-cart-button {
+    margin: 10px 0 0 0;
+  }
+
+  .books-cart-button button:hover {
+    -webkit-transform: scale(1.1);
+    -ms-ransform: scale(1.1);
+    transform: scale(1.1);
+    transition: 1s;
+  }
+
+  .login__container {
+    margin: 60px auto;
+    width: 640px;
+    max-height: auto;
+    min-height: 700px;
+  }
+
+  .login {
+    margin: 100px auto 0 auto;
+    padding: 20px 20px 20px;
+    width: 350px;
+    background: white;
+    border-radius: 3px;
+    -webkit-box-shadow: 0 0 200px #f7f7f7, 0 1px 2px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 200px #f7f7f7, 0 1px 2px rgba(0, 0, 0, 0.3);
+  }
+
+  .login:before {
+    content: '';
+    top: -8px;
+    right: -8px;
+    bottom: -8px;
+    left: -8px;
+    z-index: -1;
+    background: rgba(0, 0, 0, 0.08);
+    border-radius: 4px;
+  }
+
+  .login h1 {
+    margin: -20px -20px 21px;
+    line-height: 40px;
+    font-size: 15px;
+    font-weight: bold;
+    color: #000;
+    text-align: center;
+    text-shadow: 0 1px white;
+    background: #f7f7f7;
+    border-bottom: 1px solid #f7f7f7;
+    border-radius: 3px 3px 0 0;
+    -webkit-box-shadow: 0 1px whitesmoke;
+    box-shadow: 0 1px whitesmoke;
+  }
+
+  .login p {
+    margin: 20px 0 0;
+  }
+
+  .login p:first-child {
+    margin-top: 0;
+  }
+
+  .login input[type=text],
+  .login input[type=password] {
+    width: 278px;
+  }
+
+  .login p.remember_me {
+    float: left;
+    line-height: 25px;
+  }
+
+  .login p.remember_me label {
+    font-size: 12px;
+    color: #000;
+    cursor: pointer;
+  }
+
+  .login p.remember_me input {
+    position: relative;
+    bottom: 1px;
+    margin-right: 4px;
+    vertical-align: middle;
+  }
+
+  .login p.submit {
+    text-align: right;
+  }
+
+  .login-help {
+    margin: 20px 0;
+    font-size: 11px;
+    color: #000;
+    text-align: center;
+    text-shadow: 0 1px #6998AB;
+  }
+
+  .login-help a {
+    color: #000;
+  }
+
+  .login-help a:hover {
+    text-decoration: underline;
+  }
+
+  :-moz-placeholder {
+    color: #6998AB !important;
+    font-size: 13px;
+  }
+
+  ::-webkit-input-placeholder {
+    color: #6998AB;
+    font-size: 13px;
+  }
+
+  .login input {
+    font-family: 'Lucida Grande', Tahoma, Verdana, sans-serif;
+    font-size: 14px;
+  }
+
+  .login__form input[type=text],
+  .login__form input[type=password] {
+    margin: 5px;
+    padding: 0 10px;
+    width: 200px;
+    height: 25px;
+    color: #6998AB;
+    background: white;
+    border: 1px solid;
+    border-color: #c4c4c4 #d1d1d1 #d4d4d4;
+    border-radius: 2px;
+    outline: 5px solid #eff4f7;
+    -moz-outline-radius: 3px;
+    -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
+  }
+
+  .login__form input[type=text]:focus,
+  .login__form input[type=password]:focus {
+    border-color: #6998AB;
+    outline-color: #dceefc;
+    outline-offset: 0;
+  }
+
+  .login__form input[type=submit] {
+    padding: 0 18px;
+    height: 29px;
+    font-size: 12px;
+    font-weight: bold;
+    color: #6998AB;
+    text-shadow: 0 1px #e3f1f1;
+    background: #cde5ef;
+    border: 1px solid;
+    border-color: #b4ccce #b3c0c8 #9eb9c2;
+    border-radius: 16px;
+    outline: 0;
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    -webkit-box-shadow: inset 0 1px white, 0 1px 2px rgba(0, 0, 0, 0.15);
+    box-shadow: inset 0 1px white, 0 1px 2px rgba(0, 0, 0, 0.15);
+  }
+
+  .login__form input[type=submit]:active {
+    background: #cde5ef;
+    border-color: #9eb9c2 #b3c0c8 #b4ccce;
+    -webkit-box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.2);
+    box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.2);
+  }
+
+  .register__container {
+    margin: 80px auto;
+    width: 640px;
+    height: 390px;
+  }
+
+  .register {
+    position: relative;
+    margin: 130px auto 0 auto;
+    padding: 20px 20px 10px;
+    max-width: 350px;
+    background: white;
+    border-radius: 3px;
+    -webkit-box-shadow: 0 0 200px #f7f7f7, 0 1px 2px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 200px #f7f7f7, 0 1px 2px rgba(0, 0, 0, 0.3);
+  }
+
+  .register:before {
+    content: '';
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    bottom: -8px;
+    left: -8px;
+    z-index: -1;
+    background: rgba(0, 0, 0, 0.08);
+    border-radius: 4px;
+  }
+
+  .register h1 {
+    margin: -20px -20px 21px;
+    line-height: 40px;
+    font-size: 15px;
+    font-weight: bold;
+    color: #000;
+    text-align: center;
+    text-shadow: 0 1px white;
+    background: #f7f7f7;
+    border-bottom: 1px solid #f7f7f7;
+    border-radius: 3px 3px 0 0;
+    -webkit-box-shadow: 0 1px whitesmoke;
+    box-shadow: 0 1px whitesmoke;
+  }
+
+  .register__form input[type=text],
+  .register__form input[type=password] {
+    margin: 5px;
+    padding: 0 10px;
+    width: 300px;
+    height: 25px;
+    color: #6998AB;
+    background: white;
+    border: 1px solid;
+    border-color: #c4c4c4 #d1d1d1 #d4d4d4;
+    border-radius: 2px;
+    outline: 5px solid #eff4f7;
+    -moz-outline-radius: 3px;
+    -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
+  }
+
+  .register__form input[type=text]:focus,
+  .register__form input[type=password]:focus {
+    border-color: #6998AB;
+    outline-color: #dceefc;
+    outline-offset: 0;
+  }
+
+  .register__form input[type=submit] {
+    padding: 0 18px;
+    height: 29px;
+    font-size: 12px;
+    font-weight: bold;
+    color: #6998AB;
+    text-shadow: 0 1px #e3f1f1;
+    background: #cde5ef;
+    border: 1px solid;
+    border-color: #b4ccce #b3c0c8 #9eb9c2;
+    border-radius: 16px;
+    outline: 0;
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    -webkit-box-shadow: inset 0 1px white, 0 1px 2px rgba(0, 0, 0, 0.15);
+    box-shadow: inset 0 1px white, 0 1px 2px rgba(0, 0, 0, 0.15);
+  }
+
+  .register__form input[type=submit]:active {
+    background: #cde5ef;
+    border-color: #9eb9c2 #b3c0c8 #b4ccce;
+    -webkit-box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.2);
+    box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.2);
+  }
+
+  .account-content-container {
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    padding: 10px 40px;
+  }
+
+  .account-content-row {
+    width: 100%;
+    background-color: #f7f7f7;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    padding: 10px;
+    overflow-x: auto;
+  }
+
+  .account-prof {
+    color: #6998AB;
+    text-shadow: #c4c4c4 5px 0 10px;
+    font-weight: 600;
+    padding-right: 30px;
+  }
+
+  .account-clubs-container,
+  .account-books-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 7px;
+    overflow-x: auto;
+  }
+
+  .account-clubs-row,
+  .account-books-row {
+    flex: 0 0 170px;
+    height: 230px;
+    margin-left: 7px;
+    text-align: center;
+    padding: 10px;
+    background-color: #f2f2f2;
+    border-color: #9eb9c2 #b3c0c8 #b4ccce;
+    box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    scroll-snap-align: start;
+  }
+
+  .account-books-row h4,
+  .account-books-row h5 {
+    font-stretch: ultra-condensed;
+    line-height: 15px;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    text-overflow: ellipsis;
+  }
+
+  .account-clubs-row.active,
+  .account-books-row.active {
+    border: 2px solid #6998AB;
+  }
+
+  .edit-profile-container {
+    height: 600px;
+    text-align: center;
+  }
+
+  .edit-profile-content-row {
+    margin: 100px auto 0 auto;
+    padding: 15px 15px 15px;
+    width: 300px;
+    background: white;
+    border-radius: 3px;
+    -webkit-box-shadow: 0 0 200px #f7f7f7, 0 1px 2px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 200px #f7f7f7, 0 1px 2px rgba(0, 0, 0, 0.3);
+  }
+
+  .edit-profile-content-row:before {
+    content: '';
+    top: -8px;
+    right: -8px;
+    bottom: -8px;
+    left: -8px;
+    z-index: -1;
+    background: rgba(0, 0, 0, 0.08);
+    border-radius: 4px;
+  }
+
+  .edit-profile-content-row input {
+    margin: 5px;
+    padding: 0 10px;
+    width: 250px;
+    height: 27px;
+    color: #6998AB;
+    background: white;
+    border: 1px solid;
+    border-color: #c4c4c4 #d1d1d1 #d4d4d4;
+    border-radius: 2px;
+    outline: 5px solid #eff4f7;
+    -moz-outline-radius: 3px;
+    -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
+  }
+
+  .book-container {
+    height: auto;
+    background-color: #f7f7f7;
+    padding: 20px 30px;
+  }
+
+  .book-cart-container {
+    margin: 0px 70px;
+  }
+
+  .book-cart-row {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: stretch;
+  }
+
+  .book-cart-image {
+    text-align: center;
+  }
+
+  .book-cart-details {
+    background-color: #ffffff;
+    border-radius: 26px 8px;
+    margin: 10px 0;
+    padding: 10px;
+  }
+
+  .book-cart-details h3,
+  .book-cart-details h4 {
+    padding-left: 20px;
+  }
+
+  .book-rating {
+    background-color: #6998AB;
+    border-radius: 16px;
+    text-align: center;
+    padding: 0 10px 10px 10px;
+    width: 150px;
+    margin: auto;
+  }
+
+  .book-status {
+    background-color: #f7f7f7;
+    border-radius: 16px;
+    padding-top: 20px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+  }
+
+  .book-status-details p {
+    color: #000;
+    padding-left: 40px;
+  }
+
+  .book-rating select {
+    padding: 4px 8px;
+    text-align: left;
+    text-shadow: 0 1px #e3f1f1;
+    letter-spacing: 2px;
+    color: #6998AB;
+    background: #f7f7f7;
+    border: 1px solid;
+    border-color: #c4c4c4 #d1d1d1 #d4d4d4;
+    border-radius: 6px;
+    outline: 5px solid #eff4f7;
+    -moz-outline-radius: 3px;
+    -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
+  }
+
+  .book-queue-details {
+    padding: 0 10px;
+  }
+
+  .book-queue-details select {
+    width: 200px;
+    padding: 4px 8px;
+    text-align: left;
+    text-shadow: 0 1px #e3f1f1;
+    letter-spacing: 2px;
+    color: #6998AB;
+    background: #f7f7f7;
+    border: 1px solid;
+    border-color: #c4c4c4 #d1d1d1 #d4d4d4;
+    border-radius: 6px;
+    outline: 5px solid #eff4f7;
+    -moz-outline-radius: 3px;
+    -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
+  }
+
+  .book-queue-details button {
+    display: inline-block;
+    background-color: #f7f7f7;
+    color: #6998AB;
+    padding: 7px 10px;
+    margin: 15px;
+    border-radius: 6px;
+    outline: 5px solid #eff4f7;
+    border: 1px solid;
+    border-color: #c4c4c4 #d1d1d1 #d4d4d4;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
+  }
+
+  .status-form {
+    padding: 20px 0 0 15px;
+  }
+
+  .status-form select {
+    padding: 6px 16px;
+    text-align: left;
+    text-shadow: 0 1px #e3f1f1;
+    letter-spacing: 2px;
+    color: #f7f7f7;
+    background: #6998AB;
+    border: 1px solid;
+    border-color: #c4c4c4 #d1d1d1 #d4d4d4;
+    border-radius: 6px;
+    outline: 5px solid #eff4f7;
+    -moz-outline-radius: 3px;
+    -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
+  }
+
+  .purchase-links {
+    text-align: center;
+  }
+
+  .club-details {
+    margin: 10px 50px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .club-details h2 {
+    font-size: 16px;
+  }
+
+  .club-info {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .club-cart-image {
+    background-color: #f7f7f7;
+    border-radius: 16px;
+    width: 60%;
+    padding: 10px 20px;
+    text-align: center;
+    margin: auto;
+  }
+
+  .club-cart-desc {
+    margin: 20px auto;
+  }
+
+  .club-members {
+    margin: 10px auto;
+    padding: 10px;
+    text-align: center;
+    background-color: #f7f7f7;
+    border-radius: 10px;
+  }
+
+  .hidden-members {
+    font-family: 'Alegreya Sans', sans-serif;
+    overflow: auto;
+    height: 80px;
+    padding-bottom: 20px;
+  }
+
+  .club-admin a {
+    margin: 10px auto;
+    display: block;
+    width: 300px;
+    text-align: center;
+    background-color: #6998AB;
+    padding: 7px;
+    border-radius: 6px;
+    outline: 5px solid #eff4f7;
+    border: 1px solid;
+    border-color: #c4c4c4 #d1d1d1 #d4d4d4;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
+  }
+
+  .club-selected-book {
+    background-color: #f7f7f7;
+    border-radius: 16px;
+    margin: 10px 0;
+    padding: 0px 30px;
+  }
+
+  .book-cover {
+    padding-left: 40px;
+  }
+
+  .book-info {
+    padding: 20px;
+  }
+
+  .club-book-queue {
+    background-color: #f7f7f7;
+    border-radius: 16px;
+    margin: 10px 0;
+    padding: 10px 30px;
+  }
+
+  .club-queue-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+  }
+
+  .club-queue-item {
+    margin-right: 20px;
+    font-size: 12px;
+  }
+
+  .club-read-books {
+    background-color: #f7f7f7;
+    border-radius: 16px;
+    margin: 10px 0;
+    padding: 10px 30px;
+  }
+
+  .club-read-container {
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+  }
+
+  .club-read-item {
+    margin-right: 20px;
+  }
+
+  .admin-container {
+    margin: 0 40px;
+  }
+
+  .admin-container input,
+  .admin-container select {
+    margin: 5px;
+    padding: 0 7px;
+    width: 200px;
+    height: 20px;
+    color: #6998AB;
+    background: white;
+    border: 1px solid;
+    border-color: #c4c4c4 #d1d1d1 #d4d4d4;
+    border-radius: 2px;
+    outline: 5px solid #eff4f7;
+    -moz-outline-radius: 3px;
+    -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
+  }
+
+  .admin-container h2 {
+    text-align: center;
+  }
+
+  .admin-item {
+    background-color: #f7f7f7;
+    border-radius: 16px;
+    margin: 10px 0;
+    padding: 10px 30px;
+  }
+
+  .admin-queue,
+  .admin-read {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+  }
+
+  .admin-queue-item,
+  .admin-read-item {
+    margin-right: 10px;
+  }
+
+  .admin-link {
+    text-align: center;
+  }
+
+  .create__container {
+    background-color: #f7f7f7;
+  }
+
+  .create__content {
+    margin: 0px auto;
+    padding: 10px;
+    max-width: 540px;
+    min-height: 640px;
+  }
+
+  .create__item {
+    margin: 0 auto;
+    padding: 20px 20px 20px;
+    max-width: 800px;
+    background: white;
+    border-radius: 3px;
+    -webkit-box-shadow: 0 0 200px #f7f7f7, 0 1px 2px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 200px #f7f7f7, 0 1px 2px rgba(0, 0, 0, 0.3);
+  }
+
+  .create__item h1 {
+    margin: -20px -20px 21px;
+    line-height: 40px;
+    font-size: 15px;
+    font-weight: bold;
+    color: #000;
+    text-align: center;
+    text-shadow: 0 1px white;
+    background: #f7f7f7;
+    border-bottom: 1px solid #f7f7f7;
+    border-radius: 3px 3px 0 0;
+    -webkit-box-shadow: 0 1px whitesmoke;
+    box-shadow: 0 1px whitesmoke;
+  }
+
+  .create__form input[type=text],
+  .create__form textarea {
+    margin: 5px;
+    padding: 0 10px;
+    width: 250px;
+    height: 20px;
+    color: #6998AB;
+    background: white;
+    border: 1px solid;
+    border-color: #c4c4c4 #d1d1d1 #d4d4d4;
+    border-radius: 2px;
+    outline: 5px solid #eff4f7;
+    -moz-outline-radius: 3px;
+    -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
+  }
+
+  .create__form input[type=text]:focus {
+    border-color: #6998AB;
+    outline-color: #dceefc;
+    outline-offset: 0;
+  }
+
+  .create__form button:active {
+    background: #cde5ef;
+    border-color: #9eb9c2 #b3c0c8 #b4ccce;
+    -webkit-box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.2);
+    box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.2);
+  }
 }
