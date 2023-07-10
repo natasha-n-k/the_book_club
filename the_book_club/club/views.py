@@ -41,6 +41,8 @@ def club_detail(request, club_id):
 
 def books(request):
     books = Book.objects.all()
+    genres = Book.objects.values_list('genre', flat=True).distinct()
+    themes = Book.objects.values_list('theme', flat=True).distinct()
     genre = request.GET.get('genre')
     theme = request.GET.get('theme')
     if genre:
@@ -48,9 +50,12 @@ def books(request):
     if theme:
         books = books.filter(theme=theme)
     context = {
-        'books':books
+        'books': books,
+        'genres': genres,
+        'themes': themes
     }
     return render(request, 'club/books.html', context)
+
 
 def book_detail(request, book_id):
     book = get_object_or_404(Book, id=book_id)
