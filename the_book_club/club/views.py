@@ -20,7 +20,8 @@ def index(request):
 
 def book_clubs(request):
     clubs = BookClub.objects.all()
-    books = Book.objects.all()
+    genres = BookClub.objects.values_list('genre', flat=True).distinct()
+    themes = BookClub.objects.values_list('theme', flat=True).distinct()
     genre = request.GET.get('genre')
     theme = request.GET.get('theme')
     if genre:
@@ -29,7 +30,8 @@ def book_clubs(request):
         clubs = clubs.filter(theme=theme)
     context = {
         'clubs': clubs,
-        'books': books,
+        'genres': genres,
+        'themes': themes,
     }
     return render(request, 'club/book_clubs.html', context)
 
