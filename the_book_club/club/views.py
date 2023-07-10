@@ -110,7 +110,9 @@ def user_logout(request):
     return redirect('club:login')
 
 def user_register(request):
+    form_submitted = False
     if request.method == 'POST':
+        form_submitted = True
         form = UserCreationForm(request.POST)
         if form.is_valid():
             user = form.save()
@@ -123,7 +125,7 @@ def user_register(request):
                     messages.error(request, error)
     else:
         form = UserCreationForm()
-    return render(request, 'club/register.html', {'form': form})
+    return render(request, 'club/register.html', {'form': form, 'form_submitted': form_submitted})
 
 @login_required
 def edit_profile(request):

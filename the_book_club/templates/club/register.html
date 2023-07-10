@@ -18,6 +18,8 @@
                         <p>Это поле обязательно для заполнения.</p>
                     {% elif error == "Invalid email address." %}
                     <p>Неверный адрес электронной почты.</p>
+                    {% elif error == "This password is too short. It must contain at least 8 characters. This password is too common." %}
+                    <p>Этот пароль слишком короткий. Он должен содержать не менее 8 символов. Этот пароль слишком распространен.</p>
                     {% elif error == "Password is too short." %}
                     <p>Слишком короткий пароль.</p>
                     {% elif error == "The two password fields didn’t match." %}
@@ -37,7 +39,7 @@
     </form>
     <div class="login-help">
       <a href="{% url 'club:login' %}">Уже есть логин</a>
-     </div>
+    </div>
   </div>
 </section> 
 {% endblock %}
