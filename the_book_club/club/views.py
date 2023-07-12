@@ -8,6 +8,7 @@ from django.contrib.auth import logout
 from django.http import JsonResponse
 from django.contrib import messages
 from django.http import JsonResponse
+from django.db.models import Q
 from .models import BookClub, Book,  Rating, UserBook, Meeting, Queue
 from .forms import ClubAdminForm, BookSelectionForm, BookQueueForm, MeetingForm, BookClubForm
 from datetime import date
@@ -47,17 +48,25 @@ def books(request):
     themes = Book.objects.values_list('theme', flat=True).distinct()
     genre = request.GET.get('genre')
     theme = request.GET.get('theme')
+    search_query = request.GET.get('search')
+
     if genre:
         books = books.filter(genre=genre)
     if theme:
         books = books.filter(theme=theme)
+    if search_query:
+        search_words = search_query.strip().split()
+        query = Q()
+        for word in search_words:
+            query |= Q(name__icontains=word) | Q(author__icontains=word)
+        books = books.filter(query)
+
     context = {
         'books': books,
         'genres': genres,
         'themes': themes
     }
     return render(request, 'club/books.html', context)
-
 
 def book_detail(request, book_id):
     book = get_object_or_404(Book, id=book_id)
