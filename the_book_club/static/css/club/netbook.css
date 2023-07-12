@@ -274,7 +274,8 @@
   }
 
   .clubs-filter select,
-  .books-filter select {
+  .books-filter select,
+  .books-filter input  {
     margin: 5px;
     padding: 0 10px;
     width: 230px;

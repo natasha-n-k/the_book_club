@@ -110,6 +110,8 @@
     margin: 30px auto;
   }
 
+  .clubs-filter button,
+  .books-filter button,
   .clubs-cart-button button,
   .books-cart-button button,
   .admin-link a {
@@ -361,7 +363,8 @@
   }
 
   .clubs-filter select,
-  .books-filter select {
+  .books-filter select,
+  .books-filter input  {
     margin: 5px;
     padding: 0 10px;
     width: 180px;

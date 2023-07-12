@@ -279,11 +279,12 @@
   }
 
   .clubs-filter select,
-  .books-filter select {
-    margin: 5px;
+  .books-filter select,
+  .books-filter input {
+    margin: 5px auto;
     padding: 0 10px;
     width: 300px;
-    height: 34px;
+    height: 30px;
     color: #6998AB;
     background: white;
     border: 1px solid;
