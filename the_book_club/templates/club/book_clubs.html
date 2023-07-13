@@ -4,17 +4,14 @@
 {% block content %}
 <div class="clubs-filter">
     <form action="{% url 'club:book_clubs' %}" method="GET">
-        <label for="genre">Жанр:</label>
         <select name="genre" id="genre">
-            <option value="">Все</option>
+            <option value="">Жанр</option>
             {% for genre in genres %}
                 <option value="{{ genre }}">{{ genre }}</option>
             {% endfor %}
         </select>
-
-        <label for="theme">Тема:</label>
         <select name="theme" id="theme">
-            <option value="">Все</option>
+            <option value="">Тема</option>
             {% for theme in themes %}
                 <option value="{{ theme }}">{{ theme }}</option>
             {% endfor %}
