@@ -2,15 +2,6 @@
 {% load static %}
 
 {% block content %}
-<script>
-    const clampedElements = document.querySelectorAll('.clamp');
-    // Для каждого элемента добавляем обработчик клика
-    clampedElements.forEach((element) => {
-        element.addEventListener('click', () => {
-            element.classList.toggle('expanded');
-        });
-    });
-</script>
 <div class="books-filter">
     <form action="{% url 'club:books' %}" method="GET">
         <input type="text" name="search" id="search" value="{{ request.GET.search }}">
@@ -57,5 +48,5 @@
     </div>
 </div>
 {% endfor %}
-
+<script src="{% static 'js/books.js' %}"></script>
 {% endblock %}
