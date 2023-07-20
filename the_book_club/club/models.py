@@ -75,7 +75,8 @@ class Meeting(models.Model):
     club = models.ManyToManyField(BookClub, related_name='meetings')
 
     def __str__(self):
-        return f"Meeting for {self.club.name}"
+        club_names = ", ".join([club.name for club in self.club.all()])
+        return f"Meeting for {club_names}"
     
 
 class Queue(models.Model):
