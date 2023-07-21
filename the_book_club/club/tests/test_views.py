@@ -9,7 +9,7 @@ class ViewsTest(TestCase):
         # Create a test user
         self.user = User.objects.create_user(username='testuser', password='testpassword')
         
-         # Create some test book clubs with image files
+        # Create some test book clubs with image files
         image_file = SimpleUploadedFile("8.jpg", b"file_content", content_type="image/jpeg")
         self.club1 = BookClub.objects.create(name='Club 1', description='Test description 1', image=image_file)
         self.club2 = BookClub.objects.create(name='Club 2', description='Test description 2', image=image_file)
