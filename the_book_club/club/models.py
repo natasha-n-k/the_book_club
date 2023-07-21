@@ -13,7 +13,7 @@ class Book(models.Model):
     name = models.CharField(max_length=200)
     author = models.CharField(max_length=200, default='None', null=True)
     description = models.TextField()
-    image = models.ImageField(upload_to='images')
+    image = models.ImageField(upload_to='images', null=True)
     average_rating = models.DecimalField(max_digits=3, decimal_places=2, null=True)
     genre = models.CharField(max_length=100, null=True)
     theme = models.CharField(max_length=100, null=True)
@@ -27,7 +27,7 @@ class Book(models.Model):
 class BookClub(models.Model):
     name = models.CharField(max_length=200)
     description = models.TextField()
-    image = models.ImageField(upload_to='images')
+    image = models.ImageField(upload_to='images', null=True)
     venue = models.CharField(max_length=200, default='Online', null=True)
     members = models.ManyToManyField(User, related_name='clubs')
     admin = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, related_name='administered_clubs')
