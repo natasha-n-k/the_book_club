@@ -73,6 +73,26 @@
                 <a href="https://www.bookvoed.ru/books?q={{ book.name }}"> <img src="{% static 'img/logo-b.png' %}" alt="" width="100" height="50"></a>
                 <a href="https://www.labirint.ru/search/{{ book.name }}/"><img src="{% static 'img/logo-l.png' %}" alt="" width="100" height="50"></a>
             </div>
+            <div>
+                <div class="book-comments">
+                    <h4>Рецензии на книгу:</h4>
+                    {% for comment in comments %}
+                    <div class="comment">
+                        <p><b>{{ comment.user.username }}</b> ({{ comment.created_at|date:"d.m.Y H:i" }})</p>
+                        <p>{{ comment.text }}</p>
+                    </div>
+                    {% empty %}
+                    <p>Пока здесь пусто</p>
+                    {% endfor %}
+                </div>
+                <div class="comment-form">
+                    <form method="post" action="{% url 'club:book_detail' book.id %}">
+                        {% csrf_token %}
+                        <textarea name="comment_text" rows="4" cols="50" placeholder="Оставьте свой комментарий здесь..."></textarea>
+                        <button type="submit">Отправить</button>
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
 </div>

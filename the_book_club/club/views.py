@@ -9,7 +9,7 @@ from django.http import JsonResponse
 from django.contrib import messages
 from django.http import JsonResponse
 from django.db.models import Q
-from .models import BookClub, Book,  Rating, UserBook, Meeting, Queue
+from .models import BookClub, Book,  Rating, UserBook, Meeting, Queue, Comment
 from .forms import ClubAdminForm, BookSelectionForm, BookQueueForm, MeetingForm, BookClubForm
 from datetime import date
 from django.urls import reverse
@@ -71,6 +71,7 @@ def books(request):
 def book_detail(request, book_id):
     book = get_object_or_404(Book, id=book_id)
     user_book, created = UserBook.objects.get_or_create(user=None, book=book)
+    comments = Comment.objects.filter(book=book).order_by('-created_at')
 
     if request.method == 'POST':
         rating = request.POST.get('rating')
@@ -95,8 +96,15 @@ def book_detail(request, book_id):
                 'status_text': user_book.get_status_display(),
                 'date_read': user_book.date_read.strftime('%Y-%m-%d') if user_book.date_read else None
             })
+        
+        comment_text = request.POST.get('comment_text')
+        if comment_text:
+            if request.user.is_authenticated:
+                comment = Comment.objects.create(user=request.user, book=book, text=comment_text)
+                comments = Comment.objects.filter(book=book).order_by('-created_at')
 
-    return render(request, 'club/book_detail.html', {'book': book, 'user_book': user_book})
+
+    return render(request, 'club/book_detail.html', {'book': book, 'user_book': user_book, 'comments': comments})
 
 @csrf_protect
 def user_login(request):
