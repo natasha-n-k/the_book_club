@@ -750,13 +750,8 @@
   }
 
   .book-cart-row {
-    display: grid;
-    grid-template-columns: auto 1fr;
-    grid-template-rows: auto 1fr;
-    align-items: start;
-    justify-content: space-around;
-    grid-column-gap: 70px;
-    justify-items: center
+    display: flex;
+    flex-direction: column;
   }
 
   .book-cart-details {

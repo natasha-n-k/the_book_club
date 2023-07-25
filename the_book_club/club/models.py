@@ -67,6 +67,7 @@ class Rating(models.Model):
             user_book, _ = UserBook.objects.get_or_create(user=self.user, book=self.book)
             self.user_book = user_book
         super().save(*args, **kwargs)
+        
 
 class Meeting(models.Model):
     date = models.DateField()
