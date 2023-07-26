@@ -45,7 +45,7 @@ class BookClub(models.Model):
         return self.name
 
 class UserBook(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, null=False)
     book = models.ForeignKey('Book', on_delete=models.CASCADE)
     is_want_to_read = models.BooleanField(default=False)
     is_read = models.BooleanField(default=False)
@@ -66,7 +66,7 @@ class UserBook(models.Model):
 
 class Rating(models.Model):
     book = models.ForeignKey(Book, on_delete=models.CASCADE)
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, null=False)
     user_book = models.ForeignKey(UserBook, on_delete=models.CASCADE, null=True)
     rating = models.DecimalField(max_digits=2, decimal_places=1)
 
