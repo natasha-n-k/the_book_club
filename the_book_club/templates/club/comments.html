@@ -5,10 +5,10 @@
 <div class="comments-container">
     <div class="rates-form">
         {% if user.is_authenticated %}
-        <form method="POST" action="{% url 'club:rate_book' book.id %}">
+        <form id="rating-form" method="POST" data-url="{% url 'club:rate_book' book.id %}">
             {% csrf_token %}
             <p>Оцени книгу</p>
-            <select name="rating" onchange="this.form.submit()">
+            <select name="rating" onchange="submitRating()">
                 <option value="1" {% if user_book.rating == 1 %}selected{% endif %}>1</option>
                 <option value="2" {% if user_book.rating == 2 %}selected{% endif %}>2</option>
                 <option value="3" {% if user_book.rating == 3 %}selected{% endif %}>3</option>
@@ -26,4 +26,30 @@
         </form>
     </div>
 </div>
+
+<script>
+    function submitRating() {
+        const ratingForm = document.getElementById('rating-form');
+        const formData = new FormData(ratingForm);
+
+        fetch(ratingForm.getAttribute('data-url'), {
+            method: 'POST',
+            body: formData,
+            headers: {
+                'X-CSRFToken': '{{ csrf_token }}',
+            }
+        }).then(response => {
+            if (response.ok) {
+                // If the rating was successfully submitted, you can update the displayed average rating on the page
+                response.json().then(data => {
+                    const averageRatingContainer = document.querySelector('.average-rating');
+                    averageRatingContainer.textContent = data.average_rating;
+                });
+            }
+        }).catch(error => {
+            console.error('Error:', error);
+        });
+    }
+</script>
+
 {% endblock %}

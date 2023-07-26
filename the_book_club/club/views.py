@@ -70,7 +70,8 @@ def books(request):
 
 def book_detail(request, book_id):
     book = get_object_or_404(Book, id=book_id)
-    user_book, created = UserBook.objects.get_or_create(user=None, book=book)
+    user = request.user
+    user_book, created = UserBook.objects.get_or_create(user=user, book=book)
     comments = Comment.objects.filter(book=book).order_by('-created_at')
 
     if request.method == 'POST':
@@ -354,3 +355,37 @@ def create_book_club(request):
         form = BookClubForm()
     
     return render(request, 'club/create_club.html', {'form': form})
+
+
+def comments(request, book_id):
+    book = get_object_or_404(Book, id=book_id)
+    user = request.user
+    user_book, created = UserBook.objects.get_or_create(user=user, book=book)
+    comments = Comment.objects.filter(book=book).order_by('-created_at')
+
+    if request.method == 'POST':
+        comment_text = request.POST.get('comment_text')
+        if comment_text:
+            if request.user.is_authenticated:
+                # Check if the user already has a comment for the book
+                user_comment = Comment.objects.filter(user=request.user, book=book).first()
+                if user_comment:
+                    # If the user has a comment, update the existing comment
+                    user_comment.text = comment_text
+                    user_comment.save()
+                else:
+                    # If the user doesn't have a comment, create a new comment
+                    Comment.objects.create(user=request.user, book=book, text=comment_text)
+                comments = Comment.objects.filter(book=book).order_by('-created_at')
+
+        rating = request.POST.get('rating')
+        if rating is not None:
+            rating = int(rating)
+            Rating.objects.update_or_create(user=request.user, book=book, defaults={'rating': rating})
+            average_rating = book.calculate_average_rating()
+            book.average_rating = round(average_rating, 1) if average_rating else None
+            book.save()
+
+            return JsonResponse({'average_rating': book.average_rating})
+
+    return render(request, 'club/comments.html', {'book': book, 'user_book': user_book, 'comments': comments})

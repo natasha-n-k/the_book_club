@@ -1,6 +1,9 @@
+from datetime import date
 from django.db import models
 from django.contrib.auth.models import User
 from django.db.models import Avg
+from django.db.models.signals import post_save
+from django.dispatch import receiver
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
@@ -51,6 +54,14 @@ class UserBook(models.Model):
 
     def __str__(self):
         return f"{self.user.username}'s {self.book.name}"
+
+    def save(self, *args, **kwargs):
+        # When saving the UserBook, update the book status and date_read fields
+        if self.status == 'read' and not self.date_read:
+            self.date_read = date.today()
+        elif self.status != 'read':
+            self.date_read = None
+        super().save(*args, **kwargs)
 
 
 class Rating(models.Model):

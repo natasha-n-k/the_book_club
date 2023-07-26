@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import BookClub, Book, UserBook, Rating, Meeting, Queue, Profile
+from .models import BookClub, Book, UserBook, Rating, Meeting, Queue, Profile, Comment
 
 
 # Register your models here.
@@ -10,4 +10,5 @@ admin.site.register(Rating)
 admin.site.register(Meeting)
 admin.site.register(Queue)
 admin.site.register(Profile)
+admin.site.register(Comment)
 

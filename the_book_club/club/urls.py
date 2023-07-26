@@ -29,4 +29,5 @@ urlpatterns = [
     path('<int:club_id>/schedule_meeting/', views.schedule_meeting, name='schedule_meeting'),
     path('club/<int:club_id>/delete_meeting/<int:meeting_id>/', views.delete_meeting, name='delete_meeting'),
     path('create_club/', views.create_book_club, name='create_club'),
+    path('comments/<int:book_id>/', views.comments, name='comments'),
 ]
