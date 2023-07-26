@@ -782,14 +782,13 @@
     padding-top: 20px;
     margin-top: 20px;
     display: flex;
-    flex-direction: row-reverse;
-    justify-content: space-around;
+    flex-direction: row;
+    justify-content: space-between;
     align-items: baseline;
   }
 
   .book-status-details p {
     color: #000;
-    padding-left: 40px
   }
 
   .book-rating select {
@@ -830,11 +829,10 @@
   }
 
   .status-form {
-    padding: 25px 0 0 20px;
   }
 
   .status-form select {
-    padding: 8px 20px;
+    padding: 8px 18px;
     text-align: left;
     text-shadow: 0 1px #e3f1f1;
     letter-spacing: 2px;

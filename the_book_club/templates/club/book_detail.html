@@ -38,8 +38,12 @@
                         {% if user_book.status == 'read' %}
                             {% if user_book.date_read %}
                                 <p><b>{{ user_book.date_read|date:"d.m.Y" }}</b></p>
+                                {% if user.is_authenticated %}
+                                    <a href="{% url 'club:comments' book.id %}">Оставьте рецензию, если прочитали книгу</a>
+                                {% endif %}
                             {% endif %}
                         {% else %}
+                            {# For books marked as "Want to Read" or "Not Selected" #}
                         {% endif %}
                     </div>
                 </div>
