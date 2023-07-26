@@ -367,15 +367,7 @@ def comments(request, book_id):
         comment_text = request.POST.get('comment_text')
         if comment_text:
             if request.user.is_authenticated:
-                # Check if the user already has a comment for the book
-                user_comment = Comment.objects.filter(user=request.user, book=book).first()
-                if user_comment:
-                    # If the user has a comment, update the existing comment
-                    user_comment.text = comment_text
-                    user_comment.save()
-                else:
-                    # If the user doesn't have a comment, create a new comment
-                    Comment.objects.create(user=request.user, book=book, text=comment_text)
+                comment = Comment.objects.create(user=request.user, book=book, text=comment_text)
                 comments = Comment.objects.filter(book=book).order_by('-created_at')
 
         rating = request.POST.get('rating')
