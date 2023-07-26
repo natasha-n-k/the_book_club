@@ -746,7 +746,7 @@
   }
 
   .book-cart-container {
-    margin: 0px 200px;
+    margin: 0px 150px;
   }
 
   .book-cart-row {
@@ -754,10 +754,16 @@
     flex-direction: column;
   }
 
+  .book-cart-item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+  }
   .book-cart-details {
     background-color: #f7f7f7;
     border-radius: 16px;
-    padding: 20px;
+    padding: 0 0 0 50px;
   }
 
   .book-cart-details h3,
@@ -766,10 +772,8 @@
   }
 
   .book-rating {
-    background-color: #6998AB;
-    border-radius: 16px;
-    text-align: center;
-    padding: 0 10px 10px 10px;
+    color: #6998AB;
+    text-align: left;
   }
 
   .book-status {
@@ -847,6 +851,14 @@
 
   .purchase-links {
     text-align: center;
+  }
+
+  .book-comments {
+    text-align: center;
+  }
+
+  .comment {
+
   }
 
   .club-details {

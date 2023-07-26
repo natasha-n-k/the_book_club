@@ -4,34 +4,23 @@
 <div class="book-container">
     <div class="book-cart-container">
         <div class="book-cart-row">
-            <div class="book-cart-image">
-                <img src="{{ book.image.url }}" width="170" height="250">
-            </div>
-            <div class="book-cart-details">
-                <h5>{{ book.genre }}</h5>
-                <h3>{{ book.name }}</h3>
-                <h4>{{ book.author }}</h4>
-                <p>{{ book.description }}</p>
-            </div>
-            <div class="book-rating">
-                {% if book.average_rating %}
-                <h3>★ {{ book.average_rating }}</h3>
-                {% else %}
-                <h3>★ Нет оценок</h3>
-                {% endif %}
-                {% if user.is_authenticated %}
-                <form method="POST" action="{% url 'club:rate_book' book.id %}">
-                    {% csrf_token %}
-                    <p>Оцени книгу</p>
-                    <select name="rating" onchange="this.form.submit()">
-                        <option value="1" {% if user_book.rating == 1 %}selected{% endif %}>1</option>
-                        <option value="2" {% if user_book.rating == 2 %}selected{% endif %}>2</option>
-                        <option value="3" {% if user_book.rating == 3 %}selected{% endif %}>3</option>
-                        <option value="4" {% if user_book.rating == 4 %}selected{% endif %}>4</option>
-                        <option value="5" {% if user_book.rating == 5 %}selected{% endif %}>5</option>
-                    </select>
-                </form>
-                {% endif %}
+            <div class="book-cart-item">
+                <div class="book-cart-image">
+                    <img src="{{ book.image.url }}" width="170" height="250">
+                </div>
+                <div class="book-cart-details">
+                    <div class="book-rating">
+                        {% if book.average_rating %}
+                        <h3>★ {{ book.average_rating }}</h3>
+                        {% else %}
+                        <h3>★ Нет оценок</h3>
+                        {% endif %}
+                    </div>
+                    <h5>{{ book.genre }}</h5>
+                    <h3>{{ book.name }}</h3>
+                    <h4>{{ book.author }}</h4>
+                    <p>{{ book.description }}</p>
+                </div>
             </div>
             <div class="book-status">
                 <div class="status-form">
@@ -68,11 +57,6 @@
                     {% endif %}
                 </div>
             </div>
-            <div class="purchase-links">
-                <h4>Купить книгу</h4>
-                <a href="https://www.bookvoed.ru/books?q={{ book.name }}"> <img src="{% static 'img/logo-b.png' %}" alt="" width="100" height="50"></a>
-                <a href="https://www.labirint.ru/search/{{ book.name }}/"><img src="{% static 'img/logo-l.png' %}" alt="" width="100" height="50"></a>
-            </div>
             <div>
                 <div class="book-comments">
                     <h4>Рецензии на книгу:</h4>
@@ -84,13 +68,6 @@
                     {% empty %}
                     <p>Пока здесь пусто</p>
                     {% endfor %}
-                </div>
-                <div class="comment-form">
-                    <form method="post" action="{% url 'club:book_detail' book.id %}">
-                        {% csrf_token %}
-                        <textarea name="comment_text" rows="4" cols="50" placeholder="Оставьте свой комментарий здесь..."></textarea>
-                        <button type="submit">Отправить</button>
-                    </form>
                 </div>
             </div>
         </div>
