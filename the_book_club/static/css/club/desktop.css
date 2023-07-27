@@ -54,7 +54,8 @@
   .books-cart-button button,
   .book-queue-details button,
   .admin-container button,
-  .admin-link a {
+  .admin-link a ,
+  .comment-form button  {
     display: inline-block;
     background-color: #f7f7f7;
     color: #6998AB;
@@ -70,7 +71,7 @@
 
   .club-admin a,
   .book-info button,
-  .book-status-details a {
+  .book-status-details a{
     display: inline-block;
     background-color: #6998AB;
     padding: 10px;
@@ -82,7 +83,7 @@
   }
 
   .create__form button,
-  .edit-profile-content-row button {
+  .edit-profile-content-row button{
     font-size: 12px;
     font-weight: bold;
     color: #6998AB;
@@ -804,22 +805,6 @@
 
   }
 
-  .book-rating select {
-    padding: 4px 8px;
-    text-align: left;
-    text-shadow: 0 1px #e3f1f1;
-    letter-spacing: 2px;
-    color: #6998AB;
-    background: #f7f7f7;
-    border: 1px solid;
-    border-color: #c4c4c4 #d1d1d1 #d4d4d4;
-    border-radius: 6px;
-    outline: 5px solid #eff4f7;
-    -moz-outline-radius: 3px;
-    -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
-    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
-  }
-
   .book-queue-details {
     padding: 0 10px;
   }
@@ -1074,4 +1059,60 @@
     -webkit-box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.2);
     box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.2);
   }
+}
+
+.comments-container {
+  margin: 50px auto;
+  height: 550px;
+  text-align: center;
+}
+
+.rates-form {
+
+}
+
+.rates-form select {
+  padding: 4px 8px;
+  text-align: left;
+  text-shadow: 0 1px #e3f1f1;
+  letter-spacing: 2px;
+  color: #6998AB;
+  background: #f7f7f7;
+  border: 1px solid;
+  border-color: #c4c4c4 #d1d1d1 #d4d4d4;
+  border-radius: 6px;
+  outline: 5px solid #eff4f7;
+  -moz-outline-radius: 3px;
+  -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
+}
+
+.comment-form {
+
+}
+
+.comment-form form {
+  height: 350px;
+  width: 500px;
+  margin: 40px auto;
+  background-color: #f7f7f7;
+  padding: 30px;
+  background: #f7f7f7;
+  border-radius: 3px;
+  -webkit-box-shadow: 0 0 200px #f7f7f7, 0 1px 2px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 200px #f7f7f7, 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.comment-form form textarea{
+  height: 300px;
+  width: 500px;
+  resize: none;
+  overflow-x: auto;
+  outline: none;
+	-moz-appearance: none;
+	border: 1px solid;
+  border-color: #c4c4c4 #d1d1d1 #d4d4d4;
+  -moz-outline-radius: 3px;
+  -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
 }
