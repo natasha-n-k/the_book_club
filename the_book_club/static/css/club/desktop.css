@@ -33,7 +33,8 @@
 
   /* Стили для buttons */
   .banner-content button,
-  .home-cart-button button {
+  .home-cart-button button,
+  .status-form button {
     display: block;
     background-color: #f7f7f7;
     color: #6998AB;
@@ -780,11 +781,15 @@
     background-color: #f7f7f7;
     border-radius: 16px;
     padding-top: 20px;
-    margin-top: 20px;
+    margin: 20px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: baseline;
+  }
+
+  .status-form {
+    position: static;
   }
 
   .book-status-details p {

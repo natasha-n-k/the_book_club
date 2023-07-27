@@ -34,7 +34,7 @@
                     <div class="book-status-details">
                         {% if user_book.status == 'read' %}
                             {% if user_book.date_read %}
-                                <p><b>{{ user_book.date_read|date:"d.m.Y" }}</b></p>
+                                <p>Книга прочитана<b> {{ user_book.date_read|date:"d.m.Y" }}</b></p>
                                 {% if user.is_authenticated %}
                                     <a href="{% url 'club:comments' book.id %}">Оставьте рецензию, если прочитали книгу</a>
                                 {% endif %}
@@ -43,7 +43,6 @@
                             {# For books marked as "Want to Read" or "Not Selected" #}
                         {% endif %}
                     </div>
-                </div>
                 </div>
                 <div class="book-queue-details">
                     {% if user.is_authenticated %}
