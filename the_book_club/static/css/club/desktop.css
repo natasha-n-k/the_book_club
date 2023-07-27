@@ -69,7 +69,8 @@
   }
 
   .club-admin a,
-  .book-info button {
+  .book-info button,
+  .book-status-details a {
     display: inline-block;
     background-color: #6998AB;
     padding: 10px;
@@ -764,7 +765,7 @@
   .book-cart-details {
     background-color: #f7f7f7;
     border-radius: 16px;
-    padding: 0 0 0 50px;
+    padding: 0 0 0 100px;
   }
 
   .book-cart-details h3,
@@ -788,12 +789,19 @@
     align-items: baseline;
   }
 
-  .status-form {
-    position: static;
+  .status-form form{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .status-form button {
+    margin: 10px 0;
   }
 
   .book-status-details p {
     color: #000;
+    text-align: center;
+
   }
 
   .book-rating select {

@@ -26,17 +26,15 @@
                 <div class="status-form">
                     <form method="POST">
                         {% csrf_token %}
-                        <div>
                             <button type="submit" name="status" value="to_read" {% if user_book.status == 'to_read' %}class="active"{% endif %}>Хочу прочитать</button>
                             <button type="submit" name="status" value="read" {% if user_book.status == 'read' %}class="active"{% endif %}>Прочитано</button>
-                        </div>
                     </form>
                     <div class="book-status-details">
                         {% if user_book.status == 'read' %}
                             {% if user_book.date_read %}
-                                <p>Книга прочитана<b> {{ user_book.date_read|date:"d.m.Y" }}</b></p>
+                                <p>Книга прочитана <br> <b> {{ user_book.date_read|date:"d.m.Y" }}</b></p>
                                 {% if user.is_authenticated %}
-                                    <a href="{% url 'club:comments' book.id %}">Оставьте рецензию, если прочитали книгу</a>
+                                    <a href="{% url 'club:comments' book.id %}">Оставьте рецензию</a>
                                 {% endif %}
                             {% endif %}
                         {% else %}
