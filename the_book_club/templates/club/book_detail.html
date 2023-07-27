@@ -61,7 +61,7 @@
                     <h4>Рецензии на книгу:</h4>
                     {% for comment in comments %}
                     <div class="comment">
-                        <p><b>{{ comment.user.username }}</b> ({{ comment.created_at|date:"d.m.Y H:i" }})</p>
+                        <h5><p><b>{{ comment.user.username }}</b> {{ comment.created_at|date:"d.m.Y " }}</p></h5>
                         <p>{{ comment.text }}</p>
                     </div>
                     {% empty %}

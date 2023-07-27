@@ -841,9 +841,6 @@
     box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
   }
 
-  .status-form {
-  }
-
   .status-form select {
     padding: 8px 18px;
     text-align: left;
@@ -865,11 +862,27 @@
   }
 
   .book-comments {
-    text-align: center;
+    margin: 20px auto;
   }
 
-  .comment {
+  .book-comments h4{
+    text-align: center;
+  } 
 
+  .book-comments h5{
+    text-align: right;
+  } 
+
+  .comment {
+    background-color: #6998ab;
+    padding: 40px;
+    border: 1px solid;
+    border-color: #c4c4c4 #d1d1d1 #d4d4d4;
+    border-radius: 20px ;
+    outline: 2px solid #eff4f7;
+    -moz-outline-radius: 3px;
+    -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
   }
 
   .club-details {
