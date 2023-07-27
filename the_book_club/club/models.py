@@ -45,7 +45,7 @@ class BookClub(models.Model):
         return self.name
 
 class UserBook(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE, null=False)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True)  # Allow the user to be None
     book = models.ForeignKey('Book', on_delete=models.CASCADE)
     is_want_to_read = models.BooleanField(default=False)
     is_read = models.BooleanField(default=False)
@@ -53,15 +53,24 @@ class UserBook(models.Model):
     status = models.CharField(max_length=20, default='none')
 
     def __str__(self):
+        if self.user is None:
+            return f"Anonymous User's {self.book.name}"
         return f"{self.user.username}'s {self.book.name}"
 
     def save(self, *args, **kwargs):
-        # When saving the UserBook, update the book status and date_read fields
-        if self.status == 'read' and not self.date_read:
-            self.date_read = date.today()
-        elif self.status != 'read':
-            self.date_read = None
+        # When saving the UserBook, update the is_want_to_read and is_read fields based on the status field
+        if self.status == 'to_read':
+            self.is_want_to_read = True
+            self.is_read = False
+        elif self.status == 'read':
+            self.is_want_to_read = False
+            self.is_read = True
+            self.date_read = date.today()  # Change to datetime.date.today()
+        else:
+            self.is_want_to_read = False
+            self.is_read = False
         super().save(*args, **kwargs)
+
 
 
 class Rating(models.Model):

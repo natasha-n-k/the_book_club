@@ -26,13 +26,10 @@
                 <div class="status-form">
                     <form method="POST">
                         {% csrf_token %}
-                        <select id="status-select" name="status">
-                            <ul>
-                                <li><option value="none" {% if user_book.status == 'none' %}selected{% endif %}>Не выбрано</option></li>
-                                <li><option value="to_read" {% if user_book.status == 'to_read' %}selected{% endif %}>Хочу прочитать</option></li>
-                                <li><option value="read" {% if user_book.status == 'read' %}selected{% endif %}>Прочитана</option></li>
-                            </ul>
-                        </select>
+                        <div>
+                            <button type="submit" name="status" value="to_read" {% if user_book.status == 'to_read' %}class="active"{% endif %}>Хочу прочитать</button>
+                            <button type="submit" name="status" value="read" {% if user_book.status == 'read' %}class="active"{% endif %}>Прочитано</button>
+                        </div>
                     </form>
                     <div class="book-status-details">
                         {% if user_book.status == 'read' %}
@@ -46,6 +43,7 @@
                             {# For books marked as "Want to Read" or "Not Selected" #}
                         {% endif %}
                     </div>
+                </div>
                 </div>
                 <div class="book-queue-details">
                     {% if user.is_authenticated %}

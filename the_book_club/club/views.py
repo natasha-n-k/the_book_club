@@ -71,6 +71,10 @@ def books(request):
 def book_detail(request, book_id):
     book = get_object_or_404(Book, id=book_id)
     user = request.user
+
+    if not user.is_authenticated:
+        user = None
+
     user_book, created = UserBook.objects.get_or_create(user=user, book=book)
     comments = Comment.objects.filter(book=book).order_by('-created_at')
 
@@ -78,32 +82,28 @@ def book_detail(request, book_id):
         rating = request.POST.get('rating')
         if rating is not None:
             rating = int(rating)
-            Rating.objects.update_or_create(user=None, book=book, defaults={'rating': rating})
+            Rating.objects.update_or_create(user=user, book=book, defaults={'rating': rating})
             average_rating = book.calculate_average_rating()
             book.average_rating = round(average_rating, 1) if average_rating else None
             book.save()
 
         status = request.POST.get('status')
-        if status in ['to_read', 'read']:
+        if status in ['to_read', 'read'] and user.is_authenticated:
             user_book.status = status
             if status == 'read':
-                user_book.date_read = datetime.date.today()
+                user_book.date_read = date.today()
             else:
                 user_book.date_read = None
-            user_book.save()
+            user_book.save()  # Save the updated UserBook here
 
-            return JsonResponse({
-                'success': True,
-                'status_text': user_book.get_status_display(),
-                'date_read': user_book.date_read.strftime('%Y-%m-%d') if user_book.date_read else None
-            })
-        
+            # Optionally, you can redirect back to the same page after the update
+            return redirect('club:book_detail', book_id=book_id)
+
         comment_text = request.POST.get('comment_text')
         if comment_text:
-            if request.user.is_authenticated:
-                comment = Comment.objects.create(user=request.user, book=book, text=comment_text)
+            if user.is_authenticated:
+                comment = Comment.objects.create(user=user, book=book, text=comment_text)
                 comments = Comment.objects.filter(book=book).order_by('-created_at')
-
 
     return render(request, 'club/book_detail.html', {'book': book, 'user_book': user_book, 'comments': comments})
 
@@ -126,8 +126,9 @@ def user_login(request):
 @login_required
 def account(request):
     clubs = BookClub.objects.filter(members=request.user)
-    read_books = UserBook.objects.filter(user=request.user, is_read=True)
-    want_to_read_books = UserBook.objects.filter(user=request.user, is_want_to_read=True)
+    # Filter UserBook objects based on is_want_to_read and is_read fields
+    want_to_read_books = UserBook.objects.filter(user=request.user, is_want_to_read=True, is_read=False)
+    read_books = UserBook.objects.filter(user=request.user, is_want_to_read=False, is_read=True)
     return render(request, 'club/account.html', {'clubs': clubs, 'read_books': read_books, 'want_to_read_books': want_to_read_books})
 
 def user_logout(request):
