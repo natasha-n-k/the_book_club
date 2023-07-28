@@ -95,7 +95,8 @@
   }
 
   /* Стили для buttons */
-  .banner-content button {
+  .banner-content button,
+  .status-form button  {
     display: block;
     background-color: #f7f7f7;
     color: #6998AB;
@@ -893,6 +894,13 @@
     align-items: stretch;
   }
 
+  .book-cart-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+  }
+
   .book-cart-image {
     text-align: center;
   }
@@ -910,12 +918,8 @@
   }
 
   .book-rating {
-    background-color: #6998AB;
-    border-radius: 16px;
-    text-align: center;
-    padding: 0 10px 10px 10px;
-    width: 150px;
-    margin: auto;
+    color: #6998AB;
+    text-align: left;
   }
 
   .book-status {
@@ -929,25 +933,36 @@
     justify-content: space-between;
   }
 
-  .book-status-details p {
-    color: #000;
-    padding-left: 40px;
+  .status-form form{
+    display: flex;
+    flex-direction: column;
+  }
+  .status-form {
+    padding: 20px 0 0 15px;
   }
 
-  .book-rating select {
-    padding: 4px 8px;
+  .status-form button {
+    margin: 10px 0;
+  }
+
+  .status-form select {
+    padding: 6px 16px;
     text-align: left;
     text-shadow: 0 1px #e3f1f1;
     letter-spacing: 2px;
-    color: #6998AB;
-    background: #f7f7f7;
+    color: #f7f7f7;
+    background: #6998AB;
     border: 1px solid;
     border-color: #c4c4c4 #d1d1d1 #d4d4d4;
-    border-radius: 6px;
     outline: 5px solid #eff4f7;
     -moz-outline-radius: 3px;
     -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
     box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
+  }
+
+  .book-status-details p {
+    color: #000;
+    text-align: center;
   }
 
   .book-queue-details {
@@ -971,27 +986,32 @@
     box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
   }
 
-  .status-form {
-    padding: 20px 0 0 15px;
+  .purchase-links {
+    text-align: center;
   }
 
-  .status-form select {
-    padding: 6px 16px;
-    text-align: left;
-    text-shadow: 0 1px #e3f1f1;
-    letter-spacing: 2px;
-    color: #f7f7f7;
-    background: #6998AB;
+  .book-comments {
+    margin: 20px auto;
+  }
+
+  .book-comments h4{
+    text-align: center;
+  } 
+
+  .book-comments h5{
+    text-align: right;
+  } 
+
+  .comment {
+    background-color: #6998ab;
+    padding: 40px;
     border: 1px solid;
     border-color: #c4c4c4 #d1d1d1 #d4d4d4;
-    outline: 5px solid #eff4f7;
+    border-radius: 20px ;
+    outline: 2px solid #eff4f7;
     -moz-outline-radius: 3px;
     -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
     box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
-  }
-
-  .purchase-links {
-    text-align: center;
   }
 
   .club-details {
