@@ -9,16 +9,16 @@
             {% csrf_token %}
             <p>Оцени книгу</p>
             <select name="rating" onchange="submitRating()">
-                <option value="1" {% if user_book.rating == 1 %}selected{% endif %}>1</option>
-                <option value="2" {% if user_book.rating == 2 %}selected{% endif %}>2</option>
-                <option value="3" {% if user_book.rating == 3 %}selected{% endif %}>3</option>
-                <option value="4" {% if user_book.rating == 4 %}selected{% endif %}>4</option>
-                <option value="5" {% if user_book.rating == 5 %}selected{% endif %}>5</option>
-                <option value="6" {% if user_book.rating == 1 %}selected{% endif %}>6</option>
-                <option value="7" {% if user_book.rating == 2 %}selected{% endif %}>7</option>
-                <option value="8" {% if user_book.rating == 3 %}selected{% endif %}>8</option>
-                <option value="9" {% if user_book.rating == 4 %}selected{% endif %}>9</option>
-                <option value="10" {% if user_book.rating == 5 %}selected{% endif %}>10</option>
+                <option value="1" {% if user_book.rating == 1 %}selected{% endif %}>1 - худшее, что читал(а)</option>
+                <option value="2" {% if user_book.rating == 2 %}selected{% endif %}>2 - ужасно</option>
+                <option value="3" {% if user_book.rating == 3 %}selected{% endif %}>3 - с трудом дочитал(а)</option>
+                <option value="4" {% if user_book.rating == 4 %}selected{% endif %}>4 - потерял(а) время</option>
+                <option value="5" {% if user_book.rating == 5 %}selected{% endif %}>5 - так себе</option>
+                <option value="6" {% if user_book.rating == 6 %}selected{% endif %}>6 - нормально</option>
+                <option value="7" {% if user_book.rating == 7 %}selected{% endif %}>7 - хорошо</option>
+                <option value="8" {% if user_book.rating == 8 %}selected{% endif %}>8 - отлично</option>
+                <option value="9" {% if user_book.rating == 9 %}selected{% endif %}>9 - шедевр</option>
+                <option value="10" {% if user_book.rating == 10 %}selected{% endif %}>10 - гениальное творение</option>
             </select>
         </form>
         {% endif %}
