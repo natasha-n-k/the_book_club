@@ -152,9 +152,6 @@
     box-shadow: 0 5.5px 5px 0 #000;
   }
 
-
-
-
   nav {
     display: flex;
     align-items: center;
@@ -861,6 +858,7 @@
   } 
 
   .comment {
+    overflow: hidden;
     background-color: #6998ab;
     padding: 40px;
     border: 1px solid;
@@ -870,6 +868,18 @@
     -moz-outline-radius: 3px;
     -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
     box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
+  }
+
+  .clamp-text {
+    display: -webkit-box;
+    -webkit-line-clamp: 5; /* Number of lines to show */
+    -webkit-box-orient: vertical;
+    line-height: 1.6; /* Adjust line height for better display */
+    cursor: pointer;
+  }
+
+  .expand-text {
+    -webkit-line-clamp: initial; /* Remove the line clamp limit */
   }
 
   .club-details {

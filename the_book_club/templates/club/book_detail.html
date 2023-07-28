@@ -62,7 +62,7 @@
                     {% for comment in comments %}
                     <div class="comment">
                         <h5><p><b>{{ comment.user.username }}</b> {{ comment.created_at|date:"d.m.Y " }}</p></h5>
-                        <p>{{ comment.text }}</p>
+                        <p class="clamp-text">{{ comment.text }}</p>
                     </div>
                     {% empty %}
                     <p>Пока здесь пусто</p>
