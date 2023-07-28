@@ -1059,19 +1059,14 @@
     -webkit-box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.2);
     box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.2);
   }
-}
-
-.comments-container {
+  
+  .comments-container {
   margin: 50px auto;
   height: 550px;
   text-align: center;
-}
+  }
 
-.rates-form {
-
-}
-
-.rates-form select {
+  .rates-form select {
   padding: 4px 8px;
   text-align: center;
   text-shadow: 0 1px #e3f1f1;
@@ -1089,13 +1084,9 @@
   width: 100%;
   max-width: 400px;
   margin-bottom: 20px;
-}
+  }
 
-.comment-form {
-
-}
-
-.comment-form form {
+  .comment-form form {
   height: 350px;
   width: 500px;
   margin: 40px auto;
@@ -1105,9 +1096,9 @@
   border-radius: 3px;
   -webkit-box-shadow: 0 0 200px #f7f7f7, 0 1px 2px rgba(0, 0, 0, 0.3);
   box-shadow: 0 0 200px #f7f7f7, 0 1px 2px rgba(0, 0, 0, 0.3);
-}
+  }
 
-.comment-form form textarea{
+  .comment-form form textarea{
   height: 300px;
   width: 500px;
   resize: none;
@@ -1119,4 +1110,5 @@
   -moz-outline-radius: 3px;
   -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
   box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
+  }
 }
