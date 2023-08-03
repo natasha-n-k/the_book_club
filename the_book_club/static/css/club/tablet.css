@@ -1261,4 +1261,23 @@
     -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
     box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
     }
+    
+  .not-found img {
+    max-width: 300px;
+    margin: auto;
+    border-radius: 16px;
+  }
+
+  .not-found-item{
+    background-color: #f7f7f7;
+    margin: 10px auto;
+    padding: 15px;
+    border-radius: 10px;
+  }
+  .not-found-item a{
+    background-color: #6998AB;
+    border-radius: 2px;
+    padding: 0 10px;
+    color: #f7f7f7;
+  }
 }

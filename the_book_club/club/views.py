@@ -382,3 +382,6 @@ def comments(request, book_id):
             return JsonResponse({'average_rating': book.average_rating})
 
     return render(request, 'club/comments.html', {'book': book, 'user_book': user_book, 'comments': comments})
+
+def page_not_found(request, exception):
+    return render(request, 'club/404.html', status=404)

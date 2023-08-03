@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}Custom 404{% endblock %}
+{% block content %}
+<div class="not-found">
+    <img src="{% static 'img/404.svg' %}" alt="">
+    <div class="not-found-item">
+        <h2>Такой страницы нет</h2>
+        <p>Возможно, эта страница удалена или введён неправильный адрес, <br>
+            попробуйте
+        <a href="{% url 'club:index' %}"> перейти на главную страницу</a></p>
+        <p>и найти в меню нужный раздел</p>
+    </div>
+
+</div>
+
+{% endblock %}

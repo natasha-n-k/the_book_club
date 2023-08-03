@@ -31,3 +31,4 @@ urlpatterns = [
     path('create_club/', views.create_book_club, name='create_club'),
     path('comments/<int:book_id>/', views.comments, name='comments'),
 ]
+
