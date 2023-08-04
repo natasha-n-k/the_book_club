@@ -4,6 +4,7 @@ from django.views.decorators.http import require_POST
 from django.views.decorators.csrf import csrf_protect
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.contrib.auth import authenticate, login
+from django.views.decorators.cache import cache_page
 from django.contrib.auth import logout
 from django.http import JsonResponse
 from django.contrib import messages
@@ -15,10 +16,12 @@ from datetime import date
 from django.urls import reverse
 import datetime
 
+@cache_page(60 * 15)
 def index(request):
     clubs = BookClub.objects.all()[:4] 
     return render(request, 'club/index.html', {'clubs': clubs})
 
+@cache_page(60 * 15)
 def book_clubs(request):
     clubs = BookClub.objects.all()
     genres = BookClub.objects.values_list('genre', flat=True).distinct()
@@ -36,12 +39,14 @@ def book_clubs(request):
     }
     return render(request, 'club/book_clubs.html', context)
 
+@cache_page(60 * 15)
 def club_detail(request, club_id):
     club = get_object_or_404(BookClub, id=club_id)
     book_queue = Queue.objects.filter(club=club)
 
     return render(request, 'club/club_detail.html', {'club': club, 'book_queue': book_queue})
 
+@cache_page(60 * 15)
 def books(request):
     books = Book.objects.all()
     genres = Book.objects.values_list('genre', flat=True).distinct()
@@ -68,6 +73,7 @@ def books(request):
     }
     return render(request, 'club/books.html', context)
 
+@cache_page(60 * 15)
 def book_detail(request, book_id):
     book = get_object_or_404(Book, id=book_id)
     user = request.user
@@ -123,6 +129,7 @@ def user_login(request):
     else:
         return render(request, 'club/login.html')
 
+@cache_page(60 * 15)
 @login_required
 def account(request):
     clubs = BookClub.objects.filter(members=request.user)
@@ -225,7 +232,7 @@ def rate_book(request, book_id):
 
     return redirect('club:book_detail', book_id=book_id)
 
-
+@cache_page(60 * 15)
 @login_required
 def club_admin(request, club_id):
     club = get_object_or_404(BookClub, id=club_id)
