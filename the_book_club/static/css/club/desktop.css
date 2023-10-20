@@ -113,6 +113,7 @@
   /* Стили для img */
   .banner-picture img {
     max-width: 100%;
+    border-radius: 16px;
   }
 
   .home-cart-image img,
@@ -188,7 +189,7 @@
     flex-direction: column;
     justify-content: space-around;
     align-items: stretch;
-    background-color: #f7f7f7;
+    background-color: #ffffff;
   }
 
   .home-row h2 {
@@ -201,9 +202,9 @@
     flex-direction: row;
     justify-content: space-around;
     align-items: stretch;
-    background-color: #ffffff;
+    background-color: #f7f7f7;
     border-radius: 20px;
-    border-color: #c4c4c4 #d1d1d1 #d4d4d4;
+    border-color: #c4c4c4 #d1d1d1 #d4d4d4 #d4d4d4;
     box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.12);
   }
 
@@ -247,9 +248,9 @@
   }
 
   .home-create {
-    background-color: #ffffff;
+    background-color: #f7f7f7;
     margin: 20px auto;
-    padding: 0 20px 20px 20px;
+    padding: 20px;
     width: 400px;
     text-align: center;
     border-radius: 6px;
