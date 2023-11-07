@@ -61,27 +61,22 @@
 
 ##
 
-<img src="https://github.com/natasha-n-k/the_book_club/assets/108083300/8f2b073e-58e2-47c3-a734-3321b1e4bb33" height="400">
+<img src="https://github.com/natasha-n-k/the_book_club/assets/108083300/d5f750f3-db6a-40d3-b82c-163f03ff58a3" height="400">
+<img src="https://github.com/natasha-n-k/the_book_club/assets/108083300/5d1ae304-cecf-4ead-b5b5-39f47646b35c" height="400">
+<img src="https://github.com/natasha-n-k/the_book_club/assets/108083300/e0d22c69-2ab7-4a26-84bc-43801aa1fc20" height="400">
 
 ##
 
-<img src="https://github.com/natasha-n-k/the_book_club/assets/108083300/cca641e7-43d5-4459-954b-81558446886b" height="400">
-<img src="https://github.com/natasha-n-k/the_book_club/assets/108083300/f0b7838a-daef-4379-b4ea-bd6af18d15a1" height="400">
+
+
+<img src="https://github.com/natasha-n-k/the_book_club/assets/108083300/8aa69a02-644d-4b40-8745-3acf5178c21c" height="350">
+<img src="https://github.com/natasha-n-k/the_book_club/assets/108083300/f5dde384-b806-44d6-af5f-894d5ca6f450" height="350">
+<img src="https://github.com/natasha-n-k/the_book_club/assets/108083300/108620d4-7018-4c88-98b4-13c1a735223e" height="350">
+<img src="https://github.com/natasha-n-k/the_book_club/assets/108083300/93b9363e-bd2b-481c-8b7f-d0d582bc23a2" height="350">
 
 ##
-
-<img src="https://github.com/natasha-n-k/the_book_club/assets/108083300/9420b4a9-4bdb-4d73-931b-7667a22e8e6a" height="400">
-<img src="https://github.com/natasha-n-k/the_book_club/assets/108083300/2817496c-f384-4486-b737-d3db50d136b3" height="400">
-
-##
-
-<img src="https://github.com/natasha-n-k/the_book_club/assets/108083300/07922be0-facf-4262-a1bc-55ce173e22a7" height="400">
-<img src="https://github.com/natasha-n-k/the_book_club/assets/108083300/4430489d-0808-4500-8781-bbc5a3a59538" height="400">
-
-##
-
-<img src="https://github.com/natasha-n-k/the_book_club/assets/108083300/837c2799-fbec-4780-8fd1-011ec3df1e43" height="400">
-
+<img src="https://github.com/natasha-n-k/the_book_club/assets/108083300/07922be0-facf-4262-a1bc-55ce173e22a7" height="350">
+<img src="https://github.com/natasha-n-k/the_book_club/assets/108083300/4430489d-0808-4500-8781-bbc5a3a59538" height="350">
 
 ##
 
