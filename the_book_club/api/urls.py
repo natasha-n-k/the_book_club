@@ -13,5 +13,5 @@ router.register(r'queues', views.QueueViewSet)
 router.register(r'meetings', views.MeetingViewSet)
 
 urlpatterns = [
-    path('api/', include(router.urls)),
+    path('', include(router.urls)),
 ]
