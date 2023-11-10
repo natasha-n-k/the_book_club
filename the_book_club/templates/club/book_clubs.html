@@ -2,6 +2,7 @@
 {% load static %}
 
 {% block content %}
+
 <div class="clubs-filter">
     <form action="{% url 'club:book_clubs' %}" method="GET">
         <select name="genre" id="genre">
@@ -62,5 +63,22 @@
         </div>
         {% endfor %}
     </div>
+</div>
+<div class="pagination">
+    <span class="step-links">
+        {% if clubs.has_previous %}
+            <a href="?page=1">&laquo; 1 </a>
+            <a href="?page={{ clubs.previous_page_number }}">предыдущая</a>
+        {% endif %}
+
+        <span class="current">
+            Страница {{ clubs.number }} из {{ clubs.paginator.num_pages }}.
+        </span>
+
+        {% if clubs.has_next %}
+            <a href="?page={{ clubs.next_page_number }}">следующая</a>
+            <a href="?page={{ clubs.paginator.num_pages }}">последняя &raquo;</a>
+        {% endif %}
+    </span>
 </div>
 {% endblock %}

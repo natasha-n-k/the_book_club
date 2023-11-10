@@ -1,4 +1,5 @@
 from django.shortcuts import render,redirect, get_object_or_404
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.http import require_POST
 from django.views.decorators.csrf import csrf_protect
@@ -32,6 +33,17 @@ def book_clubs(request):
         clubs = clubs.filter(genre=genre)
     if theme:
         clubs = clubs.filter(theme=theme)
+
+    page = request.GET.get('page', 1)
+    paginator = Paginator(clubs, 8)
+
+    try:
+        clubs = paginator.page(page)
+    except PageNotAnInteger:
+        clubs = paginator.page(1)
+    except EmptyPage:
+        clubs = paginator.page(paginator.num_pages)
+
     context = {
         'clubs': clubs,
         'genres': genres,
