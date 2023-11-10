@@ -32,7 +32,19 @@ a {
     font-family: "Helvetica Neueu", Helvetica, Arial, sans-serif;
     text-shadow: white 0 1px 0;
     background-color: #f7f7f7;
- filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#f9f9f9', EndColorStr='#eaeaea'); }
-  .pagination a :hover{
-    background-color: #6998AB;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#f9f9f9', EndColorStr='#eaeaea'); 
   }
+
+  .pagination a.current {
+    background-color: #6998AB; 
+    color: #f7f7f7;  
+}
+
+.pagination a:hover {
+    background-color: #f7f7f7; 
+    color: #000;
+    -webkit-transform: scale(1.1);
+    -ms-ransform: scale(1.1);
+    transform: scale(1.1);
+    transition: 0.5s;
+}
