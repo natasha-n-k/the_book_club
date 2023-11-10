@@ -78,6 +78,22 @@ def books(request):
             query |= Q(name__icontains=word) | Q(author__icontains=word)
         books = books.filter(query)
 
+    page = request.GET.get('page', 1)
+    paginator = Paginator(books, 10) 
+
+    try:
+        books = paginator.page(page)
+    except PageNotAnInteger:
+        books = paginator.page(1)
+    except EmptyPage:
+        books = paginator.page(paginator.num_pages)
+
+    context = {
+        'books': books,
+        'genres': genres,
+        'themes': themes
+    }
+
     context = {
         'books': books,
         'genres': genres,
