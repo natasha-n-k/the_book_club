@@ -65,20 +65,12 @@
     </div>
 </div>
 <div class="pagination">
-    <span class="step-links">
-        {% if clubs.has_previous %}
-            <a href="?page=1">&laquo; 1 </a>
-            <a href="?page={{ clubs.previous_page_number }}">предыдущая</a>
-        {% endif %}
-
-        <span class="current">
-            Страница {{ clubs.number }} из {{ clubs.paginator.num_pages }}.
-        </span>
-
-        {% if clubs.has_next %}
-            <a href="?page={{ clubs.next_page_number }}">следующая</a>
-            <a href="?page={{ clubs.paginator.num_pages }}">последняя &raquo;</a>
-        {% endif %}
-    </span>
+        {% for i in clubs.paginator.page_range %}
+            {% if clubs.number == i %}
+                <a class="current">{{ i }}</a>
+            {% else %}
+                <a href="?page={{ i }}">{{ i }}</a>
+            {% endif %}
+        {% endfor %}
 </div>
 {% endblock %}
