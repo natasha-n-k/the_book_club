@@ -63,18 +63,19 @@
 
 <img src="https://github.com/natasha-n-k/the_book_club/assets/108083300/d5f750f3-db6a-40d3-b82c-163f03ff58a3" height="400">
 <img src="https://github.com/natasha-n-k/the_book_club/assets/108083300/5d1ae304-cecf-4ead-b5b5-39f47646b35c" height="400">
-<img src="https://github.com/natasha-n-k/the_book_club/assets/108083300/e0d22c69-2ab7-4a26-84bc-43801aa1fc20" height="400">
+
 
 ##
 
 
-
+<img src="https://github.com/natasha-n-k/the_book_club/assets/108083300/e0d22c69-2ab7-4a26-84bc-43801aa1fc20" height="400">
 <img src="https://github.com/natasha-n-k/the_book_club/assets/108083300/8aa69a02-644d-4b40-8745-3acf5178c21c" height="350">
 <img src="https://github.com/natasha-n-k/the_book_club/assets/108083300/f5dde384-b806-44d6-af5f-894d5ca6f450" height="350">
 <img src="https://github.com/natasha-n-k/the_book_club/assets/108083300/108620d4-7018-4c88-98b4-13c1a735223e" height="350">
-<img src="https://github.com/natasha-n-k/the_book_club/assets/108083300/93b9363e-bd2b-481c-8b7f-d0d582bc23a2" height="350">
+
 
 ##
+<img src="https://github.com/natasha-n-k/the_book_club/assets/108083300/93b9363e-bd2b-481c-8b7f-d0d582bc23a2" height="350">
 <img src="https://github.com/natasha-n-k/the_book_club/assets/108083300/07922be0-facf-4262-a1bc-55ce173e22a7" height="350">
 <img src="https://github.com/natasha-n-k/the_book_club/assets/108083300/4430489d-0808-4500-8781-bbc5a3a59538" height="350">
 
